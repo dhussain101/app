@@ -22,3 +22,7 @@ Database is broken? Want to blow it up? Run this:
 ```bash
 bin/wipe-all
 ```
+
+```
+python market/manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent=4> market/db.json
+```

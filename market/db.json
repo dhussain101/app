@@ -1,0 +1,253 @@
+[
+{
+    "model": "project2.person",
+    "pk": 1,
+    "fields": {
+        "first_name": "Alice",
+        "last_name": "Altice",
+        "username": "alice1",
+        "birthday": "1990-01-01",
+        "currency": 100,
+        "date_created": "2017-09-21T18:52:30.770Z"
+    }
+},
+{
+    "model": "project2.person",
+    "pk": 2,
+    "fields": {
+        "first_name": "Bob",
+        "last_name": "Brent",
+        "username": "bob2",
+        "birthday": "2001-02-02",
+        "currency": 50,
+        "date_created": "2017-09-21T18:53:59.653Z"
+    }
+},
+{
+    "model": "project2.person",
+    "pk": 3,
+    "fields": {
+        "first_name": "Clark",
+        "last_name": "Kent",
+        "username": "superguy",
+        "birthday": "1968-03-03",
+        "currency": 400,
+        "date_created": "2017-09-21T18:54:22.462Z"
+    }
+},
+{
+    "model": "project2.person",
+    "pk": 4,
+    "fields": {
+        "first_name": "Dan",
+        "last_name": "Dennet",
+        "username": "breakingthespell",
+        "birthday": "1942-03-28",
+        "currency": 1000,
+        "date_created": "2017-09-21T18:55:11.066Z"
+    }
+},
+{
+    "model": "project2.lottery",
+    "pk": 1,
+    "fields": {
+        "title": "Pokemon Water Types",
+        "description": "20 water type cards",
+        "start_time": "2018-09-09T04:00:00Z",
+        "end_time": "2018-09-12T04:00:00Z",
+        "date_created": "2017-09-21T18:58:29.755Z",
+        "participants": [
+            1,
+            3
+        ]
+    }
+},
+{
+    "model": "project2.lottery",
+    "pk": 2,
+    "fields": {
+        "title": "Magic and Yu-Gi-Oh Christmas Special",
+        "description": "5 Rare cards from each game",
+        "start_time": "2017-12-25T05:00:00Z",
+        "end_time": "2017-12-31T05:00:00Z",
+        "date_created": "2017-09-21T18:59:46.510Z",
+        "participants": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "project2.lottery",
+    "pk": 3,
+    "fields": {
+        "title": "Monthly Legendary",
+        "description": "50 Rare cards",
+        "start_time": "2017-11-01T04:00:00Z",
+        "end_time": "2017-11-07T05:00:00Z",
+        "date_created": "2017-09-21T19:05:51.091Z",
+        "participants": [
+            2,
+            4
+        ]
+    }
+},
+{
+    "model": "project2.bid",
+    "pk": 1,
+    "fields": {
+        "lottery": 1,
+        "person": 1,
+        "value": 5,
+        "date_created": "2017-09-21T19:13:09.555Z"
+    }
+},
+{
+    "model": "project2.bid",
+    "pk": 2,
+    "fields": {
+        "lottery": 2,
+        "person": 1,
+        "value": 20,
+        "date_created": "2017-09-21T19:13:15.810Z"
+    }
+},
+{
+    "model": "project2.bid",
+    "pk": 3,
+    "fields": {
+        "lottery": 3,
+        "person": 4,
+        "value": 200,
+        "date_created": "2017-09-21T19:13:25.070Z"
+    }
+},
+{
+    "model": "project2.bid",
+    "pk": 4,
+    "fields": {
+        "lottery": 1,
+        "person": 4,
+        "value": 2,
+        "date_created": "2017-09-21T19:13:30.277Z"
+    }
+},
+{
+    "model": "project2.bid",
+    "pk": 5,
+    "fields": {
+        "lottery": 2,
+        "person": 2,
+        "value": 50,
+        "date_created": "2017-09-21T19:13:58.230Z"
+    }
+},
+{
+    "model": "project2.bid",
+    "pk": 6,
+    "fields": {
+        "lottery": 1,
+        "person": 3,
+        "value": 50,
+        "date_created": "2017-09-21T19:14:09.695Z"
+    }
+},
+{
+    "model": "project2.bid",
+    "pk": 7,
+    "fields": {
+        "lottery": 3,
+        "person": 3,
+        "value": 50,
+        "date_created": "2017-09-21T19:14:13.940Z"
+    }
+},
+{
+    "model": "project2.game",
+    "pk": 1,
+    "fields": {
+        "title": "Pokemon"
+    }
+},
+{
+    "model": "project2.game",
+    "pk": 2,
+    "fields": {
+        "title": "Yu-Gi-Oh!"
+    }
+},
+{
+    "model": "project2.game",
+    "pk": 3,
+    "fields": {
+        "title": "Magic: The Gathering"
+    }
+},
+{
+    "model": "project2.card",
+    "pk": 1,
+    "fields": {
+        "lottery": 3,
+        "game": 3,
+        "title": "The Witch",
+        "description": "super rare witch",
+        "value": 5000
+    }
+},
+{
+    "model": "project2.card",
+    "pk": 2,
+    "fields": {
+        "lottery": 1,
+        "game": 1,
+        "title": "Squirtle",
+        "description": "water type pokemon",
+        "value": 1000
+    }
+},
+{
+    "model": "project2.card",
+    "pk": 3,
+    "fields": {
+        "lottery": 1,
+        "game": 1,
+        "title": "Starmie",
+        "description": "star shaped water type",
+        "value": 1500
+    }
+},
+{
+    "model": "project2.card",
+    "pk": 4,
+    "fields": {
+        "lottery": 2,
+        "game": 2,
+        "title": "White Dragon",
+        "description": "A fierce dragon who is feared by all",
+        "value": 9001
+    }
+},
+{
+    "model": "project2.card",
+    "pk": 5,
+    "fields": {
+        "lottery": 2,
+        "game": 2,
+        "title": "Blue Eyes White Dragon",
+        "description": "A fierce dragon who is feared by all",
+        "value": 9001
+    }
+},
+{
+    "model": "project2.card",
+    "pk": 6,
+    "fields": {
+        "lottery": 2,
+        "game": 2,
+        "title": "Dark Magician",
+        "description": "The Ultimate Spellcaster in Attack and Defense",
+        "value": 9005
+    }
+}
+]

@@ -66,6 +66,7 @@ class CardSerializer(serializers.ModelSerializer):
         model = Card
         fields = ('id',
                   'lottery',
+                  'game',
                   'title',
                   'description',
                   'value')
