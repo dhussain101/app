@@ -10,7 +10,7 @@ class Person(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return ' '.join(['(username)', self.username, '(currency)', self.currency])
+        return ' '.join(['(username)', self.username, '(currency)', str(self.currency)])
 
 
 class Lottery(models.Model):
@@ -32,7 +32,7 @@ class Bid(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return ' '.join(['(value)', self.value])
+        return ' '.join(['(value)', str(self.value)])
 
 
 class Game(models.Model):
