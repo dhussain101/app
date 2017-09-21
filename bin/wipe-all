@@ -19,15 +19,7 @@ if [[ "$response" != 'force' ]]; then
     fi
 fi
 
-if [[ -z "$(docker ps -aq -f name=mysql 2>/dev/null)" ]]; then
-    echo 'Running mysql-cmdline container'
-    docker run --name mysql-cmdline --link mysql:db mysql:5.7.14
-elif [[ -z "$(docker ps -aq -f name=mysql -f status=running 2>/dev/null)" ]]; then
-    echo 'Starting mysql-cmdline container'
-    docker start mysql-cmdline >/dev/null
-else
-    echo 'Skipping mysql-cmdline initialization'
-fi
+bin/start-db-cmdline
 
 echo 'Recreating database'
 query="DROP DATABASE IF EXISTS cs4501;create database cs4501 character set utf8;grant all on cs4501.* to 'www'@'%';"
