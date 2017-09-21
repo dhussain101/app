@@ -19,37 +19,39 @@ fi
 bin/start-db
 echo
 
-# Check if custom container has not been built before
-if [[ -z "$(docker images -q djangorest 2>/dev/null)" ]]; then
-    response='y'
 # Check if custom container is running
-elif [[ -n "$(docker ps -q -f name=djangorest -f status=running 2>/dev/null)" ]]; then
+if [[ -n "$(docker ps -q -f name=djangorest -f status=running 2>/dev/null)" ]]; then
     echo '⚠️  It looks like you'"'"'re already running the djangorest container.'
-    read -r -p 'Would you like to stop djangorest? [y/N] ' response
+    read -r -p 'Would you like to restart djangorest? [y/N] ' response
     if [[ "$response" == 'y' || "$response" == 'Y' ]]; then
         docker-compose down
-        read -r -p 'Rebuild? [y/N] ' response
-    fi
-    if [[ "$response" != 'y' && "$response" != 'Y' ]]; then
+    else
         unset response
         exit
     fi
-else
-    echo '🤔  Rebuild djangorest container? This should be done anytime Dockerfile has been changed. (reply '"'y'"' if unsure)'
-    read -r -p '[y/N] ' response
 fi
 
 echo
 
-# Build custom container
-if [[ "$response" == 'y' || "$response" == 'Y' ]]; then
-    # TODO: add versioning?
+# Check if container is up to date:
+# - Doesn't exist
+# - Never ran diff before
+# - On new branch since last run
+# - Dockerfile was changed since last run
+if [[ -z "$(docker images -q djangorest 2>/dev/null)" || \
+    ! -s .previouscommit || \
+    "$(git git rev-parse --abbrev-ref HEAD)" -neq "$(head -n 1 .previouscommit)" || \
+    -n "$(git diff "$(tail -n 1 .previouscommit)" HEAD Dockerfile)" ]]; then
     echo '🛠  Building djangorest'
     echo '—————————————————————————————————————————————'
     docker build -t djangorest .
 else
-    echo '⏩  No problem, skipping build'
+    echo '⏩  Skipping build'
+    rm -f .previouscommit
 fi
+
+git git rev-parse --abbrev-ref HEAD > .previouscommit
+git rev-parse --verify HEAD >> .previouscommit
 
 # Container is not running yet, so start it
 echo
