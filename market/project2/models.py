@@ -6,24 +6,48 @@ class Person(models.Model):
     last_name = models.CharField(max_length=20)
     username = models.CharField(max_length=32, unique=True)
     birthday = models.DateField()
-    currency = models.IntegerField()
+    currency = models.IntegerField(default=0)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return ' '.join(['(username)', self.username, '(currency)', self.currency])
 
 
 class Lottery(models.Model):
     title = models.CharField(max_length=100)
-    desc = models.CharField(max_length=200)
-    users = models.ManyToManyField(Person)
+    description = models.CharField(max_length=200)
+    participants = models.ManyToManyField(Person)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return ' '.join(['(title)', self.title])
 
 
 class Bid(models.Model):
     lottery = models.ForeignKey(Lottery, models.CASCADE)
-    user = models.ForeignKey(Person, models.CASCADE)
+    person = models.ForeignKey(Person, models.CASCADE)
     value = models.IntegerField()
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return ' '.join(['(value)', self.value])
+
+
+class Game(models.Model):
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
 
 
 class Card(models.Model):
     lottery = models.ForeignKey(Lottery, models.SET_NULL, null=True)
-    game = models.CharField(max_length=200)
+    game = models.ForeignKey(Game, models.CASCADE)
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=400)
     value = models.IntegerField(default=0)
+
+    def __str__(self):
+        return ' '.join(['(game)', self.game, '(title)', self.title])
