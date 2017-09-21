@@ -40,7 +40,7 @@ echo
 # - Dockerfile was changed since last run
 if [[ -z "$(docker images -q djangorest 2>/dev/null)" || \
     ! -s .previouscommit || \
-    "$(git git rev-parse --abbrev-ref HEAD)" -neq "$(head -n 1 .previouscommit)" || \
+    "$(git git rev-parse --abbrev-ref HEAD)" -ne "$(head -n 1 .previouscommit)" || \
     -n "$(git diff "$(tail -n 1 .previouscommit)" HEAD Dockerfile)" ]]; then
     echo '🛠  Building djangorest'
     echo '—————————————————————————————————————————————'
