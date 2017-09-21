@@ -6,6 +6,7 @@
 # User-specific stuff:
 .idea/
 migrations/
+.previouscommit
 
 # CMake
 cmake-build-debug/
