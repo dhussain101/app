@@ -2,12 +2,15 @@ from django.db import models
 
 
 class Person(models.Model):
-    name = models.CharField(max_length=100)
-    birth_year = models.IntegerField()
-    tokens = models.IntegerField()
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
+    username = models.CharField(max_length=32, unique=True)
+    birthday = models.DateField()
+    currency = models.IntegerField()
 
 
 class Lottery(models.Model):
+    title = models.CharField(max_length=100)
     desc = models.CharField(max_length=200)
     users = models.ManyToManyField(Person)
     start_time = models.DateTimeField()
