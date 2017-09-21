@@ -7,4 +7,4 @@ models:
   ports:
     - "8001:8000"
   stdin_open: true
-  command: bash -c "python market/manage.py makemigrations project2 && python market/manage.py migrate && mod_wsgi-express start-server --working-directory market --reload-on-changes market/market/wsgi.py"
+  command: bash -c "python market/manage.py makemigrations project2 && python market/manage.py migrate && python market/manage.py loaddata market/db.json && mod_wsgi-express start-server --working-directory market --reload-on-changes market/market/wsgi.py"
