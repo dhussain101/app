@@ -21,6 +21,6 @@ class Bid(models.Model):
 
 
 class Card(models.Model):
-    lottery = models.ForeignKey(Lottery, models.SET_NULL)
+    lottery = models.ForeignKey(Lottery, models.SET_NULL, null=True)
     game = models.CharField(max_length=200)
     value = models.IntegerField(default=0)
