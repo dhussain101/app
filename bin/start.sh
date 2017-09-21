@@ -16,7 +16,7 @@ if ! ls | grep docker-compose.yml>/dev/null; then
     exit 1
 fi
 
-# Check if mysql is running
+# Check if mysql has been run before
 if [[ -z "$(docker ps -aq -f name=mysql 2>/dev/null)" ]]; then
     # Check if mysql:5.7.14 is present
     if [[ -z "$(docker images -q mysql:5.7.14 2>/dev/null)" ]]; then
@@ -30,10 +30,15 @@ if [[ -z "$(docker ps -aq -f name=mysql 2>/dev/null)" ]]; then
         db_dir='~/cs4501/db'
     fi
     # Run mysql
+    echo '🚀  Running mysql container'
     docker run --name mysql -d -e MYSQL\_ROOT\_PASSWORD='$3cureUS' -v "$db_dir":/var/lib/mysql  mysql:5.7.14
+    response='force'
+    ./bin/wipe-all.sh
+# Check if mysql is running
 elif [[ -z "$(docker ps -aq -f name=mysql -f status=running 2>/dev/null)" ]]; then
     # Ran before, but not currently running
-    docker start mysql
+    echo '🚀  Starting mysql container'
+    docker start mysql >/dev/null 2>&1
 else
     echo '👍  mysql already running'
 fi
@@ -51,6 +56,7 @@ elif [[ -n "$(docker ps -q -f name=djangorest -f status=running 2>/dev/null)" ]]
         read -r -p 'Rebuild? [y/N] ' response
     fi
     if [[ "$response" != 'y' && "$response" != 'Y' ]]; then
+        unset response
         exit
     fi
 else
@@ -75,3 +81,5 @@ echo
 echo '⚓️  Composing'
 echo '—————————————————————————————————————————————'
 docker-compose up
+
+unset response
