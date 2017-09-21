@@ -27,7 +27,7 @@ DROP DATABASE IF EXISTS cs4501;\
 CREATE DATABASE cs4501;\
 character set utf8;\
 grant all on cs4501.* to 'www'@'%';"
-docker exec -it mysql-cmdline bash -c "mysql -uroot -p'\$3cureUS' -h db -e '$query'"
+docker exec -it mysql-cmdline bash -c "mysql -uroot -p'\$3cureUS' -h db -e \"$query\""
 
 echo 'Wiping old migrations'
 rm -f market/project2/migrations/*_initial.py
