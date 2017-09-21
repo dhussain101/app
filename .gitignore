@@ -5,6 +5,7 @@
 
 # User-specific stuff:
 .idea/
+migrations/
 
 # CMake
 cmake-build-debug/
