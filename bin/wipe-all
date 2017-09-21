@@ -22,7 +22,11 @@ fi
 bin/start-db-cmdline
 
 echo 'Recreating database'
-query="DROP DATABASE IF EXISTS cs4501;create database cs4501 character set utf8;grant all on cs4501.* to 'www'@'%';"
+query="CREATE USER IF NOT EXISTS 'www'@'%' identified by '\\\$3cureUS';\
+DROP DATABASE IF EXISTS cs4501;\
+CREATE DATABASE cs4501;\
+character set utf8;\
+grant all on cs4501.* to 'www'@'%';"
 docker exec -it mysql-cmdline bash -c "mysql -uroot -p'\$3cureUS' -h db -e '$query'"
 
 echo 'Wiping old migrations'
