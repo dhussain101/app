@@ -6,13 +6,13 @@
 Run this command from the top level directory:
 
 ```bash
-./bin/start
+bin/start
 ```
 
 ### Drop into MySQL repl
 
 ```bash
-./bin/edit-db
+bin/edit-db
 ```
 
 ### Nuclear option
@@ -20,5 +20,5 @@ Run this command from the top level directory:
 Database is broken? Want to blow it up? Run this:
 
 ```bash
-./bin/wipe-all
+bin/wipe-all
 ```

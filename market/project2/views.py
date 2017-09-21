@@ -15,3 +15,23 @@ class PersonViewSet(viewsets.ModelViewSet):
     """
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
+
+
+class LotteryViewSet(viewsets.ModelViewSet):
+    queryset = Lottery.objects.all()
+    serializer_class = LotterySerializer
+
+
+class BidViewSet(viewsets.ModelViewSet):
+    queryset = Bid.objects.all()
+    serializer_class = BidSerializer
+
+
+class GameViewSet(viewsets.ModelViewSet):
+    queryset = Game.objects.all()
+    serializer_class = GameSerializer
+
+
+class CardViewSet(viewsets.ModelViewSet):
+    queryset = Card.objects.all()
+    serializer_class = CardSerializer
