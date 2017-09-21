@@ -25,13 +25,12 @@ if [[ -n "$(docker ps -q -f name=djangorest -f status=running 2>/dev/null)" ]]; 
     read -r -p 'Would you like to restart djangorest? [y/N] ' response
     if [[ "$response" == 'y' || "$response" == 'Y' ]]; then
         docker-compose down
+        echo
     else
         unset response
         exit
     fi
 fi
-
-echo
 
 # Check if container is up to date:
 # - Doesn't exist
@@ -40,8 +39,7 @@ echo
 # - Dockerfile was changed since last run
 if [[ -z "$(docker images -q djangorest 2>/dev/null)" || \
     ! -s .previouscommit || \
-    "$(git git rev-parse --abbrev-ref HEAD)" -ne "$(head -n 1 .previouscommit)" || \
-    -n "$(git diff "$(tail -n 1 .previouscommit)" HEAD Dockerfile)" ]]; then
+    "$(md5 -q Dockerfile)" != "$(cat .previouscommit)" ]]; then
     echo '🛠  Building djangorest'
     echo '—————————————————————————————————————————————'
     docker build -t djangorest .
@@ -50,8 +48,7 @@ else
     rm -f .previouscommit
 fi
 
-git git rev-parse --abbrev-ref HEAD > .previouscommit
-git rev-parse --verify HEAD >> .previouscommit
+md5 -q Dockerfile > .previouscommit
 
 # Container is not running yet, so start it
 echo
