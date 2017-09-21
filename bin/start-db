@@ -18,13 +18,13 @@ if [[ -z "$(docker ps -aq -f name=mysql$ 2>/dev/null)" ]]; then
     read -r -p '🤔  Where is your db located? [~/cs4501/db] ' db_dir
     echo
     if [[ -z "$db_dir" ]]; then
-        echo '⚠️  Using default directory: ~/cs4501/db'
         db_dir=~/cs4501/db
+        echo "⚠️  Using default directory: $db_dir"
     fi
     # Run mysql
     echo '🚀  Running mysql container'
     docker run --name mysql -d -e MYSQL\_ROOT\_PASSWORD='$3cureUS' -v "$db_dir":/var/lib/mysql  mysql:5.7.14
-    response='force'
+    export response='force'
     bin/wipe-all
 # Check if mysql is running
 elif [[ -z "$(docker ps -aq -f name=mysql$ -f status=running 2>/dev/null)" ]]; then
