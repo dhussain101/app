@@ -7,7 +7,7 @@ models:
    volumes:
       - .:/app
    stdin_open: true
-   command: bash -c "python market/manage.py makemigrations project2 && python market/manage.py migrate && python market/manage.py loaddata market/db.json && mod_wsgi-express start-server --working-directory market --reload-on-changes market/market/wsgi.py"
+   command: bash -c "python models/manage.py makemigrations models_app && python models/manage.py migrate && python models/manage.py loaddata models/db.json && mod_wsgi-express start-server --working-directory models --reload-on-changes models/models/wsgi.py"
 
 exp:
    image: djangorest
