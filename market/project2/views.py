@@ -1,11 +1,6 @@
-from django.http import HttpResponse
 from rest_framework import viewsets
 from .serializers import *
 from .models import *
-
-
-def index(request):
-    return HttpResponse("Hello, world. You're at the index of our lottery site.")
 
 
 class PersonViewSet(viewsets.ModelViewSet):
