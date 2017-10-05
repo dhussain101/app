@@ -1,6 +1,6 @@
 [
 {
-    "model": "project2.person",
+    "model": "models_app.person",
     "pk": 1,
     "fields": {
         "first_name": "Alice",
@@ -12,7 +12,7 @@
     }
 },
 {
-    "model": "project2.person",
+    "model": "models_app.person",
     "pk": 2,
     "fields": {
         "first_name": "Bob",
@@ -24,7 +24,7 @@
     }
 },
 {
-    "model": "project2.person",
+    "model": "models_app.person",
     "pk": 3,
     "fields": {
         "first_name": "Clark",
@@ -36,7 +36,7 @@
     }
 },
 {
-    "model": "project2.person",
+    "model": "models_app.person",
     "pk": 4,
     "fields": {
         "first_name": "Dan",
@@ -48,7 +48,7 @@
     }
 },
 {
-    "model": "project2.lottery",
+    "model": "models_app.lottery",
     "pk": 1,
     "fields": {
         "title": "Pokemon Water Types",
@@ -63,7 +63,7 @@
     }
 },
 {
-    "model": "project2.lottery",
+    "model": "models_app.lottery",
     "pk": 2,
     "fields": {
         "title": "Magic and Yu-Gi-Oh Christmas Special",
@@ -79,7 +79,7 @@
     }
 },
 {
-    "model": "project2.lottery",
+    "model": "models_app.lottery",
     "pk": 3,
     "fields": {
         "title": "Monthly Legendary",
@@ -94,7 +94,7 @@
     }
 },
 {
-    "model": "project2.bid",
+    "model": "models_app.bid",
     "pk": 1,
     "fields": {
         "lottery": 1,
@@ -104,7 +104,7 @@
     }
 },
 {
-    "model": "project2.bid",
+    "model": "models_app.bid",
     "pk": 2,
     "fields": {
         "lottery": 2,
@@ -114,7 +114,7 @@
     }
 },
 {
-    "model": "project2.bid",
+    "model": "models_app.bid",
     "pk": 3,
     "fields": {
         "lottery": 3,
@@ -124,7 +124,7 @@
     }
 },
 {
-    "model": "project2.bid",
+    "model": "models_app.bid",
     "pk": 4,
     "fields": {
         "lottery": 1,
@@ -134,7 +134,7 @@
     }
 },
 {
-    "model": "project2.bid",
+    "model": "models_app.bid",
     "pk": 5,
     "fields": {
         "lottery": 2,
@@ -144,7 +144,7 @@
     }
 },
 {
-    "model": "project2.bid",
+    "model": "models_app.bid",
     "pk": 6,
     "fields": {
         "lottery": 1,
@@ -154,7 +154,7 @@
     }
 },
 {
-    "model": "project2.bid",
+    "model": "models_app.bid",
     "pk": 7,
     "fields": {
         "lottery": 3,
@@ -164,28 +164,28 @@
     }
 },
 {
-    "model": "project2.game",
+    "model": "models_app.game",
     "pk": 1,
     "fields": {
         "title": "Pokemon"
     }
 },
 {
-    "model": "project2.game",
+    "model": "models_app.game",
     "pk": 2,
     "fields": {
         "title": "Yu-Gi-Oh!"
     }
 },
 {
-    "model": "project2.game",
+    "model": "models_app.game",
     "pk": 3,
     "fields": {
         "title": "Magic: The Gathering"
     }
 },
 {
-    "model": "project2.card",
+    "model": "models_app.card",
     "pk": 1,
     "fields": {
         "lottery": 3,
@@ -196,7 +196,7 @@
     }
 },
 {
-    "model": "project2.card",
+    "model": "models_app.card",
     "pk": 2,
     "fields": {
         "lottery": 1,
@@ -207,7 +207,7 @@
     }
 },
 {
-    "model": "project2.card",
+    "model": "models_app.card",
     "pk": 3,
     "fields": {
         "lottery": 1,
@@ -218,7 +218,7 @@
     }
 },
 {
-    "model": "project2.card",
+    "model": "models_app.card",
     "pk": 4,
     "fields": {
         "lottery": 2,
@@ -229,7 +229,7 @@
     }
 },
 {
-    "model": "project2.card",
+    "model": "models_app.card",
     "pk": 5,
     "fields": {
         "lottery": 2,
@@ -240,7 +240,7 @@
     }
 },
 {
-    "model": "project2.card",
+    "model": "models_app.card",
     "pk": 6,
     "fields": {
         "lottery": 2,
