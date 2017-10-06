@@ -16,7 +16,10 @@ RUN pip install --upgrade pip && pip install \
 	"kafka-python<=1.0" \
 	"elasticsearch<3.0" \
 	"djangorestframework==3.6.4" \
-	"requests==2.18.4"
+	"requests==2.18.4" \
+	"libsass==0.13.2" \
+	"django-compressor==2.2" \
+	"django-sass-processor==0.5.5"
 
 ENV LANG=en_US.UTF-8 PYTHONHASHSEED=random \
     PATH=/usr/local/python/bin:/usr/local/apache/bin:$PATH \
