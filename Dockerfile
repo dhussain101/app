@@ -10,12 +10,13 @@ RUN apt-get update && \
 	    unattended-upgrades && \
             rm -r /var/lib/apt/lists/*
 
-RUN pip install --upgrade pip \
-	&& pip install "django==1.10" \
-	&& pip install "mysqlclient==1.3.8" \
-	&& pip install "kafka-python<=1.0" \
-	&& pip install "elasticsearch<3.0" \
-	&& pip install "djangorestframework==3.6.4"
+RUN pip install --upgrade pip && pip install \
+    "django==1.10" \
+	"mysqlclient==1.3.8" \
+	"kafka-python<=1.0" \
+	"elasticsearch<3.0" \
+	"djangorestframework==3.6.4" \
+	"requests==2.18.4"
 
 ENV LANG=en_US.UTF-8 PYTHONHASHSEED=random \
     PATH=/usr/local/python/bin:/usr/local/apache/bin:$PATH \
