@@ -1,10 +1,12 @@
 from django.http import HttpResponse
 from django.template import loader
+import requests
 
 
 def index(request):
-    # FIXME: this should query the experience API, but for now it is left blank
-    lotteries_list = []
+    r = requests.get('http://exp-api:8000/lottery-pane')
+    print(r)
+    lotteries_list = r.json()
     template = loader.get_template('web_app/index.html')
     context = {
         'lotteries_list': lotteries_list,
