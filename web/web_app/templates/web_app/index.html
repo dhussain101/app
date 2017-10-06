@@ -1,9 +1,0 @@
-{% if lotteries_list %}
-    <ul>
-    {% for lottery in lotteries_list %}
-        <li><a href="/lotteries/{{ lottery.id }}/">{{ lottery.title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No lotteries are available.</p>
-{% endif %}
