@@ -12,6 +12,7 @@ def index(request):
 
 
 def lotteryDetail(request, pk):
+    print(pk)
     r = requests.get('http://exp-api:8000/lottery-detail/' + pk)
     lottery_details = r.json()
     context = {
