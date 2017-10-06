@@ -15,12 +15,12 @@ def cardPane(request):
 
 
 def lotteryDetail(request, pk):
-    r = requests.get('http://models-api:8000/lottery/' + pk)
+    r = requests.get('http://models-api:8000/lotteries/' + pk)
     response = JsonResponse(r.json(), safe=False)
     return response
 
 
 def cardDetail(request, pk):
-    r = requests.get('http://models-api:8000/card/' + pk)
+    r = requests.get('http://models-api:8000/cards/' + pk)
     response = JsonResponse(r.json(), safe=False)
     return response
