@@ -11,8 +11,7 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def lotteryDetail(request, pk):
-    print(pk)
+def lottery_detail(request, pk):
     r = requests.get('http://exp-api:8000/lottery-detail/' + pk)
     lottery_details = r.json()
     context = {
@@ -30,7 +29,7 @@ def cards(request):
     return render(request, 'cards.html', context)
 
 
-def cardDetail(request, pk):
+def card_detail(request, pk):
     r = requests.get('http://exp-api:8000/card-detail/' + pk)
     card_details = r.json()
     context = {
