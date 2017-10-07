@@ -4,9 +4,9 @@ import requests
 
 def index(request):
     r = requests.get('http://exp-api:8000/lottery-pane')
-    lotteries_list = r.json()
+    lottery_list = r.json()
     context = {
-        'lotteries_list': lotteries_list,
+        'lottery_list': lottery_list,
         'title': 'Home'
     }
     return render(request, 'index.html', context)
