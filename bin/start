@@ -2,18 +2,18 @@
 
 # Search for Dockerfile...
 if ! ls | grep Dockerfile >/dev/null; then
-    cd ..
-    if ! ls | grep Dockerfile>/dev/null; then
-        echo 'Please run from the project'"'"'s root directory!'
-        echo '🚫  Cannot find Dockerfile, aborting'
-        exit 1
-    fi
+	cd ..
+	if ! ls | grep Dockerfile>/dev/null; then
+		echo 'Please run from the project'"'"'s root directory!'
+		echo '🚫  Cannot find Dockerfile, aborting'
+		exit 1
+	fi
 fi
 
 # And search for docker-compose.yml
 if ! ls | grep docker-compose.yml>/dev/null; then
-    echo '🚫  Cannot find docker-compose.yml, aborting'
-    exit 1
+	echo '🚫  Cannot find docker-compose.yml, aborting'
+	exit 1
 fi
 
 bin/start-db
@@ -21,15 +21,15 @@ echo
 
 # Check if custom container is running
 if [[ -n "$(docker ps -q -f name=djangorest -f status=running 2>/dev/null)" ]]; then
-    echo '⚠️  It looks like you'"'"'re already running the djangorest container.'
-    read -r -p 'Would you like to restart djangorest? [y/N] ' response
-    if [[ "$response" == 'y' || "$response" == 'Y' ]]; then
-        docker-compose down
-        echo
-    else
-        unset response
-        exit
-    fi
+	echo '⚠️  It looks like you'"'"'re already running the djangorest container.'
+	read -r -p 'Would you like to restart djangorest? [y/N] ' response
+	if [[ "$response" == 'y' || "$response" == 'Y' ]]; then
+		docker-compose down
+		echo
+	else
+		unset response
+		exit
+	fi
 fi
 
 # Check if container is up to date:
@@ -38,14 +38,14 @@ fi
 # - On new branch since last run
 # - Dockerfile was changed since last run
 if [[ -z "$(docker images -q djangorest 2>/dev/null)" || \
-    ! -s .previouscommit || \
-    "$(md5 -q Dockerfile)" != "$(cat .previouscommit)" ]]; then
-    echo '🛠  Building djangorest'
-    echo '—————————————————————————————————————————————'
-    docker build -t djangorest .
+	! -s .previouscommit || \
+	"$(md5 -q Dockerfile)" != "$(cat .previouscommit)" ]]; then
+	echo '🛠  Building djangorest'
+	echo '—————————————————————————————————————————————'
+	docker build -t djangorest .
 else
-    echo '⏩  Skipping build'
-    rm -f .previouscommit
+	echo '⏩  Skipping build'
+	rm -f .previouscommit
 fi
 
 md5 -q Dockerfile > .previouscommit

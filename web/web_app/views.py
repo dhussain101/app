@@ -7,6 +7,7 @@ def index(request):
     lotteries_list = r.json()
     context = {
         'lotteries_list': lotteries_list,
+        'title': 'Home'
     }
     return render(request, 'index.html', context)
 

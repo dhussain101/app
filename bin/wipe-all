@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 if ! ls | grep bin >/dev/null; then
-    cd ..
-    if ! ls | grep bin >/dev/null; then
-        echo 'Please run in project root directory!'
-        exit 1
-    fi
+	cd ..
+	if ! ls | grep bin >/dev/null; then
+		echo 'Please run in project root directory!'
+		exit 1
+	fi
 fi
 
 echo '┌——————————————————————————————————┐'
@@ -13,10 +13,10 @@ echo '|  WARNING: THIS WILL WIPE THE DB  |'
 echo '└——————————————————————————————————┘'
 
 if [[ "$response" != 'force' ]]; then
-    read -r -p '⚠️  Are you SURE? [y/N] ' response
-    if [[ "$response" != 'y' && "$response" != 'Y' ]]; then
-        exit
-    fi
+	read -r -p '⚠️  Are you SURE? [y/N] ' response
+	if [[ "$response" != 'y' && "$response" != 'Y' ]]; then
+		exit
+	fi
 fi
 
 bin/start-db-cmdline
