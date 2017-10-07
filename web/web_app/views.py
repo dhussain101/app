@@ -7,7 +7,7 @@ def index(request):
     lottery_list = r.json()
     context = {
         'lottery_list': lottery_list,
-        'title': 'Home'
+        'title': 'Home',
     }
     return render(request, 'index.html', context)
 
@@ -15,10 +15,7 @@ def index(request):
 def lottery_detail(request, pk):
     r = requests.get('http://exp-api:8000/lottery-detail/' + pk)
     lottery_details = r.json()
-    context = {
-        'lotteries_details': lottery_details,
-    }
-    return render(request, 'lottery-detail.html', context)
+    return render(request, 'lottery-detail.html', lottery_details)
 
 
 def cards(request):
@@ -33,7 +30,4 @@ def cards(request):
 def card_detail(request, pk):
     r = requests.get('http://exp-api:8000/card-detail/' + pk)
     card_details = r.json()
-    context = {
-        'card_details': card_details,
-    }
-    return render(request, 'card-detail.html', context)
+    return render(request, 'card-detail.html', card_details)

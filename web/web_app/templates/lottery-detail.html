@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load sass_tags %}
+
+{% block head %}
+	<link href="{% sass_src 'styles/lottery.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+	<section class="banner">
+		<h3>Welcome to the {{ title }} lottery!</h3>
+		<h5>In this lottery: {{ description }}</h5>
+	</section>
+
+	<h4>Participants:</h4>
+	<ul class="demo-list-icon mdl-list">
+		{% for participant in participants %}
+			<li class="mdl-list__item">
+				<span class="mdl-list__item-primary-content">
+					<i class="material-icons mdl-list__item-icon">person</i>
+					{{ participant }}
+				</span>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<h4>Ending:</h4>
+	<span class="mdl-chip">
+    <span class="mdl-chip__text">{{ end_time }}</span>
+	</span>
+
+	<h4>Started:</h4>
+	<span class="mdl-chip">
+    <span class="mdl-chip__text">{{ start_time }}</span>
+	</span>
+
+
+{#	<span class="mdl-chip">#}
+{#    <span class="mdl-chip__text">{{ date_created }}</span>#}
+{#	</span>#}
+{% endblock %}
