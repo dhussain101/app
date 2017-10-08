@@ -1,12 +1,21 @@
 from django.shortcuts import render
 import requests
+EXP_URL = 'http://exp-api:8000'
+
+
+def get(*paths):
+    """
+    Performs a get request on the experience API layer.
+    For example, get('hello', 'world') will query http://exp-api:8000/hello/world
+    :param paths: each sub-path entered as a separate argument
+    :return: JSON response from experience API
+    """
+    return requests.get(EXP_URL + ''.join('/{}' for _ in range(len(paths))).format(*paths)).json()
 
 
 def index(request):
-    r = requests.get('http://exp-api:8000/lottery-pane')
-    lottery_list = r.json()
-    r = requests.get('http://exp-api:8000/card-pane')
-    card_list = r.json()
+    lottery_list = get('lottery-pane')
+    card_list = get('card-pane')
     context = {
         'lottery_list': lottery_list,
         'card_list': card_list,
@@ -16,8 +25,7 @@ def index(request):
 
 
 def lotteries(request):
-    r = requests.get('http://exp-api:8000/lottery-pane')
-    lottery_list = r.json()
+    lottery_list = get('lottery-pane')
     context = {
         'lottery_list': lottery_list,
         'title': 'Lotteries',
@@ -26,14 +34,12 @@ def lotteries(request):
 
 
 def lottery_detail(request, pk):
-    r = requests.get('http://exp-api:8000/lottery-detail/' + pk)
-    lottery_details = r.json()
+    lottery_details = get('lottery-detail', pk)
     return render(request, 'lottery-detail.html', lottery_details)
 
 
 def cards(request):
-    r = requests.get('http://exp-api:8000/card-pane')
-    card_list = r.json()
+    card_list = get('card-pane')
     context = {
         'card_list': card_list,
         'title': 'Cards',
@@ -42,8 +48,7 @@ def cards(request):
 
 
 def card_detail(request, pk):
-    r = requests.get('http://exp-api:8000/card-detail/' + pk)
-    card_details = r.json()
+    card_details = get('card-detail', pk)
     return render(request, 'card-detail.html', card_details)
 
 
