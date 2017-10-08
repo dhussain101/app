@@ -7,6 +7,5 @@ urlpatterns = [
     url(r'^lotteries/(.*)', views.lottery_detail, name='lottery-detail'),
     url(r'^cards$', views.cards, name='cards'),
     url(r'^cards/(.*)', views.card_detail, name='card-detail'),
-    url(r'^cards/(.*)', views.card_detail, name='card-detail'),
-    url(r'^.*$', views.bad_url, name='404')
+    url(r'^.*$', views.bad_url, name='404'),
 ]
