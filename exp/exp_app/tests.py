@@ -1,4 +1,5 @@
-from django.test import TestCase, Client
+from django.test import TestCase
+import requests
 
 
 class GetLotteriesTestCase(TestCase):
@@ -8,7 +9,7 @@ class GetLotteriesTestCase(TestCase):
 
     def test_success_response(self):
         """Verify communication between exp API and entity layer."""
-        response = self.client.get('http://models-api:8000/lotteries')
+        response = requests.get('http://localhost:8001/lotteries')
         self.assertEqual(200, response.status_code)
 
     def tearDown(self):
@@ -22,7 +23,7 @@ class GetCardsTestCase(TestCase):
 
     def test_success_response(self):
         """Verify communication between exp API and entity layer."""
-        response = self.client.get('http://models-api:8000/cards')
+        response = requests.get('http://localhost:8001/cards')
         self.assertEqual(200, response.status_code)
 
     def tearDown(self):
@@ -36,7 +37,7 @@ class GetLotteryDetailsTestCase(TestCase):
 
     def test_success_response(self):
         """Verify communication between exp API and entity layer."""
-        response = self.client.get('http://models-api:8000/lotteries/1')
+        response = requests.get('http://localhost:8001/lotteries/1')
         self.assertEqual(200, response.status_code)
 
     def tearDown(self):
@@ -50,7 +51,7 @@ class GetCardDetailsTestCase(TestCase):
 
     def test_success_response(self):
         """Verify communication between exp API and entity layer."""
-        response = self.client.get('http://models-api:8000/cards/1')
+        response = requests.get('http://localhost:8001/cards/1')
         self.assertEqual(200, response.status_code)
 
     def tearDown(self):
