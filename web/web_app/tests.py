@@ -8,9 +8,29 @@ class TestWeb(TestCase):
     def setUp(self):
         pass
 
-    def test_page_loads(self):
-        """Verify the home page loads"""
+    def test_homepage_loads(self):
+        """Verify the homepage loads"""
         resp = requests.get('http://localhost:8000/')
+        self.assertEquals(resp.status_code, 200)
+
+    def test_lottery_main_loads(self):
+        """Verify the main lottery page loads"""
+        resp = requests.get('http://localhost:8000/lotteries')
+        self.assertEquals(resp.status_code, 200)
+
+    def test_lottery_detail_loads(self):
+        """Verify the lottery detail pages load"""
+        resp = requests.get('http://localhost:8000/lotteries/1')
+        self.assertEquals(resp.status_code, 200)
+
+    def test_card_main_loads(self):
+        """Verify the main card page loads"""
+        resp = requests.get('http://localhost:8000/cards')
+        self.assertEquals(resp.status_code, 200)
+
+    def test_card_detail_loads(self):
+        """Verify the card detail pages load"""
+        resp = requests.get('http://localhost:8000/cards/1')
         self.assertEquals(resp.status_code, 200)
 
     def test_bad_url(self):
