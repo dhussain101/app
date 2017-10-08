@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 import requests
 
 
@@ -32,3 +33,7 @@ def card_detail(request, pk):
     r = requests.get('http://exp-api:8000/card-detail/' + pk)
     card_details = r.json()
     return render(request, 'card-detail.html', card_details)
+
+
+def bad_url(request):
+    return render(request, '404.html')
