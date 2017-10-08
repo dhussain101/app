@@ -2,7 +2,7 @@
 
 section.banner {
 	padding: 1rem;
-	background-color: $grey-500;
+	background-color: $grey-300;
 	h1 {
 		text-align: center;
 	}
@@ -11,17 +11,24 @@ section.banner {
 	}
 }
 
-section.lottery {
+section.lottery, section.card {
 	background-color: $grey-200;
 	padding: 0;
 	h2 {
 		padding: 2rem 2rem 0;
 		margin: 0;
+		a {
+			text-decoration: none;
+		}
 	}
 }
 
+section.card {
+	background-color: $grey-300;
+}
+
 $item-padding: 1rem;
-#lottery-list {
+#lottery-list, #card-list {
 	display: flex;
 	overflow-x: auto;
 	padding: 0;
@@ -33,7 +40,7 @@ $item-padding: 1rem;
 	}
 }
 
-.lottery-card {
+.lottery-card, .card-card {
 	width: 256px;
 	height: 256px;
 	flex-shrink: 0;

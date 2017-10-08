@@ -5,11 +5,24 @@ import requests
 def index(request):
     r = requests.get('http://exp-api:8000/lottery-pane')
     lottery_list = r.json()
+    r = requests.get('http://exp-api:8000/card-pane')
+    card_list = r.json()
     context = {
         'lottery_list': lottery_list,
+        'card_list': card_list,
         'title': 'Home',
     }
     return render(request, 'index.html', context)
+
+
+def lotteries(request):
+    r = requests.get('http://exp-api:8000/lottery-pane')
+    lottery_list = r.json()
+    context = {
+        'lottery_list': lottery_list,
+        'title': 'Lotteries',
+    }
+    return render(request, 'lotteries.html', context)
 
 
 def lottery_detail(request, pk):
@@ -20,9 +33,9 @@ def lottery_detail(request, pk):
 
 def cards(request):
     r = requests.get('http://exp-api:8000/card-pane')
-    cards_list = r.json()
+    card_list = r.json()
     context = {
-        'card_list': cards_list,
+        'card_list': card_list,
         'title': 'Cards',
     }
     return render(request, 'cards.html', context)
