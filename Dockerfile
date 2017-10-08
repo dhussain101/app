@@ -17,6 +17,8 @@ RUN pip install --upgrade pip && pip install \
 	"kafka-python<=1.0" \
 	"elasticsearch<3.0" \
 	"djangorestframework==3.6.4" \
+	"django-crispy-forms==1.6.1" \
+	"django-filter==1.0.4" \
 	"requests==2.18.4" \
 	"libsass==0.13.2" \
 	"django-compressor==2.2" \
