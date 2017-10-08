@@ -1,0 +1,31 @@
+@import 'colors';
+
+main {
+	height: 100%;
+}
+
+.page-content {
+	height: 100%;
+	background-color: $blue-grey-800;
+	color: $blue-grey-50;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 1rem;
+	text-align: center;
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+	& > i.material-icons {
+		color: $amber;
+		font-size: 10rem;
+		user-select: none;
+	}
+	& > h4 {
+		padding: 0;
+		margin: 0;
+	}
+}
+
