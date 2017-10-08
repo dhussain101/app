@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load sass_tags %}
+
+{% block head %}
+	<link href="{% sass_src 'styles/home.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+	<section class="banner">
+		<h1>Oh No!</h1>
+		<h4>Look's like the page you've requested doesn't exist!</h4>
+	</section>
+{% endblock %}

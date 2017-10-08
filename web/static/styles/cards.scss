@@ -1,0 +1,46 @@
+@import 'colors';
+
+$item-padding: 1rem;
+
+h2 {
+	padding: 2rem;
+	margin: 0;
+}
+
+#card-list {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 2rem;
+	margin: 0;
+}
+
+.card-card {
+	width: 256px;
+	height: 256px;
+	flex-shrink: 0;
+	background: $indigo;
+	margin: 0 $item-padding $item-padding 0;
+
+	& > .mdl-card__actions {
+		border-color: transparentize(black, 0.8);
+	}
+	& > .mdl-card__title {
+		align-items: flex-start;
+	}
+	& > .mdl-card__title > h4 {
+		margin-top: 0;
+	}
+	& > .mdl-card__actions {
+		display: flex;
+		align-items: center;
+	}
+	& > .mdl-card__actions > .material-icons {
+		padding-right: 10px;
+		user-select: none;
+	}
+	& > .mdl-card__title,
+	& > .mdl-card__actions,
+	& > .mdl-card__actions > .mdl-button {
+		color: #fff;
+	}
+}

@@ -2,7 +2,7 @@
 
 section.banner {
 	padding: 1rem;
-	background-color: $grey-500;
+	background-color: $grey-300;
 	h1 {
 		text-align: center;
 	}
@@ -11,17 +11,24 @@ section.banner {
 	}
 }
 
-section.lottery {
+section.lottery, section.card {
 	background-color: $grey-200;
 	padding: 0;
 	h2 {
 		padding: 2rem 2rem 0;
 		margin: 0;
+		a {
+			text-decoration: none;
+		}
 	}
 }
 
+section.card {
+	background-color: $grey-300;
+}
+
 $item-padding: 1rem;
-#lottery-list {
+#lottery-list, #card-list {
 	display: flex;
 	overflow-x: auto;
 	padding: 0;
@@ -33,15 +40,15 @@ $item-padding: 1rem;
 	}
 }
 
-.lottery-card {
-	min-width: 256px;
-	max-width: 256px;
+.lottery-card, .card-card {
+	width: 256px;
 	height: 256px;
+	flex-shrink: 0;
 	background: $indigo;
 	margin: $item-padding 0 $item-padding $item-padding;
 
 	& > .mdl-card__actions {
-		border-color: rgba(255, 255, 255, 0.2);
+		border-color: transparentize(black, 0.8);
 	}
 	& > .mdl-card__title {
 		align-items: flex-start;
@@ -51,11 +58,11 @@ $item-padding: 1rem;
 	}
 	& > .mdl-card__actions {
 		display: flex;
-		box-sizing:border-box;
 		align-items: center;
 	}
 	& > .mdl-card__actions > .material-icons {
 		padding-right: 10px;
+		user-select: none;
 	}
 	& > .mdl-card__title,
 	& > .mdl-card__actions,
