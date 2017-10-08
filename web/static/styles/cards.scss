@@ -1,44 +1,25 @@
 @import 'colors';
 
-section.banner {
-	padding: 1rem;
-	background-color: $grey-500;
-	h1 {
-		text-align: center;
-	}
-	h4 {
-		text-align: center;
-	}
-}
-
-section.lottery {
-	background-color: $grey-200;
-	padding: 0;
-	h2 {
-		padding: 2rem 2rem 0;
-		margin: 0;
-	}
-}
-
 $item-padding: 1rem;
-#lottery-list {
-	display: flex;
-	overflow-x: auto;
-	padding: 0;
+
+h2 {
+	padding: 2rem;
 	margin: 0;
-	&:after {
-		content: '';
-		display: block;
-		min-width: $item-padding;
-	}
 }
 
-.lottery-card {
+#card-list {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 2rem;
+	margin: 0;
+}
+
+.card-card {
 	width: 256px;
 	height: 256px;
 	flex-shrink: 0;
 	background: $indigo;
-	margin: $item-padding 0 $item-padding $item-padding;
+	margin: 0 $item-padding $item-padding 0;
 
 	& > .mdl-card__actions {
 		border-color: transparentize(black, 0.8);

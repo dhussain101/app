@@ -22,7 +22,8 @@ def cards(request):
     r = requests.get('http://exp-api:8000/card-pane')
     cards_list = r.json()
     context = {
-        'cards_list': cards_list,
+        'card_list': cards_list,
+        'title': 'Cards',
     }
     return render(request, 'cards.html', context)
 
