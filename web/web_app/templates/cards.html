@@ -16,7 +16,7 @@
 							<h4>{{ card.title }}</h4>
 						</div>
 						<div class="mdl-card__actions mdl-card--border">
-							<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/cards/{{ card.id }}/">
+							<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{% url 'card-detail' card.id %}">
 								View
 							</a>
 							<div class="mdl-layout-spacer"></div>

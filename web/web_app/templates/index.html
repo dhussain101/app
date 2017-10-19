@@ -11,7 +11,7 @@
 		<h4>For all your card-collecting needs</h4>
 	</section>
 	<section class="lottery">
-		<h2><a href="/lotteries">Lotteries</a></h2>
+		<h2><a href="{% url 'lotteries' %}">Lotteries</a></h2>
 		<ul id="lottery-list">
 		{% if lottery_list %}
 			{% for lottery in lottery_list %}
@@ -20,7 +20,7 @@
 						<h4>{{ lottery.title }}</h4>
 					</div>
 					<div class="mdl-card__actions mdl-card--border">
-						<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/lotteries/{{ lottery.id }}/">
+						<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{% url 'lottery-detail' lottery.id %}">
 							Join
 						</a>
 						<div class="mdl-layout-spacer"></div>
@@ -39,7 +39,7 @@
 	</section>
 
 	<section class="card">
-		<h2><a href="/cards">Cards</a></h2>
+		<h2><a href="{% url 'cards' %}">Cards</a></h2>
 		<ul id="card-list">
 			{% if card_list %}
 				{% for card in card_list %}
@@ -48,7 +48,7 @@
 							<h4>{{ card.title }}</h4>
 						</div>
 						<div class="mdl-card__actions mdl-card--border">
-							<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/cards/{{ card.id }}/">
+							<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{% url 'card-detail' card.id %}/">
 								View
 							</a>
 							<div class="mdl-layout-spacer"></div>

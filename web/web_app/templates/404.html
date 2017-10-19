@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-	<i class="material-icons"><a href="/">warning</a></i>
-	<h1><a href="/">Oh No!</a></h1>
+	<i class="material-icons"><a href="{% url 'index' %}">warning</a></i>
+	<h1><a href="{% url 'index' %}">Oh No!</a></h1>
 	<h4>Looks like the page you've requested doesn't exist!</h4>
 {% endblock %}

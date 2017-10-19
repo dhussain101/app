@@ -39,18 +39,18 @@
 			</form>
 			<!-- Navigation. We hide it in small screens. -->
 			<nav class="mdl-navigation mdl-layout--large-screen-only">
-				<a class="mdl-navigation__link" href="/">Home</a>
-				<a class="mdl-navigation__link" href="/lotteries">Lotteries</a>
-				<a class="mdl-navigation__link" href="/cards">Cards</a>
+				<a class="mdl-navigation__link" href="{% url 'index' %}">Home</a>
+				<a class="mdl-navigation__link" href="{% url 'lotteries' %}">Lotteries</a>
+				<a class="mdl-navigation__link" href="{% url 'cards' %}">Cards</a>
 			</nav>
 		</div>
 	</header>
 	<div class="mdl-layout__drawer">
 		<span class="mdl-layout-title">{{ title }}</span>
 		<nav class="mdl-navigation">
-			<a class="mdl-navigation__link" href="/">Home</a>
-			<a class="mdl-navigation__link" href="/lotteries">Lotteries</a>
-			<a class="mdl-navigation__link" href="/cards">Cards</a>
+			<a class="mdl-navigation__link" href="{% url 'index' %}">Home</a>
+			<a class="mdl-navigation__link" href="{% url 'lotteries' %}">Lotteries</a>
+			<a class="mdl-navigation__link" href="{% url 'cards' %}">Cards</a>
 		</nav>
 	</div>
 	<main class="mdl-layout__content">
