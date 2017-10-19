@@ -1,0 +1,37 @@
+#login {
+	max-width: 300px;
+	margin: 0 auto;
+	box-sizing: content-box;
+	border: 2rem white solid;
+	border-radius: 0.25rem;
+	// TODO: AUTOPREFIXER WHERE ARE YOU
+	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	-moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	& > h1 {
+		margin: 0;
+		padding: 0 0 1rem;
+		font-size: 2rem;
+	}
+	& > div {
+		display: block;
+	}
+	footer {
+		margin-top: 2rem;
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+main {
+	height: 100%;
+}
+
+.page-content {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	//text-align: center;
+}

@@ -42,12 +42,14 @@
 				<a class="mdl-navigation__link" href="{% url 'index' %}">Home</a>
 				<a class="mdl-navigation__link" href="{% url 'lotteries' %}">Lotteries</a>
 				<a class="mdl-navigation__link" href="{% url 'cards' %}">Cards</a>
+				<a class="mdl-navigation__link" href="{% url 'login' %}">Login</a>
 			</nav>
 		</div>
 	</header>
 	<div class="mdl-layout__drawer">
 		<span class="mdl-layout-title">{{ title }}</span>
 		<nav class="mdl-navigation">
+			<a class="mdl-navigation__link" href="{% url 'login' %}">Login</a>
 			<a class="mdl-navigation__link" href="{% url 'index' %}">Home</a>
 			<a class="mdl-navigation__link" href="{% url 'lotteries' %}">Lotteries</a>
 			<a class="mdl-navigation__link" href="{% url 'cards' %}">Cards</a>

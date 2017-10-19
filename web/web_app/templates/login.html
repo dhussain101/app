@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load filters %}
+{% load sass_tags %}
+
+{% block head %}
+	<link href="{% sass_src 'styles/login.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+	<form method="post" id="login">
+		<h1>Login</h1>
+		{% csrf_token %}
+		{% for field in form %}
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<label class="mdl-textfield__label" for="{{ field.name }}">{{ field.label }}</label>
+				{{ field|material_field }}
+				{% if field.errors %}
+					<span class="mdl-textfield__error">{{ field.errors }}</span>
+				{% endif %}
+				{% if field.help_text %}
+					<span class="helptext">{{ field.help_text }}</span>
+				{% endif %}
+			</div>
+		{% endfor %}
+
+		{# TODO: implement this properly #}
+		<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+			<input type="checkbox" id="switch-1" class="mdl-switch__input">
+			<span class="mdl-switch__label">Remember Me</span>
+		</label>
+
+		<footer>
+			<a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{% url 'register-account' %}">
+				Create Account
+			</a>
+			<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Login</button>
+		</footer>
+	</form>
+{% endblock %}
