@@ -1,3 +1,5 @@
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .auth import get, render
 from .auth.decorators import login_required
 from .forms import *
@@ -34,6 +36,8 @@ def lottery_create(request):
 
 def lottery_detail(request, pk):
     lottery_details = get('lottery-detail', pk)
+    if not lottery_details:
+        return HttpResponseRedirect(reverse('lotteries'))
     return render(request, 'lottery-detail.html', lottery_details)
 
 
@@ -48,6 +52,8 @@ def cards(request):
 
 def card_detail(request, pk):
     card_details = get('card-detail', pk)
+    if not card_details:
+        return HttpResponseRedirect(reverse('cards'))
     return render(request, 'card-detail.html', card_details)
 
 

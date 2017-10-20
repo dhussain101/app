@@ -1,3 +1,4 @@
+from json import JSONDecodeError
 from django.shortcuts import render as django_render
 from .models import User
 import requests
@@ -12,7 +13,10 @@ def get(*paths, params={}):
     :param params: URL parameters
     :return: JSON response from experience API
     """
-    return requests.get(EXP_URL + ''.join('/{}' for _ in range(len(paths))).format(*paths), params=params).json()
+    try:
+        return requests.get(EXP_URL + ''.join('/{}' for _ in range(len(paths))).format(*paths), params=params).json()
+    except JSONDecodeError:
+        return {}
 
 
 def render(request, file, context):

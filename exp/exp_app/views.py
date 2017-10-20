@@ -1,3 +1,4 @@
+from json import JSONDecodeError
 from django.http import JsonResponse
 import requests
 MODEL_URL = 'http://models-api:8000'
@@ -11,7 +12,10 @@ def get(*paths, params={}):
     :param params: URL parameters
     :return: JSON response from models API
     """
-    return requests.get(MODEL_URL + ''.join('/{}' for _ in range(len(paths))).format(*paths), params=params).json()
+    try:
+        return requests.get(MODEL_URL + ''.join('/{}' for _ in range(len(paths))).format(*paths), params=params).json()
+    except JSONDecodeError:
+        return {}
 
 
 def lottery_pane(request):
