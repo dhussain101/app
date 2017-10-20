@@ -28,7 +28,6 @@ class Authenticator(models.Model):
             'first_name': person.first_name,
             'last_name': person.last_name,
             'currency': person.currency,
-            # 'user_id': self.user_id,
         }
 
     def __str__(self):
@@ -38,7 +37,7 @@ class Authenticator(models.Model):
 class Lottery(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
-    participants = models.ManyToManyField(Person)
+    participants = models.ManyToManyField(Person, blank=True)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     date_created = models.DateTimeField(auto_now_add=True)

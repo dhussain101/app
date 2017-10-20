@@ -1,22 +1,5 @@
-from json import JSONDecodeError
 from django.shortcuts import render as django_render
 from .models import User
-import requests
-EXP_URL = 'http://exp-api:8000'
-
-
-def get(*paths, params={}):
-    """
-    Performs a get request on the experience API layer.
-    For example, get('hello', 'world') will query http://exp-api:8000/hello/world
-    :param paths: each sub-path entered as a separate argument
-    :param params: URL parameters
-    :return: JSON response from experience API
-    """
-    try:
-        return requests.get(EXP_URL + ''.join('/{}' for _ in range(len(paths))).format(*paths), params=params).json()
-    except JSONDecodeError:
-        return {}
 
 
 def render(request, file, context):

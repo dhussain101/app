@@ -1,10 +1,9 @@
 from django.http import HttpResponseRedirect
-from django.contrib.auth.hashers import make_password
 from django.urls import reverse
-from . import get, render
+from . import render
 from .models import User
 from ..forms import *
-from .. import auth
+from .. import auth, get
 
 
 def collect(data, params):
@@ -84,9 +83,6 @@ def register(request):
             # process the data in form.cleaned_data as required
             params = collect(form.cleaned_data, fields)
             if params is not None:
-                # hash password before sending
-                params['password'] = make_password(params['password'])
-
                 # Send validated information to our experience layer
                 response = get('register', params=params)
 

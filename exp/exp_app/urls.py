@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^card-pane/?$', views.card_pane, name='card-pane'),
     url(r'^lottery-detail/([0-9]+)/?$', views.lottery_detail, name='lottery-detail'),
     url(r'^card-detail/([0-9]+)/?$', views.card_detail, name='card-detail'),
+    url(r'^lottery-create/?$', views.lottery_create, name='lottery-create'),
 
     url(r'^authenticate/?$', views_auth.authenticate, name='authenticate'),
     url(r'^login/?$', views_auth.login, name='login'),

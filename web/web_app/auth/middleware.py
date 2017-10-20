@@ -1,4 +1,5 @@
-from . import get, logout
+from . import logout
+from .. import get
 from .models import User
 
 
@@ -16,7 +17,7 @@ class AuthenticationMiddleware(object):
         if request.session and 'auth_token' in request.session:
             user = get('authenticate', params={'authenticator': request.session['auth_token']}) or None
             request.user = User(user)
-            if not user:
+            if user is None:
                 logout(request)
         else:
             request.user = User(None)

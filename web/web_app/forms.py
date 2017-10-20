@@ -28,5 +28,12 @@ class RegisterForm(forms.Form):
 class LotteryForm(forms.Form):
     title = forms.CharField(max_length=100)
     description = forms.CharField(max_length=200)
-    start_time = forms.DateTimeField()
-    end_time = forms.DateTimeField()
+    start_time = forms.DateTimeField(help_text='Format: m/d/y or yyyy-mm-dd hh:mm:ss')
+    end_time = forms.DateTimeField(help_text='Format: m/d/y or yyyy-mm-dd hh:mm:ss')
+
+    def clean(self):
+        cleaned_data = super(LotteryForm, self).clean()
+        start_time, end_time = map(cleaned_data.get, ('start_time', 'end_time'))
+        if end_time <= start_time:
+            self.add_error('start_time', 'Cannot start before end date')
+        return cleaned_data

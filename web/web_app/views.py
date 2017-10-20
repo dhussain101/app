@@ -1,8 +1,10 @@
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .auth import get, render
+from .auth import render
+from .auth.views import collect, add_errors
 from .auth.decorators import login_required
 from .forms import *
+from . import get, post
 
 
 def index(request):
@@ -27,9 +29,30 @@ def lotteries(request):
 
 @login_required
 def lottery_create(request):
+    form = None
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = LotteryForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            fields = ('title', 'description', 'start_time', 'end_time')
+            # process the data in form.cleaned_data as required
+            params = collect(form.cleaned_data, fields)
+            if params is not None:
+                # Send validated information to our experience layer
+                response = post('lottery-create', data=params)
+                if response.status_code == 201:
+                    return HttpResponseRedirect(reverse('lotteries'))
+                # invalid form so return to register page
+
+    # if a GET (or any other method) we'll create a blank form
+    if not form:
+        form = LotteryForm()
+
     context = {
         'title': 'Create Lottery',
-        'form': LotteryForm,
+        'form': form,
     }
     return render(request, 'lottery-create.html', context)
 

@@ -1,5 +1,6 @@
 from django.http import JsonResponse, HttpResponse, HttpResponseBadRequest
-from django.contrib.auth.hashers import check_password
+from django.contrib.auth.hashers import check_password, make_password
+from datetime import datetime, timezone
 from .models import Authenticator, Person
 
 
@@ -36,6 +37,16 @@ def authenticate(request):
         authenticator = Authenticator.objects.get(authenticator=authenticator)
     except Authenticator.DoesNotExist:
         return HttpResponseBadRequest()
+    # delete if too old
+    age = (datetime.now(timezone.utc) - authenticator.date_created).days
+    if age > 2:
+        authenticator.delete()
+        if age > 14:
+            # >2w old, expire it
+            return HttpResponseBadRequest()
+        # renew token every other day
+        return authenticator_response(authenticator.user_id_id)
+    # created within the last 2 days
     return JsonResponse(authenticator.to_dict(), safe=False)
 
 
@@ -87,6 +98,9 @@ def register(request):
     if Person.objects.filter(username=params['username']):
         # username already exists
         return JsonResponse(['username'], status=400, safe=False)
+
+    # hash password before storing
+    params['password'] = make_password(params['password'])
     # create person model
     user = Person(**params)
     user.save()
