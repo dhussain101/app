@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 import requests
 
 
-class TestWeb(TestCase):
+class TestLoads(TestCase):
     """Test suite for the web front-end."""
     def setUp(self):
         pass

@@ -58,4 +58,4 @@ def card_detail(request, pk):
 
 
 def bad_url(request):
-    return render(request, '404.html')
+    return render(request, '404.html', {})
