@@ -1,8 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 import uuid
 
 
-class Person(models.Model):
+class Person(User):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     username = models.CharField(max_length=32, unique=True)
@@ -16,11 +17,11 @@ class Person(models.Model):
 
 class Authenticator(models.Model):
     authenticator = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user_id = models.ForeignKey(Person, models.CASCADE, editable=False)
+    user = models.ForeignKey(Person, models.CASCADE, editable=False)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return ' '.join(map(str, [self.authenticator, self.user_id]))
+        return ' '.join(map(str, [self.authenticator, self.user]))
 
 
 class Lottery(models.Model):
