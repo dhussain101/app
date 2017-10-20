@@ -15,11 +15,9 @@ def collect(request, params):
 
 def reject_empty(request, fields):
     params = collect(request, fields)
-    print(params)
     if params is None:
         # accumulate all fields not in response
         acc = tuple(filter(lambda field: not request.GET.get(field, False), fields))
-        print(acc)
         return JsonResponse(acc, safe=False, status=400)
     return params
 
