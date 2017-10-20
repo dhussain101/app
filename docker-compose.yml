@@ -5,9 +5,9 @@ models:
    ports:
       - "8001:8000"
    volumes:
-      - .:/app
+      - ./models:/app
    stdin_open: true
-   command: bash -c "python models/manage.py collectstatic --noinput > /dev/null && python models/manage.py makemigrations models_app && python models/manage.py migrate && python models/manage.py loaddata models/db.json && mod_wsgi-express start-server --working-directory models --url-alias /static models/build/static --reload-on-changes --log-to-terminal models/models/wsgi.py"
+   command: bash -c "python manage.py collectstatic --noinput > /dev/null && python manage.py makemigrations models_app && python manage.py migrate && python manage.py loaddata db.json && mod_wsgi-express start-server --working-directory . --url-alias /static build/static --reload-on-changes --log-to-terminal models/wsgi.py"
 
 exp:
    image: djangorest
@@ -16,9 +16,9 @@ exp:
    ports:
       - "8002:8000"
    volumes:
-      - .:/app
+      - ./exp:/app
    stdin_open: true
-   command: "mod_wsgi-express start-server --working-directory exp --reload-on-changes --log-to-terminal exp/exp/wsgi.py"
+   command: "mod_wsgi-express start-server --working-directory . --reload-on-changes --log-to-terminal exp/wsgi.py"
 
 web:
    image: djangorest
@@ -27,6 +27,6 @@ web:
    ports:
       - "8000:8000"
    volumes:
-      - .:/app
+      - ./web:/app
    stdin_open: true
-   command: bash -c "python web/manage.py collectstatic --noinput > /dev/null && mod_wsgi-express start-server --working-directory web --document-root web/build --reload-on-changes --log-to-terminal web/web/wsgi.py"
+   command: bash -c "python manage.py collectstatic --noinput > /dev/null && mod_wsgi-express start-server --working-directory . --document-root build --reload-on-changes --log-to-terminal web/wsgi.py"
