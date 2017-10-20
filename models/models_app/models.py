@@ -2,9 +2,9 @@ from django.db import models
 
 
 class Authenticator(models.Model):
-    user_id = models.CharField(max_length=20)
+    user_id = models.ForeignKey(Person, models.PROTECT)
     authenticator = models.BigIntegerField(primary_key=True)
-    date_created = models.DateTimeField()
+    date_created = models.DateTimeField(auto_now_add=True)
 
 
 class Person(models.Model):
