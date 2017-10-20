@@ -11,6 +11,5 @@ router.register(r'bids', views.BidViewSet)
 router.register(r'games', views.GameViewSet)
 router.register(r'cards', views.CardViewSet)
 router.register(r'authenticators', views.AuthenticatorViewSet)
-router.register(r'login', views.Login)
 
 urlpatterns += router.urls

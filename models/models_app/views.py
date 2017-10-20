@@ -1,25 +1,8 @@
 from rest_framework import viewsets, filters
-from django.http import HttpResponse
 from django_filters.rest_framework import DjangoFilterBackend
-from django.http import JsonResponse
 from .serializers import *
 from .models import *
 
-
-def login(request):
-    # if check password works:
-    # create new Authenticator
-    # else return error
-    username = request.GET.get('username', None)
-    password = request.GET.get('password', None)
-    user = Person.objects.all().filter(username=username)
-    if user.check_passwordk(password):
-        auth_token = Authenticator(user_id=user)
-        auth_token.save()
-        payload = {'auth_token': auth_token}
-        return JsonResponse(payload, safe=False)
-    else:
-        return HttpResponse('Unauthorized', status=401)
 
 class PersonViewSet(viewsets.ModelViewSet):
     """
