@@ -1,4 +1,5 @@
 from .auth import get, render
+from .auth.decorators import login_required
 from .forms import *
 
 
@@ -22,6 +23,7 @@ def lotteries(request):
     return render(request, 'lotteries.html', context)
 
 
+@login_required
 def lottery_create(request):
     context = {
         'title': 'Create Lottery',

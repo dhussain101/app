@@ -1,23 +1,37 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
 from .views import get
-import requests
+from django.http import HttpResponseBadRequest
 
-from django.http import JsonResponse
-import requests
-MODEL_URL = 'http://models-api:8000'
+
+def collect(request, params):
+    acc = {}
+    for param in params:
+        p = request.GET.get(param, None)
+        if not p:
+            return None
+        acc[param] = p
+    return acc
+
+
+def pass_through(request, model_api, params):
+    params = collect(request, params)
+    if params is None:
+        # missing a required parameter
+        return HttpResponseBadRequest
+
+    return get(model_api, params=params)
+
+
+def authenticate(request):
+    return pass_through(request, 'authenticate', ['authenticator'])
+
 
 def login(request):
-    username = request.GET.get('username', '')
-    password = request.GET.get('password', '')
-    payload = {'username': username, 'password': password}
-    response = get('login', params=payload)['results']
-    return JsonResponse(response, safe=False)
+    return pass_through(request, 'login', ['username', 'password'])
+
+
+def logout(request):
+    return pass_through(request, 'logout', ['authenticator'])
 
 
 def register(request):
-    username = request.GET.get('username', '')
-    password = request.GET.get('password', '')
-    payload = {'username': username, 'password': password}
-    response = get('register', params=payload)['results']
-    return JsonResponse(response, safe=False)
+    return pass_through(request, 'register', ['username', 'password', 'first_name', 'last_name', 'birthday'])

@@ -23,12 +23,14 @@ def render(request, file, context):
     return django_render(request, file, context)
 
 
-def login(request):
+def login(request, user):
     """
     At the moment, sets the auth_token for future requests
     :param request: Request object
+    :param user: Authenticator from model layer
     """
-    request.session['auth_token'] = request.user.authenticator
+    request.user = user
+    request.session['auth_token'] = user.authenticator
 
 
 def logout(request):

@@ -4,7 +4,7 @@ from django import forms
 class LoginForm(forms.Form):
     username = forms.CharField(label='Username', max_length=32, min_length=3)
     password = forms.CharField(widget=forms.PasswordInput(), min_length=8)
-    remember = forms.BooleanField(label='Remember Me')
+    remember = forms.BooleanField(label='Remember Me', required=False)
 
 
 class RegisterForm(forms.Form):

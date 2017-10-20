@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.utils.http import urlencode
 
 
 def login_required(view):
@@ -8,8 +9,8 @@ def login_required(view):
     """
     def wrap(request, *args, **kwargs):
         # check if user is authenticated
-        if request.user:
+        if request.user.is_authenticated:
             return view(request, *args, **kwargs)
         # TODO: redirect
-        return HttpResponseRedirect(reverse('login'))
+        return HttpResponseRedirect('{}?{}'.format(reverse('login'), urlencode({'next': request.path})))
     return wrap
