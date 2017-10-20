@@ -18,6 +18,18 @@ class PersonSerializer(serializers.ModelSerializer):
         read_only_fields = ('date_created',)
 
 
+class AuthenticatorSerializer(serializers.ModelSerializer):
+    """Serializer to map the Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        model = Authenticator
+        fields = ('authenticator',
+                  'user_id',
+                  'date_created')
+        read_only_fields = ('authenticator', 'user_id', 'date_created')
+
+
 class LotterySerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
 

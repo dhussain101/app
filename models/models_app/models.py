@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 
 
 class Person(models.Model):
@@ -14,10 +15,12 @@ class Person(models.Model):
 
 
 class Authenticator(models.Model):
-    user_id = models.ForeignKey(Person, models.PROTECT)
-    authenticator = models.BigIntegerField(primary_key=True)
+    authenticator = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user_id = models.ForeignKey(Person, models.PROTECT, editable=False)
     date_created = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return ' '.join(map(str, [self.authenticator, self.user_id]))
 
 
 class Lottery(models.Model):

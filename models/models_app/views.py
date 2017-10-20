@@ -15,6 +15,11 @@ class PersonViewSet(viewsets.ModelViewSet):
     search_fields = ('first_name', 'last_name', 'username')
 
 
+class AuthenticatorViewSet(viewsets.ModelViewSet):
+    queryset = Authenticator.objects.all()
+    serializer_class = AuthenticatorSerializer
+
+
 class LotteryViewSet(viewsets.ModelViewSet):
     queryset = Lottery.objects.all()
     serializer_class = LotterySerializer
