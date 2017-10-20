@@ -33,6 +33,16 @@ class TestWeb(TestCase):
         resp = requests.get('http://localhost:8000/cards/1')
         self.assertEquals(resp.status_code, 200)
 
+    def test_login_loads(self):
+        """Verify the login page loads"""
+        resp = requests.get('http://localhost:8000/login')
+        self.assertEquals(resp.status_code, 200)
+
+    def test_register_loads(self):
+        """Verify the register page loads"""
+        resp = requests.get('http://localhost:8000/register')
+        self.assertEquals(resp.status_code, 200)
+
     def test_bad_url(self):
         """Verify that an invalid URL returns the 404 page, not an error."""
         resp = requests.get('http://localhost:8000/asdf')
