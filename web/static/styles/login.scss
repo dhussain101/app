@@ -25,6 +25,8 @@
 		display: block;
 		.mdl-textfield__error {
 			margin: -2rem 0 0 300px;
+			visibility: visible;
+			z-index: 10;
 			.errorlist {
 				margin: 0;
 				padding-left: 4rem;

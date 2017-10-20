@@ -42,5 +42,7 @@ def logout(request):
     At the moment, deletes the auth_token from future requests
     :param request: Request object
     """
-    del request.session['auth_token']
+    if 'auth_token' in request.session:
+        del request.session['auth_token']
+        request.session.modified = True
     request.user = User(None)

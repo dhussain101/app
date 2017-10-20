@@ -1,18 +1,10 @@
 from django.http import HttpResponseRedirect
+from django.contrib.auth.hashers import make_password
 from django.urls import reverse
-from requests import HTTPError
 from . import get, render
 from .models import User
 from ..forms import *
 from .. import auth
-
-
-def response_valid(response):
-    try:
-        response.raise_for_error()
-    except HTTPError:
-        return False
-    return True
 
 
 def collect(data, params):
@@ -24,10 +16,9 @@ def collect(data, params):
     return acc
 
 
-def add_errors(form, fields, errors):
-    for field in ('username', 'password'):
-        if field in errors:
-            form.add_error(field, '{} is invalid'.format(field))
+def add_errors(form, errors):
+    for field in errors:
+        form.add_error(field, '{} is invalid'.format(field.capitalize()))
 
 
 def login(request):
@@ -51,11 +42,11 @@ def login(request):
             response = get('login', params=params)
 
             # redirect to a new URL:
-            if response_valid(response):
-                auth.login(request, User(response.json()))
+            if isinstance(response, dict):
+                auth.login(request, User(response))
                 return redirect
 
-            add_errors(form, fields, response.json())
+            add_errors(form, response)
         # invalid form so return to login page
 
     # if a GET (or any other method) we'll create a blank form
@@ -70,8 +61,9 @@ def login(request):
 
 
 def logout(request):
-    # Ignore bad authenticators (exp layer returns 400)
-    get('logout', params={'authenticator': request.user.authenticator})
+    if request.user.is_authenticated:
+        # Ignore bad authenticators (exp layer returns 400)
+        get('logout', params={'authenticator': request.user.authenticator})
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
 
@@ -91,15 +83,19 @@ def register(request):
             fields = ('username', 'password', 'first_name', 'last_name', 'birthday')
             # process the data in form.cleaned_data as required
             params = collect(form.cleaned_data, fields)
+            if params is not None:
+                # hash password before sending
+                params['password'] = make_password(params['password'])
 
-            # Send validated information to our experience layer
-            response = get('register', params=params)
+                # Send validated information to our experience layer
+                response = get('register', params=params)
 
-            if response_valid(response):
-                # redirect to a new URL:
-                return HttpResponseRedirect(reverse('index'))
+                if isinstance(response, dict):
+                    auth.login(request, User(response))
+                    # redirect to a new URL:
+                    return HttpResponseRedirect(reverse('index'))
+                add_errors(form, response)
 
-            add_errors(form, fields, response.json())
         # invalid form so return to register page
 
     # if a GET (or any other method) we'll create a blank form

@@ -4,8 +4,9 @@
     "pk": 1,
     "fields": {
         "first_name": "Alice",
-        "last_name": "Altice",
+        "last_name": "PasswordIs12345678",
         "username": "alice1",
+        "password": "pbkdf2_sha256$36000$41LLmHRHRtHS$xuWKpH0hdUn0lvg+f/s78wo5wq0CZylKFIfCj1vWB/4=",
         "birthday": "1990-01-01",
         "currency": 100,
         "date_created": "2017-09-21T18:52:30.770Z"
@@ -18,6 +19,7 @@
         "first_name": "Bob",
         "last_name": "Brent",
         "username": "bob2",
+        "password": "pbkdf2_sha256$36000$41LLmHRHRtHS$xuWKpH0hdUn0lvg+f/s78wo5wq0CZylKFIfCj1vWB/4=",
         "birthday": "2001-02-02",
         "currency": 50,
         "date_created": "2017-09-21T18:53:59.653Z"
@@ -30,6 +32,7 @@
         "first_name": "Clark",
         "last_name": "Kent",
         "username": "superguy",
+        "password": "pbkdf2_sha256$36000$41LLmHRHRtHS$xuWKpH0hdUn0lvg+f/s78wo5wq0CZylKFIfCj1vWB/4=",
         "birthday": "1968-03-03",
         "currency": 400,
         "date_created": "2017-09-21T18:54:22.462Z"
@@ -42,6 +45,7 @@
         "first_name": "Dan",
         "last_name": "Dennet",
         "username": "breakingthespell",
+        "password": "pbkdf2_sha256$36000$41LLmHRHRtHS$xuWKpH0hdUn0lvg+f/s78wo5wq0CZylKFIfCj1vWB/4=",
         "birthday": "1942-03-28",
         "currency": 1000,
         "date_created": "2017-09-21T18:55:11.066Z"

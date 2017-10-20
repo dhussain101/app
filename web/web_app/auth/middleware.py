@@ -14,10 +14,9 @@ class AuthenticationMiddleware(object):
         # Code to be executed for each request before
         # the view (and later middleware) are called.
         if request.session and 'auth_token' in request.session:
-            user = get('authenticate', params={'token': request.session['auth_token']})
-            try:
-                request.user = User(user.json())
-            except ValueError:
+            user = get('authenticate', params={'authenticator': request.session['auth_token']}) or None
+            request.user = User(user)
+            if not user:
                 logout(request)
         else:
             request.user = User(None)

@@ -1,4 +1,5 @@
 from django.http import JsonResponse, HttpResponse, HttpResponseBadRequest
+from django.contrib.auth.hashers import check_password
 from .models import Authenticator, Person
 
 
@@ -6,7 +7,7 @@ def collect(request, params):
     acc = {}
     for param in params:
         p = request.GET.get(param, None)
-        if not p:
+        if p is None:
             return None
         acc[param] = p
     return acc
@@ -14,22 +15,30 @@ def collect(request, params):
 
 def reject_empty(request, fields):
     params = collect(request, fields)
+    print(params)
     if params is None:
-        acc = []
-        for field in fields:
-            if not request.GET.get(field, False):
-                acc.append(field)
+        # accumulate all fields not in response
+        acc = tuple(filter(lambda field: not request.GET.get(field, False), fields))
+        print(acc)
         return JsonResponse(acc, safe=False, status=400)
     return params
+
+
+def authenticator_response(user_id):
+    authenticator = Authenticator(user_id_id=user_id)
+    authenticator.save()
+    return JsonResponse(authenticator.to_dict(), safe=False)
 
 
 def authenticate(request):
     authenticator = request.GET.get('authenticator', None)
     if not authenticator:
-        return HttpResponseBadRequest
-    # TODO: does this work?
-    authenticator = Authenticator.objects.all().filter(authenticator=authenticator)
-    return JsonResponse(authenticator, safe=False)
+        return HttpResponseBadRequest()
+    try:
+        authenticator = Authenticator.objects.get(authenticator=authenticator)
+    except Authenticator.DoesNotExist:
+        return HttpResponseBadRequest()
+    return JsonResponse(authenticator.to_dict(), safe=False)
 
 
 def login(request):
@@ -41,29 +50,29 @@ def login(request):
 
     # Check for unknown username or wrong password
     errors = []
-    # TODO: does this work?
-    user = Person.objects.all().filter(username=params['username'])
-    if not user:
+    user = None
+    try:
+        user = Person.objects.get(username=params['username'])
+    except Person.DoesNotExist:
         errors.append('username')
-    elif not user.check_password(params['password']):
+    if user and not check_password(params['password'], user.password):
         errors.append('password')
     if errors:
         return JsonResponse(errors, safe=False, status=400)
 
     # at this point, we're valid
     # create and return authenticator
-    authenticator = Authenticator(user_id_id=user.id)
-    return JsonResponse(authenticator, safe=False)
+    return authenticator_response(user.id)
 
 
 def logout(request):
     authenticator = request.GET.get('authenticator', None)
     if not authenticator:
-        return HttpResponseBadRequest
-    # TODO: does this work?
-    authenticator = Authenticator.objects.all().filter(authenticator=authenticator)
-    if not authenticator:
-        return HttpResponseBadRequest
+        return HttpResponseBadRequest()
+    try:
+        authenticator = Authenticator.objects.get(authenticator=authenticator)
+    except Authenticator.DoesNotExist:
+        return HttpResponseBadRequest()
 
     # delete authenticator and return status 200
     authenticator.delete()
@@ -74,14 +83,13 @@ def register(request):
     fields = ('username', 'password', 'first_name', 'last_name', 'birthday')
     params = reject_empty(request, fields)
     if not isinstance(params, dict):
-        # params = error response
+        # params is just the error response
         return params
 
-    # TODO: does this work?
-    user = Person.objects.all().filter(username=params['username'])
-    if user:
-        return JsonResponse(['username'], status=400)
+    if Person.objects.filter(username=params['username']):
+        # username already exists
+        return JsonResponse(['username'], status=400, safe=False)
     # create person model
-    Person(params)
-    # defer to login routine to send authenticator
-    return login(request)
+    user = Person(**params)
+    user.save()
+    return authenticator_response(user.id)

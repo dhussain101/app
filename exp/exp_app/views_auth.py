@@ -1,5 +1,7 @@
-from .views import get
-from django.http import HttpResponseBadRequest
+from json import JSONDecodeError
+from django.http import JsonResponse, HttpResponseBadRequest
+from requests import get
+from .views import MODEL_URL
 
 
 def collect(request, params):
@@ -16,9 +18,13 @@ def pass_through(request, model_api, params):
     params = collect(request, params)
     if params is None:
         # missing a required parameter
-        return HttpResponseBadRequest
+        return HttpResponseBadRequest()
 
-    return get(model_api, params=params)
+    response = get(MODEL_URL + '/' + model_api, params=params)
+    try:
+        return JsonResponse(response.json(), safe=False, status=response.status_code)
+    except JSONDecodeError:
+        return HttpResponseBadRequest()
 
 
 def authenticate(request):

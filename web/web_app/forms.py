@@ -13,7 +13,7 @@ class RegisterForm(forms.Form):
     username = forms.CharField(max_length=32, min_length=3, help_text='At least 3 characters')
     password = forms.CharField(widget=forms.PasswordInput(), min_length=8, help_text='At least 8 characters')
     confirm_password = forms.CharField(widget=forms.PasswordInput(), min_length=8, help_text='Re-enter password')
-    birthday = forms.DateField()
+    birthday = forms.DateField(help_text='Format: m/d/yy')
 
     def clean(self):
         cleaned_data = super(RegisterForm, self).clean()
@@ -22,6 +22,7 @@ class RegisterForm(forms.Form):
 
         if password != confirm_password:
             self.add_error('confirm_password', 'Password does not match')
+        return cleaned_data
 
 
 class LotteryForm(forms.Form):
