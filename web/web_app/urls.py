@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^cards/([0-9]+)/?$', views.card_detail, name='card-detail'),
 
     url(r'^login/?$', views_auth.login, name='login'),
-    url(r'^register/?$', views_auth.register, name='register-account'),
+    url(r'^register/?$', views_auth.register, name='register-user'),
 
     url(r'^.*$', views.bad_url, name='404'),
 ]

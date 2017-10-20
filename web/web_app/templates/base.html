@@ -21,12 +21,12 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 	<header class="mdl-layout__header">
 		<div class="mdl-layout__header-row">
-			<!-- Title -->
+			{# Title #}
 			<span class="mdl-layout-title">{{ title }}</span>
-			<!-- Add spacer, to align navigation to the right -->
+			{# Add spacer, to align navigation to the right #}
 			<div class="mdl-layout-spacer"></div>
-			<!-- Dummy search bar -->
-			<form action="#">
+			{# Dummy search bar #}
+			<form action="#" id="search-form">
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 					<label class="mdl-button mdl-js-button mdl-button--icon" for="search">
 						<i class="material-icons">search</i>
@@ -37,12 +37,12 @@
 					</div>
 				</div>
 			</form>
-			<!-- Navigation. We hide it in small screens. -->
+			{# Navigation. We hide it in small screens. #}
 			<nav class="mdl-navigation mdl-layout--large-screen-only">
 				<a class="mdl-navigation__link" href="{% url 'index' %}">Home</a>
 				<a class="mdl-navigation__link" href="{% url 'lotteries' %}">Lotteries</a>
 				<a class="mdl-navigation__link" href="{% url 'cards' %}">Cards</a>
-				<a class="mdl-navigation__link" href="{% url 'login' %}">Login</a>
+				<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{% url 'login' %}">Login</a>
 			</nav>
 		</div>
 	</header>

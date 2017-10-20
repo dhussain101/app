@@ -1,13 +1,21 @@
-#login {
-	max-width: 300px;
-	margin: 0 auto;
-	box-sizing: content-box;
-	border: 2rem white solid;
+@import 'colors';
+@import 'mixins';
+@import 'centered';
+
+%card {
 	border-radius: 0.25rem;
 	// TODO: AUTOPREFIXER WHERE ARE YOU
 	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	-moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#login {
+	@extend %card;
+	background-color: white;
+	margin: 0 auto;
+	box-sizing: content-box;
+	border: 2rem white solid;
 	& > h1 {
 		margin: 0;
 		padding: 0 0 1rem;
@@ -15,23 +23,42 @@
 	}
 	& > div {
 		display: block;
+		.mdl-textfield__error {
+			margin: -2rem 0 0 300px;
+			.errorlist {
+				margin: 0;
+				padding-left: 4rem;
+				list-style: none;
+				li {
+					@extend %card;
+					margin-top: -1rem;
+					display: block;
+					white-space: nowrap;
+					padding: 1rem;
+					color: white;
+					background-color: $red-400;
+				}
+			}
+		}
 	}
 	footer {
 		margin-top: 2rem;
 		display: flex;
+		flex-direction: row-reverse;
 		justify-content: space-between;
 	}
 }
 
-main {
-	height: 100%;
+.page-content {
+	background-color: $indigo-200;
 }
 
-.page-content {
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	//text-align: center;
+@include media('xs') {
+	#login {
+		border: 0 none;
+		border-radius: 0;
+		width: 100%;
+		padding: 1rem;
+		box-sizing: border-box;
+	}
 }

@@ -1,19 +1,11 @@
 @import 'colors';
-
-main {
-	height: 100%;
-}
+@import 'centered';
 
 .page-content {
-	height: 100%;
 	background-color: $blue-grey-800;
 	color: $blue-grey-50;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 1rem;
 	text-align: center;
+	padding: 1rem;
 	a {
 		text-decoration: none;
 		color: inherit;
