@@ -7,7 +7,7 @@ models:
    volumes:
       - .:/app
    stdin_open: true
-   command: bash -c "python models/manage.py collectstatic --noinput > /dev/null && python models/manage.py makemigrations models_app && python models/manage.py migrate && python models/manage.py loaddata models/db.json && mod_wsgi-express start-server --working-directory models --url-alias /static models/build/static --reload-on-changes models/models/wsgi.py"
+   command: bash -c "python models/manage.py collectstatic --noinput > /dev/null && python models/manage.py makemigrations models_app && python models/manage.py migrate && python models/manage.py loaddata models/db.json && mod_wsgi-express start-server --working-directory models --url-alias /static models/build/static --reload-on-changes --log-to-terminal models/models/wsgi.py"
 
 exp:
    image: djangorest
@@ -18,7 +18,7 @@ exp:
    volumes:
       - .:/app
    stdin_open: true
-   command: "mod_wsgi-express start-server --working-directory exp --reload-on-changes exp/exp/wsgi.py"
+   command: "mod_wsgi-express start-server --working-directory exp --reload-on-changes --log-to-terminal exp/exp/wsgi.py"
 
 web:
    image: djangorest
