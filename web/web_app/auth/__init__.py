@@ -1,5 +1,3 @@
-__all__ = ['decorators', 'middleware', 'models', 'get', 'render', 'login', 'logout']
-
 from django.shortcuts import render as django_render
 from .models import User
 import requests

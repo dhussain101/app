@@ -136,9 +136,13 @@ COMPRESS_PRECOMPILERS = (
     ('text/x-css', 'django_libsass.SassCompiler'),
 )
 
+# Sass
 SASS_PROCESSOR_ENABLED = True
 SASS_PROCESSOR_INCLUDE_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
 SASS_PRECISION = 8
+
+# Session
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'

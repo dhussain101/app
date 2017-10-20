@@ -1,10 +1,16 @@
 from django.http import HttpResponseRedirect
-from .auth import get, render
-from .forms import *
-from . import auth
+from django.urls import reverse
+from . import get, render
+from ..forms import *
+from .. import auth
 
 
 def login(request):
+    # disallow re-logging in
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
+
+    form = None
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -25,11 +31,9 @@ def login(request):
             # redirect to a new URL:
             return HttpResponseRedirect('/')
         # invalid form so return to login page
-        else:
-            form = LoginForm()
 
     # if a GET (or any other method) we'll create a blank form
-    else:
+    if not form:
         form = LoginForm()
 
     context = {
@@ -40,11 +44,16 @@ def login(request):
 
 
 def logout(request):
-    # TODO: send logout request to exp layer
+    get('logout', params={'authenticator': request.session['auth_token']})
     auth.logout(request)
 
 
 def register(request):
+    # disallow re-logging in
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
+
+    form = None
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -66,7 +75,7 @@ def register(request):
             return HttpResponseRedirect('/')
 
     # if a GET (or any other method) we'll create a blank form
-    else:
+    if not form:
         form = RegisterForm()
 
     context = {

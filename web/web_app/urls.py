@@ -1,5 +1,7 @@
 from django.conf.urls import url
-from . import views, views_auth
+
+from .auth import views as auth_views
+from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -9,9 +11,9 @@ urlpatterns = [
     url(r'^cards/?$', views.cards, name='cards'),
     url(r'^cards/([0-9]+)/?$', views.card_detail, name='card-detail'),
 
-    url(r'^login/?$', views_auth.login, name='login'),
-    url(r'^logout/?$', views_auth.logout, name='logout'),
-    url(r'^register/?$', views_auth.register, name='register-user'),
+    url(r'^login/?$', auth_views.login, name='login'),
+    url(r'^logout/?$', auth_views.logout, name='logout'),
+    url(r'^register/?$', auth_views.register, name='register-user'),
 
     url(r'^.*$', views.bad_url, name='404'),
 ]
