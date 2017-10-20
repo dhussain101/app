@@ -29,4 +29,4 @@ web:
    volumes:
       - .:/app
    stdin_open: true
-   command: bash -c "python web/manage.py collectstatic --noinput > /dev/null && mod_wsgi-express start-server --working-directory web --document-root web/build --reload-on-changes web/web/wsgi.py"
+   command: bash -c "python web/manage.py collectstatic --noinput > /dev/null && mod_wsgi-express start-server --working-directory web --document-root web/build --reload-on-changes --log-to-terminal web/web/wsgi.py"

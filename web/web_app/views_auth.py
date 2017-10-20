@@ -1,8 +1,7 @@
-from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from .views import get
+from .auth import get, render
 from .forms import *
-import requests
+from . import auth
 
 
 def login(request):
@@ -38,6 +37,11 @@ def login(request):
         'form': form,
     }
     return render(request, 'login.html', context)
+
+
+def logout(request):
+    # TODO: send logout request to exp layer
+    auth.logout(request)
 
 
 def register(request):

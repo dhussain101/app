@@ -1,18 +1,5 @@
-from django.shortcuts import render
+from .auth import get, render
 from .forms import *
-import requests
-EXP_URL = 'http://exp-api:8000'
-
-
-def get(*paths, params={}):
-    """
-    Performs a get request on the experience API layer.
-    For example, get('hello', 'world') will query http://exp-api:8000/hello/world
-    :param paths: each sub-path entered as a separate argument
-    :param params: URL parameters
-    :return: JSON response from experience API
-    """
-    return requests.get(EXP_URL + ''.join('/{}' for _ in range(len(paths))).format(*paths), params=params).json()
 
 
 def index(request):
