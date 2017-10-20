@@ -69,4 +69,4 @@ def register(request):
         'title': 'Register',
         'form': form,
     }
-    return render(request, 'register_user.html', context)
+    return render(request, 'register-user.html', context)

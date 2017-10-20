@@ -16,7 +16,7 @@ class Person(models.Model):
 
 class Authenticator(models.Model):
     authenticator = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user_id = models.ForeignKey(Person, models.PROTECT, editable=False)
+    user_id = models.ForeignKey(Person, models.CASCADE, editable=False)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

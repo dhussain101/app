@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import *
 import requests
 EXP_URL = 'http://exp-api:8000'
 
@@ -32,6 +33,14 @@ def lotteries(request):
         'title': 'Lotteries',
     }
     return render(request, 'lotteries.html', context)
+
+
+def lottery_create(request):
+    context = {
+        'title': 'Create Lottery',
+        'form': LotteryForm,
+    }
+    return render(request, 'lottery-create.html', context)
 
 
 def lottery_detail(request, pk):

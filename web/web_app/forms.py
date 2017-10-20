@@ -22,3 +22,10 @@ class RegisterForm(forms.Form):
 
         if password != confirm_password:
             self.add_error('confirm_password', 'Password does not match')
+
+
+class LotteryForm(forms.Form):
+    title = forms.CharField(max_length=100)
+    description = forms.CharField(max_length=200)
+    start_time = forms.DateTimeField()
+    end_time = forms.DateTimeField()

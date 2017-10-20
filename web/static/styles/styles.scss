@@ -7,3 +7,7 @@ html {
 *, *:after, *:before {
 	box-sizing: inherit;
 }
+
+#search-form .mdl-textfield__label:after {
+	background-color: $pink-500;
+}
