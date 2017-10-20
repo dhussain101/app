@@ -65,7 +65,7 @@ def logout(request):
         # Ignore bad authenticators (exp layer returns 400)
         get('logout', params={'authenticator': request.user.authenticator})
     auth.logout(request)
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('login'))
 
 
 def register(request):
