@@ -1,6 +1,12 @@
 from django.db import models
 
 
+class Authenticator(models.Model):
+    user_id = models.CharField(max_length=20)
+    authenticator = models.BigIntegerField(primary_key=True)
+    date_created = models.DateTimeField()
+
+
 class Person(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
