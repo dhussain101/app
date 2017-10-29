@@ -1,6 +1,8 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from . import get, forward_post
+from elasticsearch import Elasticsearch
+
 
 
 def lottery_pane(_):
@@ -27,6 +29,14 @@ def card_detail(_, pk):
     if response:
         response['game'] = get('games', response['game'])
     return JsonResponse(response, safe=False)
+
+
+def search(_, pk):
+    # pk = {'query': 'awesome lottery', 'size': 5, 'index':'lottery_index'}
+    es = Elasticsearch(['es'])
+    search_result = es.search(index=pk['index'], body={'query': {'query_string': {'query': pk['query']}}, 'size': pk['size']})
+    return JsonResponse(search_result['hits']['hits'])
+
 
 
 @csrf_exempt
