@@ -19,4 +19,3 @@ for message in consumer:
     # add each new addition to ES
     new_lottery = json.loads(message.value.decode('utf-8'))
     es_add(new_lottery, es, 'lottery_index')
-    raise TypeError()
