@@ -9,10 +9,19 @@ models:
    stdin_open: true
    command: bash -c "python manage.py collectstatic --noinput > /dev/null && python manage.py makemigrations models_app && python manage.py migrate && python manage.py loaddata db.json && mod_wsgi-express start-server --working-directory . --url-alias /static build/static --reload-on-changes --log-to-terminal models/wsgi.py"
 
+kafka:
+   image: spotify/kafka
+   container_name: kafka
+   environment:
+      ADVERTISED_HOST: kafka
+      ADVERTISED_PORT: 9092
+   hostname: kafka
+
 exp:
    image: djangorest
    links:
       - models:models-api
+      - kafka:kafka-api
    ports:
       - "8002:8000"
    volumes:
@@ -30,14 +39,6 @@ web:
       - ./web:/app
    stdin_open: true
    command: bash -c "python manage.py collectstatic --noinput > /dev/null && mod_wsgi-express start-server --working-directory . --document-root build --reload-on-changes --log-to-terminal web/wsgi.py"
-
-kafka:
-   image: spotify/kafka
-   container_name: kafka
-   environment:
-      ADVERTISED_HOST: kafka
-      ADVERTISED_PORT: 9092
-   hostname: kafka
 
 es:
    image: elasticsearch:2.0
