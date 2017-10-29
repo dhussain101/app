@@ -48,7 +48,9 @@ es:
 batch:
    image: tp33/django
    container_name: batch
+   volumes:
+      - ./batch:/app
    links:
       - kafka:kafka
       - es:es
-   command: "./batch/search.py"
+   command: "python search.py"
