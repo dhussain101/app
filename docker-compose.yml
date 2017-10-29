@@ -51,4 +51,4 @@ batch:
    links:
       - kafka:kafka
       - es:es
-   command: <run a python script that pulls messages from Kafka and indexs that in ES>
+   command: "./batch/search.py"
