@@ -1,4 +1,5 @@
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from django.urls import reverse
 from .auth import render
 from .auth.views import collect, add_errors
@@ -58,6 +59,7 @@ def lottery_create(request):
 
 
 def lottery_detail(request, pk):
+    raise TypeError(pk)
     lottery_details = get('lottery-detail', pk)
     if not lottery_details:
         return HttpResponseRedirect(reverse('lotteries'))
@@ -71,6 +73,13 @@ def cards(request):
         'title': 'Cards',
     }
     return render(request, 'cards.html', context)
+
+
+def search(request):
+    result = get('search')
+    if len(result) == 0:
+        result = "nothing to show!"
+    return HttpResponse(result)
 
 
 def card_detail(request, pk):

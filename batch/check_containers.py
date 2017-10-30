@@ -34,4 +34,4 @@ while True:
         break
     else:
         print("{0} port is not open".format(service_name))
-        time.sleep(3)
+        time.sleep(5)
