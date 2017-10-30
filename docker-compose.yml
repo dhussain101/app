@@ -55,4 +55,4 @@ batch:
    links:
       - kafka:kafka
       - es:es
-   command: bash -c "python check_containers.py --service-name 'kafka' --port 9092 --ip kafka && python check_containers.py --service-name 'es' --port 9200 --ip es && python search.py"
+   command: bash -c "python search.py"

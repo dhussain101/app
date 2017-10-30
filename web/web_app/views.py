@@ -79,6 +79,8 @@ def search(request):
     result = get('search')
     if len(result) == 0:
         result = "nothing to show!"
+    elif 'error' in result:
+        result = result['error']
     return HttpResponse(result)
 
 
