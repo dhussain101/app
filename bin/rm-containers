@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+docker rm app_web_1
+docker rm app_exp_1
+docker rm batch
+docker rm es
+docker rm kafka
+docker rm app_models_1

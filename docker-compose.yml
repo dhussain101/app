@@ -52,7 +52,8 @@ batch:
    container_name: batch
    volumes:
       - ./batch:/app
+      - ./models:/data
    links:
       - kafka:kafka
       - es:es
-   command: bash -c "python search.py"
+   command: bash -c "python search.py es kafka"
