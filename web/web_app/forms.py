@@ -45,6 +45,7 @@ class SearchForm(forms.Form):
     card = forms.BooleanField(label='cards', required=False)
     title = forms.BooleanField(required=False)
     description = forms.BooleanField(required=False)
+    size = forms.IntegerField(initial=5, label='Number of results')
 
     def clean(self):
         cleaned_data = super(SearchForm, self).clean()

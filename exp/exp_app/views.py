@@ -34,9 +34,10 @@ def card_detail(_, pk):
 def search(request):
     # pk = {'query': 'awesome lottery', 'size': 5, 'index':'lottery_index'}
     pk = {
+        'fields': request.GET['fields'],
         'index': request.GET['indices'],
         'query': request.GET['q'],
-        'size': 5,
+        'size': request.GET['size'],
     }
 
     # temporary hard-coded test pk

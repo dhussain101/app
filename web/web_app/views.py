@@ -83,7 +83,7 @@ def search(request):
             'title': 'on',
             'description': 'on',
         })
-    form = SearchForm(data)
+    form = SearchForm(fill_defaults(data, {'size': 5}))
 
     if form.is_valid() and form.cleaned_data['q']:
         result = get('search', params=form.cleaned_data)
