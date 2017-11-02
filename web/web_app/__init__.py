@@ -25,3 +25,10 @@ def get(*paths, params=None):
 
 def post(*paths, data=None):
     return requests.post(make_path(paths), data=data)
+
+
+def fill_defaults(target, defaults):
+    acc = {k: v for k, v in target.items()}
+    for k in filter(lambda k: k not in target, defaults):
+        acc[k] = defaults[k]
+    return acc

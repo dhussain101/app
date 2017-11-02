@@ -1,8 +1,7 @@
-from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-from . import get, post
+from . import get, post, fill_defaults
 from .auth import render
 from .auth.decorators import login_required
 from .auth.views import collect
@@ -76,12 +75,30 @@ def cards(request):
 
 
 def search(request):
-    result = get('search')
-    if len(result) == 0:
-        result = "nothing to show!"
+    form = SearchForm(fill_defaults(request.GET, {
+        'lotteries': 'on',
+        'cards': 'on',
+        'title': 'on',
+        'description': 'on',
+    }))
+
+    if form.is_valid() and form.cleaned_data['q']:
+        result = get('search')
+    else:
+        result = {}
+
+    context = {
+        'form': form,
+        'results': [],
+        'title': 'Search',
+    }
+    if not result or len(result) == 0:
+        pass
     elif 'error' in result:
-        result = result['error']
-    return HttpResponse(result)
+        context['error'] = result['error']
+    else:
+        context['results'] = list(map(lambda x: {'data': x['_source'], 'index': x['_index'][:-6]}, result))
+    return render(request, 'search.html', context)
 
 
 def card_detail(request, pk):

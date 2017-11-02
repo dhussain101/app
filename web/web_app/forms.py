@@ -37,3 +37,11 @@ class LotteryForm(forms.Form):
         if end_time <= start_time:
             self.add_error('start_time', 'Cannot start before end date')
         return cleaned_data
+
+
+class SearchForm(forms.Form):
+    q = forms.CharField(max_length=300, label='', required=False)
+    lotteries = forms.BooleanField(initial=True)
+    cards = forms.BooleanField(initial=True)
+    title = forms.BooleanField(initial=True)
+    description = forms.BooleanField(initial=True)

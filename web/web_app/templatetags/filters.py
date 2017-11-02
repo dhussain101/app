@@ -13,3 +13,8 @@ def material_field_transform(value):
     else:
         return field
     return value.as_widget(attrs={'class': add_class})
+
+
+@register.filter(name='material_checkbox')
+def material_checkbox_transform(value):
+    return value.as_widget(attrs={'class': 'mdl-checkbox__input'})
