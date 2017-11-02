@@ -38,3 +38,33 @@ class LotteryForm(forms.Form):
             if end_time <= start_time:
                 self.add_error('start_time', 'Cannot start before end date')
         return cleaned_data
+
+
+class SearchForm(forms.Form):
+    q = forms.CharField(max_length=300, label='', required=False)
+    lottery = forms.BooleanField(label='lotteries', required=False)
+    card = forms.BooleanField(label='cards', required=False)
+    title = forms.BooleanField(required=False)
+    description = forms.BooleanField(required=False)
+    size = forms.IntegerField(initial=5, label='Number of results')
+
+    def clean(self):
+        cleaned_data = super(SearchForm, self).clean()
+        # Collect selected indices and fields into lists
+        indices = []
+        fields = []
+        for index in ('lottery', 'card'):
+            if cleaned_data.get(index):
+                indices.append('{}_index'.format(index))
+            if index in cleaned_data:
+                del cleaned_data[index]
+
+        for field in ('title', 'description'):
+            if cleaned_data.get(field):
+                fields.append(field)
+            if field in cleaned_data:
+                del cleaned_data[field]
+
+        cleaned_data['indices'] = ','.join(indices)
+        cleaned_data['fields'] = ','.join(fields)
+

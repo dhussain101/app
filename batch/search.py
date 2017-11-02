@@ -8,12 +8,13 @@ from kafka import KafkaConsumer
 from kafka.common import NodeNotReadyError
 
 
-def es_add(new_lottery, es_hook, es_index):
+def es_add(pk, new_lottery, es_hook, es_index, refresh=False):
     # FIX: for now use 'title' as the id, but I think this should use the serializer's id instead so that
     # titles don't have to be unique. This would require the id data to be returned by the post request
     # in the exp layer after the new lottery has been assigned a unique id in the model layer
-    es_hook.index(index=es_index, doc_type='listing', id=new_lottery['title'], body=new_lottery)
-    es_hook.indices.refresh(index=es_index)
+    es_hook.index(index=es_index, doc_type='listing', id=pk, body=new_lottery)
+    if refresh:
+        es_hook.indices.refresh(index=es_index)
 
 
 def load_fixtures(es_hook):
@@ -21,14 +22,20 @@ def load_fixtures(es_hook):
         data = json.loads(db.read())
     for data_row in data:
         if data_row['model'] == 'models_app.lottery':
-            es_add(data_row['fields'], es_hook, 'lottery_index')
+            es_add(data_row['pk'], data_row['fields'], es_hook, 'lottery_index')
+        if data_row['model'] == 'models_app.card':
+            es_add(data_row['pk'], data_row['fields'], es_hook, 'card_index')
+    es_hook.indices.refresh(index='*')
 
 
 def listen(es_hook, kafka_hook):
     for message in kafka_hook:
         # add each new addition to ES
         new_lottery = json.loads(message.value.decode('utf-8'))
-        es_add(new_lottery, es_hook, 'lottery_index')
+
+        # TODO: get actual pk from new_lottery
+        pk = new_lottery['title']
+        es_add(pk, new_lottery, es_hook, 'lottery_index', refresh=True)
 
 
 def try_connect():
@@ -43,6 +50,9 @@ def try_connect():
 
     # we should be connected by now
     es = Elasticsearch(['es'])
+
+    # clear indices, rebuild from scratch
+    es.indices.delete(index='*')
 
     # using try/catch seems to work better for kafka, as it dies/restarts
     # which can trick the socket check into thinking it's on when

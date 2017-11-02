@@ -31,11 +31,17 @@ def card_detail(_, pk):
     return JsonResponse(response, safe=False)
 
 
-def search(_):
+def search(request):
     # pk = {'query': 'awesome lottery', 'size': 5, 'index':'lottery_index'}
+    pk = {
+        'fields': request.GET['fields'],
+        'index': request.GET['indices'],
+        'query': request.GET['q'],
+        'size': request.GET['size'],
+    }
 
     # temporary hard-coded test pk
-    pk = {'query': 'pokemon', 'size': 5, 'index': 'lottery_index'}
+    # pk = {'query': 'pokemon', 'size': 5, 'index': 'lottery_index'}
     try:
         es = Elasticsearch(['es'])
         search_result = es.search(index=pk['index'],

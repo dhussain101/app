@@ -26,13 +26,13 @@
 			{# Add spacer, to align navigation to the right #}
 			<div class="mdl-layout-spacer"></div>
 			{# Dummy search bar #}
-			<form action="#" id="search-form">
+			<form action="{% url 'search' %}" id="search-form">
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 					<label class="mdl-button mdl-js-button mdl-button--icon" for="search">
 						<i class="material-icons">search</i>
 					</label>
 					<div class="mdl-textfield__expandable-holder">
-						<input class="mdl-textfield__input" type="text" id="search">
+						<input class="mdl-textfield__input" type="text" id="search" name="q">
 						<label class="mdl-textfield__label" for="search-expandable">Search</label>
 					</div>
 				</div>
@@ -61,8 +61,11 @@
 			{% endif %}
 		</span>
 		<nav class="mdl-navigation">
-			<a class="mdl-navigation__link" href="{% url 'login' %}">Login</a>
+			{% if not user.is_authenticated %}
+				<a class="mdl-navigation__link" href="{% url 'login' %}">Login</a>
+			{% endif %}
 			<a class="mdl-navigation__link" href="{% url 'index' %}">Home</a>
+			<a class="mdl-navigation__link" href="{% url 'search' %}">Search</a>
 			<a class="mdl-navigation__link" href="{% url 'lotteries' %}">Lotteries</a>
 			<a class="mdl-navigation__link" href="{% url 'cards' %}">Cards</a>
 		</nav>
