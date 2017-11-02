@@ -32,10 +32,14 @@ def listen(es_hook, kafka_hook):
     for message in kafka_hook:
         # add each new addition to ES
         new_lottery = json.loads(message.value.decode('utf-8'))
-
+        print(new_lottery)
         # TODO: get actual pk from new_lottery
-        pk = new_lottery['title']
-        es_add(pk, new_lottery, es_hook, 'lottery_index', refresh=True)
+        pk = new_lottery.pop('id', new_lottery['title'])
+        print(pk)
+        try:
+            es_add(pk, new_lottery, es_hook, 'lottery_index', refresh=True)
+        except:
+            print(new_lottery)
 
 
 def try_connect():
