@@ -75,15 +75,18 @@ def cards(request):
 
 
 def search(request):
-    form = SearchForm(fill_defaults(request.GET, {
-        'lotteries': 'on',
-        'cards': 'on',
-        'title': 'on',
-        'description': 'on',
-    }))
+    data = request.GET
+    if not data or not any(map(lambda x: x in request.GET, ('lottery', 'card', 'title', 'description'))):
+        data = fill_defaults(request.GET, {
+            'lottery': 'on',
+            'card': 'on',
+            'title': 'on',
+            'description': 'on',
+        })
+    form = SearchForm(data)
 
     if form.is_valid() and form.cleaned_data['q']:
-        result = get('search')
+        result = get('search', params=form.cleaned_data)
     else:
         result = {}
 

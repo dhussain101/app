@@ -30,7 +30,7 @@
 			<div class="options">
 				<h1>Categories</h1>
 				{% for field in form %}
-					{% if field.name == 'lotteries' or field.name == 'cards' %}
+					{% if field.name == 'lottery' or field.name == 'card' %}
 						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="{{ field.id_for_label }}">
 							{{ field | material_checkbox }}
 							<span class="mdl-checkbox__label">{{ field.label }}</span>

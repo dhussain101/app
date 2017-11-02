@@ -12,7 +12,6 @@ def login_required(view):
         # check if user is authenticated
         if request.user.is_authenticated:
             return view(request, *args, **kwargs)
-        # TODO: redirect
         return HttpResponseRedirect('{}?{}'.format(reverse('login'), urlencode({'next': request.path})))
 
     return wrap
