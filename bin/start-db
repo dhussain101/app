@@ -18,7 +18,7 @@ if [[ -z "$(docker ps -aq -f name=mysql$ 2>/dev/null)" ]]; then
 	read -r -p '🤔  Where is your db located? [~/cs4501/db] ' db_dir
 	echo
 	if [[ -z "$db_dir" ]]; then
-		db_dir=~/cs4501/db
+		db_dir="$HOME/cs4501/db"
 		echo "⚠️  Using default directory: $db_dir"
 	fi
 	# Run mysql
