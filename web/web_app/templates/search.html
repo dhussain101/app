@@ -68,9 +68,11 @@
 						<span class="mdl-chip">
 							<span class="mdl-chip__text">{{ result.index | title }}</span>
 						</span>
-						<span class="mdl-chip">
-							<span class="mdl-chip__text">Ends {{ result.data.end_time }}</span>
-						</span>
+						{% if result.index == 'lottery' %}
+							<span class="mdl-chip">
+								<span class="mdl-chip__text">Ends {{ result.data.end_time }}</span>
+							</span>
+						{% endif %}
 					</span>
 				</span>
 				<span class="mdl-list__item-secondary-content">
