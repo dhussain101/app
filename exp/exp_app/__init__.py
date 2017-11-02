@@ -66,7 +66,6 @@ def forward_post(request, model_api, required_data):
 
     response = post(model_api, data=data)
 
-    # TODO: add pk to data
     if(response.ok):
         data['id'] = response.json()['id']
         kafka_add(data, 'lotteries')
