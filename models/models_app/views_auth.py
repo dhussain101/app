@@ -1,6 +1,8 @@
-from django.http import JsonResponse, HttpResponse, HttpResponseBadRequest
-from django.contrib.auth.hashers import check_password, make_password
 from datetime import datetime, timezone
+
+from django.contrib.auth.hashers import check_password, make_password
+from django.http import JsonResponse, HttpResponse, HttpResponseBadRequest
+
 from .models import Authenticator, Person
 
 

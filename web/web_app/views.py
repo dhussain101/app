@@ -1,11 +1,12 @@
-from django.http import HttpResponseRedirect
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .auth import render
-from .auth.views import collect, add_errors
-from .auth.decorators import login_required
-from .forms import *
+
 from . import get, post
+from .auth import render
+from .auth.decorators import login_required
+from .auth.views import collect
+from .forms import *
 
 
 def index(request):
@@ -45,7 +46,7 @@ def lottery_create(request):
                 response = post('lottery-create', data=params)
                 if response.status_code == 201:
                     return HttpResponseRedirect(reverse('lotteries'))
-                # invalid form so return to register page
+                    # invalid form so return to register page
 
     # if a GET (or any other method) we'll create a blank form
     if not form:
@@ -59,7 +60,6 @@ def lottery_create(request):
 
 
 def lottery_detail(request, pk):
-    raise TypeError(pk)
     lottery_details = get('lottery-detail', pk)
     if not lottery_details:
         return HttpResponseRedirect(reverse('lotteries'))

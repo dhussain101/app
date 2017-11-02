@@ -1,12 +1,13 @@
 from . import logout
-from .. import get
 from .models import User
+from .. import get
 
 
 class AuthenticationMiddleware(object):
     """
     Manually implement django.contrib.auth.middleware.AuthenticationMiddleware :)
     """
+
     def __init__(self, get_response):
         self.get_response = get_response
         # One-time configuration and initialization.

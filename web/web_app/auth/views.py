@@ -1,9 +1,10 @@
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+
 from . import render
 from .models import User
-from ..forms import *
 from .. import auth, get
+from ..forms import *
 
 
 def collect(data, params):
@@ -46,7 +47,7 @@ def login(request):
                 return redirect
 
             add_errors(form, response)
-        # invalid form so return to login page
+            # invalid form so return to login page
 
     # if a GET (or any other method) we'll create a blank form
     if not form:
@@ -92,7 +93,7 @@ def register(request):
                     return HttpResponseRedirect(reverse('index'))
                 add_errors(form, response)
 
-        # invalid form so return to register page
+                # invalid form so return to register page
 
     # if a GET (or any other method) we'll create a blank form
     if not form:

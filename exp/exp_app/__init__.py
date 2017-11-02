@@ -1,8 +1,9 @@
-from json import JSONDecodeError
+from json import JSONDecodeError, dumps
+
 import requests
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponse
 from kafka import KafkaProducer
-import json
+
 MODEL_URL = 'http://models-api:8000/'
 
 
@@ -41,7 +42,7 @@ def missing_param(body, params):
 
 def kafka_add(listing, topic):
     producer = KafkaProducer(bootstrap_servers='kafka:9092')
-    producer.send(topic, json.dumps(listing).encode('utf-8'))
+    producer.send(topic, dumps(listing).encode('utf-8'))
 
 
 def forward_get(request, model_api, required_params):

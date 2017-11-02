@@ -1,10 +1,10 @@
-from django.test import TestCase
-from django.core.urlresolvers import reverse
 import requests
+from django.test import TestCase
 
 
 class TestLoads(TestCase):
     """Test suite for the web front-end."""
+
     def setUp(self):
         pass
 

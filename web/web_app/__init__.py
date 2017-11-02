@@ -1,5 +1,7 @@
 from json import JSONDecodeError
+
 import requests
+
 EXP_URL = 'http://exp-api:8000/'
 
 

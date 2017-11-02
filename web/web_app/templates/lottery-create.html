@@ -3,7 +3,7 @@
 {% load sass_tags %}
 
 {% block head %}
-	<link href="{% sass_src 'styles/login.scss' %}" rel="stylesheet" type="text/css" />
+	<link href="{% sass_src 'styles/login.scss' %}" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 {% block content %}
@@ -37,7 +37,9 @@
 		{% endfor %}
 
 		<footer>
-			<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Create</button>
+			<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+				Create
+			</button>
 			<a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{% url 'lotteries' %}">
 				Cancel
 			</a>

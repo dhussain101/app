@@ -1,9 +1,10 @@
-from django.test import TestCase
 import requests
+from django.test import TestCase
 
 
 class GetLotteriesTestCase(TestCase):
     """Tests suite for the main lottery exp API."""
+
     def setUp(self):
         pass  # nothing to set up
 
@@ -18,6 +19,7 @@ class GetLotteriesTestCase(TestCase):
 
 class GetCardsTestCase(TestCase):
     """Tests suite for the main card exp API."""
+
     def setUp(self):
         pass  # nothing to set up
 
@@ -32,6 +34,7 @@ class GetCardsTestCase(TestCase):
 
 class GetLotteryDetailsTestCase(TestCase):
     """Tests suite for the main lottery detail exp API."""
+
     def setUp(self):
         pass  # nothing to set up
 
@@ -46,6 +49,7 @@ class GetLotteryDetailsTestCase(TestCase):
 
 class GetCardDetailsTestCase(TestCase):
     """Tests suite for the main card detail exp API."""
+
     def setUp(self):
         pass  # nothing to set up
 

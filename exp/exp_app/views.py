@@ -1,8 +1,8 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from . import get, forward_post
 from elasticsearch import Elasticsearch
 
+from . import get, forward_post
 
 
 def lottery_pane(_):
@@ -38,7 +38,8 @@ def search(_):
     pk = {'query': 'pokemon', 'size': 5, 'index': 'lottery_index'}
     try:
         es = Elasticsearch(['es'])
-        search_result = es.search(index=pk['index'], body={'query': {'query_string': {'query': pk['query']}}, 'size': pk['size']})
+        search_result = es.search(index=pk['index'],
+                                  body={'query': {'query_string': {'query': pk['query']}}, 'size': pk['size']})
     except Exception as ex:
         template = "An exception of type {0} occurred. Arguments:\n{1!r}"
         message = template.format(type(ex).__name__, ex.args)

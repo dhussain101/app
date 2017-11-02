@@ -1,11 +1,11 @@
-from kafka import KafkaConsumer
-from kafka.common import NodeNotReadyError
-from elasticsearch.exceptions import ConnectionError
-from elasticsearch import Elasticsearch
 import json
-import time
 import socket
 import sys
+import time
+
+from elasticsearch import Elasticsearch
+from kafka import KafkaConsumer
+from kafka.common import NodeNotReadyError
 
 
 def es_add(new_lottery, es_hook, es_index):
