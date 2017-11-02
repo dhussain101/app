@@ -33,7 +33,8 @@ class LotteryForm(forms.Form):
 
     def clean(self):
         cleaned_data = super(LotteryForm, self).clean()
-        start_time, end_time = map(cleaned_data.get, ('start_time', 'end_time'))
-        if end_time <= start_time:
-            self.add_error('start_time', 'Cannot start before end date')
+        if self.is_valid():
+            start_time, end_time = map(cleaned_data.get, ('start_time', 'end_time'))
+            if end_time <= start_time:
+                self.add_error('start_time', 'Cannot start before end date')
         return cleaned_data
