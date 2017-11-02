@@ -100,7 +100,11 @@ def search(request):
     elif 'error' in result:
         context['error'] = result['error']
     else:
-        context['results'] = list(map(lambda x: {'data': x['_source'], 'index': x['_index'][:-6]}, result))
+        context['results'] = list(map(lambda x: {
+            'data': x['_source'],
+            'index': x['_index'][:-6],
+            'id': x['_id'],
+        }, result))
     return render(request, 'search.html', context)
 
 

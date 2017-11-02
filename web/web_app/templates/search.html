@@ -62,8 +62,7 @@
 						<i class="material-icons mdl-list__item-avatar">view_carousel</i>
 					{% endif %}
 					<span>
-						{# TODO: link directly to lottery using pk #}
-						<a href="{% url 'lotteries' %}">{{ result.data.title }}</a>
+						<a href="{% url result.index|add:'-detail' result.id %}">{{ result.data.title }}</a>
 					</span>
 					<span class="mdl-list__item-text-body">
 						<span class="mdl-chip">
