@@ -23,7 +23,7 @@ def load_fixtures(es_hook):
     for data_row in data:
         if data_row['model'] == 'models_app.lottery':
             es_add(data_row['pk'], data_row['fields'], es_hook, 'lottery_index')
-        if data_row['model'] == 'models_app.card':
+        elif data_row['model'] == 'models_app.card':
             es_add(data_row['pk'], data_row['fields'], es_hook, 'card_index')
     es_hook.indices.refresh(index='*')
 
