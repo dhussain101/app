@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+trap ctrl_c 2
+
+# restore files if the user decides to abort
+function ctrl_c() {
+	trap '' 2
+	if [ "$settings_mod" -eq "1" ]; then
+	   restore_settings
+	fi
+	if [ "$views_mod" -eq "1" ]; then
+		restore_views
+	fi
+	trap 2
+}
+
+function modify_settings() {
+	INSPECT="$(docker inspect mysql)"
+	if [[ $INSPECT =~ $regex_inspect ]]
+	then
+		ip="${BASH_REMATCH[1]}"
+		echo "$(sed -e "s/${regex_settings}/'${ip}'/" $settings_path)" > $settings_path
+		settings_mod=1
+		modify_views
+	else
+		echo "can't find ip"
+	fi
+}
+
+function modify_views() {
+	echo "$(sed -e "s/${regex_views}//" $views_path)" > $views_path
+	views_mod=1
+	create_user
+}
+
+function create_user() {
+	python "models/manage.py" createsuperuser
+	restore_settings
+	restore_views
+}
+
+function restore_settings() {
+	echo "$settings_save" > $settings_path
+	settings_mod=0
+}
+
+function restore_views() {
+	echo "$views_save" > $views_path
+	views_mod=0
+}
+
+if ! ls | grep bin >/dev/null; then
+	cd ..
+	if ! ls | grep bin >/dev/null; then
+		echo 'Please run in project root directory!'
+		exit 1
+	fi
+fi
+
+regex_inspect="\"IPAddress\": \"([0-9\.]+)\","
+regex_settings="'db'"
+regex_views=", timezone"
+
+settings_path="models/models/settings.py"
+views_path="models/models_app/views_auth.py"
+
+settings_save="$(cat $settings_path)"
+views_save="$(cat $views_path)"
+
+settings_mod=0
+views_mod=0
+
+modify_settings
+
+trap 2
