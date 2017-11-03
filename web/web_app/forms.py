@@ -40,6 +40,21 @@ class LotteryForm(forms.Form):
         return cleaned_data
 
 
+class CardForm(forms.Form):
+    title = forms.CharField(max_length=100)
+    description = forms.CharField(max_length=200)
+    value = forms.IntegerField(min_value=0)
+
+    def __init__(self, *args, **kwargs):
+        games = kwargs.pop('games', None)
+        lotteries = kwargs.pop('lotteries', None)
+        super(CardForm, self).__init__(*args, **kwargs)
+        if games is not None:
+            self.fields['game'] = forms.ChoiceField(choices=games)
+        if lotteries is not None:
+            self.fields['lottery'] = forms.ChoiceField(choices=lotteries)
+
+
 class SearchForm(forms.Form):
     q = forms.CharField(max_length=300, label='', required=False)
     lottery = forms.BooleanField(label='lotteries', required=False)

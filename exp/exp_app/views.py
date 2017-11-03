@@ -15,6 +15,11 @@ def card_pane(_):
     return JsonResponse(response, safe=False)
 
 
+def game_pane(_):
+    response = get('games')['results']
+    return JsonResponse(response, safe=False)
+
+
 def lottery_detail(_, pk):
     response = get('lotteries', pk)
     if response:
@@ -62,3 +67,8 @@ def search(request):
 @csrf_exempt
 def lottery_create(request):
     return forward_post(request, 'lotteries', ['title', 'description', 'start_time', 'end_time'])
+
+
+@csrf_exempt
+def card_create(request):
+    return forward_post(request, 'cards', ['game', 'lottery', 'title', 'description', 'value'])
