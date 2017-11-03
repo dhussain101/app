@@ -46,6 +46,13 @@ h2 {
 	}
 }
 
+.mdl-button--fab {
+	position: fixed;
+	right: 2rem;
+	bottom: 2rem;
+	z-index: 10;
+}
+
 @include media('xs') {
 	.card-card {
 		width: 100%;

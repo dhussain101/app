@@ -40,12 +40,45 @@ class LotteryForm(forms.Form):
         return cleaned_data
 
 
+class CardForm(forms.Form):
+    title = forms.CharField(max_length=100)
+    description = forms.CharField(max_length=200)
+    value = forms.IntegerField(min_value=0)
+
+    def __init__(self, *args, **kwargs):
+        games = kwargs.pop('games', None)
+        lotteries = kwargs.pop('lotteries', None)
+        super(CardForm, self).__init__(*args, **kwargs)
+        if games is not None:
+            self.fields['game'] = forms.ChoiceField(choices=games)
+        if lotteries is not None:
+            self.fields['lottery'] = forms.ChoiceField(choices=lotteries)
+
+
 class SearchForm(forms.Form):
     q = forms.CharField(max_length=300, label='', required=False)
     lottery = forms.BooleanField(label='lotteries', required=False)
     card = forms.BooleanField(label='cards', required=False)
     title = forms.BooleanField(required=False)
     description = forms.BooleanField(required=False)
+    # indices = forms.ChoiceField(
+    #     label='indices',
+    #     widget=forms.CheckboxSelectMultiple,
+    #     choices=[('lottery', 'lottery'), ('card', 'card')],
+    #     required=False
+    # )
+    # fields = forms.ChoiceField(
+    #     label='fields',
+    #     widget=forms.CheckboxSelectMultiple,
+    #     choices=[('title', 'title'), ('description', 'description')],
+    #     required=False
+    # )
+    sort = forms.ChoiceField(
+        label='sort_type',
+        widget=forms.Select,
+        choices=[('relevancy', 'relevancy'), ('alphabetical', 'alphabetical')],
+        required=False
+    )
     size = forms.IntegerField(initial=5, label='Number of results')
 
     def clean(self):
@@ -53,6 +86,7 @@ class SearchForm(forms.Form):
         # Collect selected indices and fields into lists
         indices = []
         fields = []
+
         for index in ('lottery', 'card'):
             if cleaned_data.get(index):
                 indices.append('{}_index'.format(index))
@@ -67,4 +101,3 @@ class SearchForm(forms.Form):
 
         cleaned_data['indices'] = ','.join(indices)
         cleaned_data['fields'] = ','.join(fields)
-

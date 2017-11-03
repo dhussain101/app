@@ -58,6 +58,43 @@ def lottery_create(request):
     return render(request, 'lottery-create.html', context)
 
 
+@login_required
+def card_create(request):
+    form = None
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = CardForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            fields = ('game', 'lottery', 'title', 'description', 'value')
+            # process the data in form.cleaned_data as required
+            params = collect(request.POST, fields)
+            if params is not None:
+                # Send validated information to our experience layer
+                response = post('card-create', data=params)
+                if response.status_code == 201:
+                    return HttpResponseRedirect(reverse('cards'))
+                    # invalid form so return to register page
+
+    # if a GET (or any other method) we'll create a blank form
+    if not form:
+        # call the exp layer to get the game/lottery data to
+        # populate the choice fields
+        def create_choice(data):
+            return str(data['id']), str(data['title'])
+        game_list = [(None, '---')] + list(map(create_choice, get('game-pane')))
+        lottery_list = [(None, '---')] + list(map(create_choice, get('lottery-pane')))
+
+        form = CardForm(games=game_list, lotteries=lottery_list)
+
+    context = {
+        'title': 'Create Card',
+        'form': form,
+    }
+    return render(request, 'card-create.html', context)
+
+
 def lottery_detail(request, pk):
     lottery_details = get('lottery-detail', pk)
     if not lottery_details:

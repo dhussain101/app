@@ -50,6 +50,10 @@
 				{% endfor %}
 			</div>
 			<div class="options">
+				<h1>Sort</h1>
+				{{ form.sort }}
+			</div>
+			<div class="options">
 				<label for="{{ form.size.id_for_label }}">
 					{{ form.size.label }}
 					<input class="mdl-slider mdl-js-slider" type="range" id="{{ form.size.id }}" name="{{ form.size.name }}"

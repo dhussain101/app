@@ -15,6 +15,11 @@ def card_pane(_):
     return JsonResponse(response, safe=False)
 
 
+def game_pane(_):
+    response = get('games')['results']
+    return JsonResponse(response, safe=False)
+
+
 def lottery_detail(_, pk):
     response = get('lotteries', pk)
     if response:
@@ -38,14 +43,20 @@ def search(request):
         'index': request.GET['indices'],
         'query': request.GET['q'],
         'size': request.GET['size'],
+        'sort': request.GET['sort'],
     }
+
+    sort_type = [{'_score' : {'order' : 'desc'}}]
+    if pk['sort'] == 'alphabetical':
+        sort_type = [{'title' : {'order' : 'asc'}}]
 
     # temporary hard-coded test pk
     # pk = {'query': 'pokemon', 'size': 5, 'index': 'lottery_index'}
     try:
         es = Elasticsearch(['es'])
         search_result = es.search(index=pk['index'],
-                                  body={'query': {'query_string': {'query': pk['query']}}, 'size': pk['size']})
+                                  body={'query': {'query': {'query_string': {'fields': pk['fields'].split(','), 'query': pk['query']}}},
+                                        'size': pk['size'], 'sort': sort_type})
     except Exception as ex:
         template = "An exception of type {0} occurred. Arguments:\n{1!r}"
         message = template.format(type(ex).__name__, ex.args)
@@ -56,3 +67,8 @@ def search(request):
 @csrf_exempt
 def lottery_create(request):
     return forward_post(request, 'lotteries', ['title', 'description', 'start_time', 'end_time'])
+
+
+@csrf_exempt
+def card_create(request):
+    return forward_post(request, 'cards', ['game', 'lottery', 'title', 'description', 'value'])
