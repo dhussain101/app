@@ -42,22 +42,22 @@ class LotteryForm(forms.Form):
 
 class SearchForm(forms.Form):
     q = forms.CharField(max_length=300, label='', required=False)
-    # lottery = forms.BooleanField(label='lotteries', required=False)
-    # card = forms.BooleanField(label='cards', required=False)
-    # title = forms.BooleanField(required=False)
-    # description = forms.BooleanField(required=False)
-    indices = forms.ChoiceField(
-        label='indices',
-        widget=forms.CheckboxSelectMultiple,
-        choices=[('lottery', 'lottery'), ('card', 'card')],
-        required=False
-    )
-    fields = forms.ChoiceField(
-        label='fields',
-        widget=forms.CheckboxSelectMultiple,
-        choices=[('title', 'title'), ('description', 'description')],
-        required=False
-    )
+    lottery = forms.BooleanField(label='lotteries', required=False)
+    card = forms.BooleanField(label='cards', required=False)
+    title = forms.BooleanField(required=False)
+    description = forms.BooleanField(required=False)
+    # indices = forms.ChoiceField(
+    #     label='indices',
+    #     widget=forms.CheckboxSelectMultiple,
+    #     choices=[('lottery', 'lottery'), ('card', 'card')],
+    #     required=False
+    # )
+    # fields = forms.ChoiceField(
+    #     label='fields',
+    #     widget=forms.CheckboxSelectMultiple,
+    #     choices=[('title', 'title'), ('description', 'description')],
+    #     required=False
+    # )
     sort = forms.ChoiceField(
         label='sort_type',
         widget=forms.Select,
@@ -68,32 +68,21 @@ class SearchForm(forms.Form):
 
     def clean(self):
         cleaned_data = super(SearchForm, self).clean()
-        print(cleaned_data)
-        # # Collect selected indices and fields into lists
-        # indices = []
-        # fields = []
-        # sort_type = []
-        # # for index in ('lottery', 'card'):
-        # for index in 'indices':
-        #     if cleaned_data.get(index):
-        #         indices.append('{}_index'.format(index))
-        #     if index in cleaned_data:
-        #         del cleaned_data[index]
-        #
-        # # for field in ('title', 'description'):
-        # for field in 'fields':
-        #     if cleaned_data.get(field):
-        #         fields.append(field)
-        #     if field in cleaned_data:
-        #         del cleaned_data[field]
-        #
-        # for sort_type in 'sort':
-        #     if cleaned_data.get(sort_type):
-        #         sort_type.append(sort_type)
-        #     if sort_type in cleaned_data:
-        #         del cleaned_data[sort_type]
-        #
-        # cleaned_data['indices'] = ','.join(indices)
-        # cleaned_data['fields'] = ','.join(fields)
-        # cleaned_data['sort_type'] = ','.join(sort_type)
+        # Collect selected indices and fields into lists
+        indices = []
+        fields = []
 
+        for index in ('lottery', 'card'):
+            if cleaned_data.get(index):
+                indices.append('{}_index'.format(index))
+            if index in cleaned_data:
+                del cleaned_data[index]
+
+        for field in ('title', 'description'):
+            if cleaned_data.get(field):
+                fields.append(field)
+            if field in cleaned_data:
+                del cleaned_data[field]
+
+        cleaned_data['indices'] = ','.join(indices)
+        cleaned_data['fields'] = ','.join(fields)

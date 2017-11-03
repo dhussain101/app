@@ -29,24 +29,24 @@
 		<section>
 			<div class="options">
 				<h1>Categories</h1>
-				{{form.indices}}
-				{% for index in form.indices.choices %}
-					{{index}}
-				  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="{{ index }}">
-						{{ index | material_checkbox }}
-						<span class="mdl-checkbox__label">{{ index }}</span>
-					</label>
+				{% for field in form %}
+					{% if field.name == 'lottery' or field.name == 'card' %}
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="{{ field.id_for_label }}">
+							{{ field | material_checkbox }}
+							<span class="mdl-checkbox__label">{{ field.label }}</span>
+						</label>
+					{% endif %}
 				{% endfor %}
 			</div>
 			<div class="options">
 				<h1>Fields</h1>
-				{{form.fields}}
-				{% for field in form.fields.choices %}
-					{{field}}
-				  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="{{ field }}">
-						{{ field | material_checkbox }}
-						<span class="mdl-checkbox__label">{{ field }}</span>
-					</label>
+				{% for field in form %}
+					{% if field.name == 'title' or field.name == 'description' %}
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="{{ field.id_for_label }}">
+							{{ field | material_checkbox }}
+							<span class="mdl-checkbox__label">{{ field.label }}</span>
+						</label>
+					{% endif %}
 				{% endfor %}
 			</div>
 			<div class="options">
