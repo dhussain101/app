@@ -35,3 +35,7 @@ bin/wipe-all
 8. As a user, I want to create new lotteries.
 9. As a user, I want the site to remember my credentials while I'm on the website.
 10. As a user, I want my login information to be securely stored.
+11. As a user, I want to be able to search for lotteries and cards so that I can locate specific entries.
+12. As a user, I want new lotteries and cards that I add to show up in the search database so that I know others can find them.
+13. As a user, I want to be able to filter my searches so that I can find specific entries more easily.
+14. As a user, I want the search bar to be accessible at the top of all screens so that I can easily search from anywhere on the site.
