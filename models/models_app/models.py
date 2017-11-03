@@ -72,4 +72,4 @@ class Card(models.Model):
     value = models.IntegerField(default=0)
 
     def __str__(self):
-        return ' '.join(['(game)', self.game, '(title)', self.title])
+        return ' '.join(['(game)', str(self.game), '(title)', self.title])
