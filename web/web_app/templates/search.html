@@ -29,25 +29,29 @@
 		<section>
 			<div class="options">
 				<h1>Categories</h1>
-				{% for field in form %}
-					{% if field.name == 'lottery' or field.name == 'card' %}
-						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="{{ field.id_for_label }}">
-							{{ field | material_checkbox }}
-							<span class="mdl-checkbox__label">{{ field.label }}</span>
-						</label>
-					{% endif %}
+				{{form.indices}}
+				{% for index in form.indices.choices %}
+					{{index}}
+				  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="{{ index }}">
+						{{ index | material_checkbox }}
+						<span class="mdl-checkbox__label">{{ index }}</span>
+					</label>
 				{% endfor %}
 			</div>
 			<div class="options">
 				<h1>Fields</h1>
-				{% for field in form %}
-					{% if field.name == 'title' or field.name == 'description' %}
-						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="{{ field.id_for_label }}">
-							{{ field | material_checkbox }}
-							<span class="mdl-checkbox__label">{{ field.label }}</span>
-						</label>
-					{% endif %}
+				{{form.fields}}
+				{% for field in form.fields.choices %}
+					{{field}}
+				  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="{{ field }}">
+						{{ field | material_checkbox }}
+						<span class="mdl-checkbox__label">{{ field }}</span>
+					</label>
 				{% endfor %}
+			</div>
+			<div class="options">
+				<h1>Sort</h1>
+				{{ form.sort }}
 			</div>
 			<div class="options">
 				<label for="{{ form.size.id_for_label }}">
