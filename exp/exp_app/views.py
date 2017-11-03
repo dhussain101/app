@@ -55,8 +55,8 @@ def search(request):
     try:
         es = Elasticsearch(['es'])
         search_result = es.search(index=pk['index'],
-                                  body={'query': {'query_string': {'query': pk['query']}}, 'size': pk['size'],
-                                        'sort': sort_type})
+                                  body={'query': {'query': {'query_string': {'fields': pk['fields'].split(','), 'query': pk['query']}}},
+                                        'size': pk['size'], 'sort': sort_type})
     except Exception as ex:
         template = "An exception of type {0} occurred. Arguments:\n{1!r}"
         message = template.format(type(ex).__name__, ex.args)
