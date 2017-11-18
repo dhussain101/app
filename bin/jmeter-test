@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if ! ls | grep bin >/dev/null; then
+	cd ..
+	if ! ls | grep bin >/dev/null; then
+		echo 'Please run in project root directory!'
+		exit 1
+	fi
+fi
+
+rm jmeter/log.jtl
+rm -rf jmeter/report
+jmeter -n -t jmeter/test_plan.jmx -l jmeter/log.jtl -e -o jmeter/report -H localhost -P 8000
