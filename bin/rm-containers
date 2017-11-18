@@ -6,3 +6,4 @@ docker rm batch
 docker rm es
 docker rm kafka
 docker rm app_models_1
+docker rm app_jmeter_1

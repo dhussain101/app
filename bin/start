@@ -32,21 +32,22 @@ if [[ -n "$(docker ps -q -f name=djangorest -f status=running 2>/dev/null)" ]]; 
 	fi
 fi
 
-declare -a containers=("djangorest" "hauptmedia/jmeter")
+declare -A container_builds=( ["djangorest"]="Dockerfile" ["hauptmedia/jmeter"]="Dockerfile_jmeter")
 
-for i in "${containers[@]}"
+
+for container in "${!container_builds[@]}"
 do
 	# Check if container is up to date:
 	# - Doesn't exist
 	# - Never ran diff before
 	# - On new branch since last run
 	# - Dockerfile was changed since last run
-	if [[ -z "$(docker images -q $i 2>/dev/null)" || \
+	if [[ -z "$(docker images -q $container 2>/dev/null)" || \
 		! -s .previouscommit || \
-		"$(md5 -q Dockerfile)" != "$(cat .previouscommit)" ]]; then
-		echo "🛠  Building $i"
+		"$(md5 -q ${container_builds[$container]})" != "$(cat .previouscommit)" ]]; then
+		echo "🛠  Building $container"
 		echo '—————————————————————————————————————————————'
-		docker build -t "$i" .
+		docker build -t "$container" -f "${container_builds[$container]}" .
 	else
 		echo '⏩  Skipping build'
 		rm -f .previouscommit
