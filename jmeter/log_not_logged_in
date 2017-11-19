@@ -1,0 +1,421 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,Latency,IdleTime,Connect
+1511053838742,0,Home Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-1,text,false,,2058,0,1,1,0,0,0
+1511053838743,0,Lottery Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-1,text,false,,2058,0,1,1,0,0,0
+1511053838743,0,Card Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-1,text,false,,2058,0,1,1,0,0,0
+1511053838744,0,Search Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-1,text,false,,2058,0,1,1,0,0,0
+1511053838744,0,Login Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-1,text,false,,2058,0,1,1,0,0,0
+1511053838745,0,Register Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-1,text,false,,2058,0,1,1,0,0,0
+1511053838746,0,Home Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-1,text,false,,2058,0,1,1,0,0,0
+1511053838747,0,Lottery Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-1,text,false,,2058,0,1,1,0,0,0
+1511053838747,1,Card Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-1,text,false,,2058,0,1,1,0,0,1
+1511053838748,0,Search Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-1,text,false,,2058,0,1,1,0,0,0
+1511053838750,0,Login Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-1,text,false,,2058,0,1,1,0,0,0
+1511053838751,0,Register Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-1,text,false,,2058,0,1,2,0,0,0
+1511053838942,1,Home Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-2,text,false,,2058,0,1,1,0,0,1
+1511053838943,0,Lottery Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-2,text,false,,2058,0,1,1,0,0,0
+1511053838944,0,Card Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-2,text,false,,2058,0,1,1,0,0,0
+1511053838944,0,Search Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-2,text,false,,2058,0,1,1,0,0,0
+1511053838944,0,Login Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-2,text,false,,2058,0,1,1,0,0,0
+1511053838945,0,Register Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-2,text,false,,2058,0,1,1,0,0,0
+1511053838945,0,Home Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-2,text,false,,2058,0,1,1,0,0,0
+1511053838945,0,Lottery Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-2,text,false,,2058,0,1,1,0,0,0
+1511053838945,0,Card Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-2,text,false,,2058,0,1,1,0,0,0
+1511053838945,0,Search Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-2,text,false,,2058,0,1,1,0,0,0
+1511053838946,0,Login Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-2,text,false,,2058,0,1,1,0,0,0
+1511053838946,0,Register Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-2,text,false,,2058,0,1,1,0,0,0
+1511053839143,0,Home Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-3,text,false,,2058,0,1,1,0,0,0
+1511053839143,1,Lottery Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-3,text,false,,2058,0,1,1,0,0,1
+1511053839144,0,Card Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-3,text,false,,2058,0,1,1,0,0,0
+1511053839144,0,Search Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-3,text,false,,2058,0,1,1,0,0,0
+1511053839144,0,Login Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-3,text,false,,2058,0,1,1,0,0,0
+1511053839144,0,Register Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-3,text,false,,2058,0,1,1,0,0,0
+1511053839145,0,Home Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-3,text,false,,2058,0,1,1,0,0,0
+1511053839145,0,Lottery Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-3,text,false,,2058,0,1,1,0,0,0
+1511053839145,0,Card Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-3,text,false,,2058,0,1,1,0,0,0
+1511053839145,0,Search Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-3,text,false,,2058,0,1,1,0,0,0
+1511053839145,0,Login Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-3,text,false,,2058,0,1,1,0,0,0
+1511053839145,0,Register Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-3,text,false,,2058,0,1,1,0,0,0
+1511053839350,0,Home Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-4,text,false,,2058,0,1,1,0,0,0
+1511053839351,0,Lottery Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-4,text,false,,2058,0,1,1,0,0,0
+1511053839351,0,Card Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-4,text,false,,2058,0,1,1,0,0,0
+1511053839351,0,Search Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-4,text,false,,2058,0,1,1,0,0,0
+1511053839351,1,Login Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-4,text,false,,2058,0,1,1,0,0,1
+1511053839352,0,Register Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-4,text,false,,2058,0,1,1,0,0,0
+1511053839352,0,Home Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-4,text,false,,2058,0,1,1,0,0,0
+1511053839353,0,Lottery Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-4,text,false,,2058,0,1,1,0,0,0
+1511053839353,0,Card Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-4,text,false,,2058,0,1,1,0,0,0
+1511053839353,0,Search Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-4,text,false,,2058,0,1,1,0,0,0
+1511053839354,0,Login Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-4,text,false,,2058,0,1,1,0,0,0
+1511053839354,0,Register Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-4,text,false,,2058,0,1,1,0,0,0
+1511053839550,1,Home Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-5,text,false,,2058,0,1,1,0,0,1
+1511053839551,0,Lottery Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-5,text,false,,2058,0,1,1,0,0,0
+1511053839551,0,Card Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-5,text,false,,2058,0,1,1,0,0,0
+1511053839551,0,Search Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-5,text,false,,2058,0,1,1,0,0,0
+1511053839552,0,Login Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-5,text,false,,2058,0,1,1,0,0,0
+1511053839552,0,Register Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-5,text,false,,2058,0,1,1,0,0,0
+1511053839552,0,Home Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-5,text,false,,2058,0,1,1,0,0,0
+1511053839552,0,Lottery Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-5,text,false,,2058,0,1,1,0,0,0
+1511053839552,0,Card Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-5,text,false,,2058,0,1,1,0,0,0
+1511053839553,0,Search Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-5,text,false,,2058,0,1,1,0,0,0
+1511053839553,0,Login Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-5,text,false,,2058,0,1,1,0,0,0
+1511053839553,0,Register Page,Non HTTP response code: java.net.ConnectException,Non HTTP response message: Connection refused (Connection refused),Users (not logged in) 1-5,text,false,,2058,0,1,1,0,0,0
+1511053881664,150,Home Page,200,OK,Users (not logged in) 1-1,text,true,,15190,159,1,2,150,0,56
+1511053881815,133,Lottery Page,200,OK,Users (not logged in) 1-1,text,true,,8818,168,2,3,133,0,1
+1511053881949,70,Card Page,200,OK,Users (not logged in) 1-1,text,true,,12036,164,3,4,70,0,0
+1511053881820,225,Home Page,200,OK,Users (not logged in) 1-2,text,true,,15190,159,3,4,218,0,1
+1511053882020,61,Search Page,200,OK,Users (not logged in) 1-1,text,true,,4991,165,3,4,58,0,2
+1511053882082,19,Login Page,200,OK,Users (not logged in) 1-1,text,true,,4128,164,3,4,19,0,1
+1511053882102,28,Register Page,200,OK,Users (not logged in) 1-1,text,true,,5424,251,3,4,26,0,1
+1511053882047,100,Lottery Page,200,OK,Users (not logged in) 1-2,text,true,,8818,168,3,4,100,0,1
+1511053882148,56,Card Page,200,OK,Users (not logged in) 1-2,text,true,,12036,164,3,4,40,0,0
+1511053882019,189,Home Page,200,OK,Users (not logged in) 1-3,text,true,,15190,159,3,4,158,0,1
+1511053882206,24,Search Page,200,OK,Users (not logged in) 1-2,text,true,,4991,165,4,5,20,0,2
+1511053882230,53,Login Page,200,OK,Users (not logged in) 1-2,text,true,,4128,164,4,5,53,0,1
+1511053882131,175,Home Page,200,OK,Users (not logged in) 1-1,text,true,,15190,243,4,5,175,0,0
+1511053882208,133,Lottery Page,200,OK,Users (not logged in) 1-3,text,true,,8818,168,4,5,132,0,1
+1511053882284,68,Register Page,200,OK,Users (not logged in) 1-2,text,true,,5424,251,4,5,57,0,1
+1511053882307,110,Lottery Page,200,OK,Users (not logged in) 1-1,text,true,,8818,252,4,4,107,0,0
+1511053882228,205,Home Page,200,OK,Users (not logged in) 1-4,text,true,,15190,159,5,5,205,0,1
+1511053882341,96,Card Page,200,OK,Users (not logged in) 1-3,text,true,,12036,164,5,5,96,0,1
+1511053882438,36,Search Page,200,OK,Users (not logged in) 1-3,text,true,,4991,165,5,5,30,0,1
+1511053882418,75,Card Page,200,OK,Users (not logged in) 1-1,text,true,,12036,248,5,5,71,0,1
+1511053882475,33,Login Page,200,OK,Users (not logged in) 1-3,text,true,,4128,164,5,5,28,0,0
+1511053882494,33,Search Page,200,OK,Users (not logged in) 1-1,text,true,,4991,249,5,5,33,0,0
+1511053882434,116,Lottery Page,200,OK,Users (not logged in) 1-4,text,true,,8818,168,5,5,116,0,0
+1511053882353,202,Home Page,200,OK,Users (not logged in) 1-2,text,true,,15190,243,5,5,201,0,1
+1511053882509,93,Register Page,200,OK,Users (not logged in) 1-3,text,true,,5424,251,5,5,67,0,0
+1511053882426,177,Home Page,200,OK,Users (not logged in) 1-5,text,true,,15190,159,5,5,175,0,1
+1511053882527,81,Login Page,200,OK,Users (not logged in) 1-1,text,true,,4128,248,5,5,80,0,1
+1511053882551,80,Card Page,200,OK,Users (not logged in) 1-4,text,true,,12036,164,5,5,78,0,1
+1511053882609,27,Register Page,200,OK,Users (not logged in) 1-1,text,true,,5424,251,5,5,27,0,1
+1511053882632,15,Search Page,200,OK,Users (not logged in) 1-4,text,true,,4991,165,4,4,15,0,0
+1511053882647,16,Login Page,200,OK,Users (not logged in) 1-4,text,true,,4128,164,4,4,16,0,1
+1511053882663,13,Register Page,200,OK,Users (not logged in) 1-4,text,true,,5424,251,4,4,13,0,1
+1511053882604,98,Lottery Page,200,OK,Users (not logged in) 1-5,text,true,,8818,168,4,4,98,0,0
+1511053882556,153,Lottery Page,200,OK,Users (not logged in) 1-2,text,true,,8818,252,4,4,153,0,1
+1511053882602,137,Home Page,200,OK,Users (not logged in) 1-3,text,true,,15190,243,4,4,135,0,1
+1511053882710,50,Card Page,200,OK,Users (not logged in) 1-2,text,true,,12036,248,4,4,48,0,1
+1511053882703,70,Card Page,200,OK,Users (not logged in) 1-5,text,true,,12036,164,4,4,70,0,1
+1511053882677,103,Home Page,200,OK,Users (not logged in) 1-4,text,true,,15190,243,4,4,101,0,0
+1511053882760,27,Search Page,200,OK,Users (not logged in) 1-2,text,true,,4991,249,4,4,24,0,1
+1511053882739,65,Lottery Page,200,OK,Users (not logged in) 1-3,text,true,,8818,252,4,4,65,0,1
+1511053882774,35,Search Page,200,OK,Users (not logged in) 1-5,text,true,,4991,165,4,4,35,0,0
+1511053882809,17,Login Page,200,OK,Users (not logged in) 1-5,text,true,,4128,164,4,4,14,0,1
+1511053882788,38,Login Page,200,OK,Users (not logged in) 1-2,text,true,,4128,248,4,4,38,0,0
+1511053882827,26,Register Page,200,OK,Users (not logged in) 1-2,text,true,,5424,251,4,4,25,0,0
+1511053882805,51,Card Page,200,OK,Users (not logged in) 1-3,text,true,,12036,248,3,3,51,0,1
+1511053882826,39,Register Page,200,OK,Users (not logged in) 1-5,text,true,,5424,251,3,3,38,0,1
+1511053882780,95,Lottery Page,200,OK,Users (not logged in) 1-4,text,true,,8818,252,3,3,94,0,1
+1511053882857,25,Search Page,200,OK,Users (not logged in) 1-3,text,true,,4991,249,3,3,22,0,0
+1511053882882,16,Login Page,200,OK,Users (not logged in) 1-3,text,true,,4128,248,3,3,16,0,1
+1511053882875,39,Card Page,200,OK,Users (not logged in) 1-4,text,true,,12036,248,3,3,39,0,1
+1511053882899,20,Register Page,200,OK,Users (not logged in) 1-3,text,true,,5424,251,3,3,19,0,1
+1511053882915,18,Search Page,200,OK,Users (not logged in) 1-4,text,true,,4991,249,2,2,18,0,0
+1511053882933,10,Login Page,200,OK,Users (not logged in) 1-4,text,true,,4128,248,2,2,10,0,1
+1511053882866,92,Home Page,200,OK,Users (not logged in) 1-5,text,true,,15190,243,2,2,92,0,0
+1511053882944,18,Register Page,200,OK,Users (not logged in) 1-4,text,true,,5424,251,2,2,18,0,0
+1511053882958,35,Lottery Page,200,OK,Users (not logged in) 1-5,text,true,,8818,252,1,1,35,0,1
+1511053882994,23,Card Page,200,OK,Users (not logged in) 1-5,text,true,,12036,248,1,1,23,0,0
+1511053883017,10,Search Page,200,OK,Users (not logged in) 1-5,text,true,,4991,249,1,1,10,0,1
+1511053883027,8,Login Page,200,OK,Users (not logged in) 1-5,text,true,,4128,248,1,1,7,0,0
+1511053883035,13,Register Page,200,OK,Users (not logged in) 1-5,text,true,,5424,251,1,1,13,0,0
+1511053906205,155,Home Page,200,OK,Users (not logged in) 1-1,text,true,,15190,159,2,3,154,0,49
+1511053906364,124,Lottery Page,200,OK,Users (not logged in) 1-1,text,true,,8818,168,2,3,123,0,1
+1511053906353,182,Home Page,200,OK,Users (not logged in) 1-2,text,true,,15190,159,2,3,180,0,1
+1511053906488,65,Card Page,200,OK,Users (not logged in) 1-1,text,true,,12036,164,3,4,62,0,1
+1511053906553,49,Search Page,200,OK,Users (not logged in) 1-1,text,true,,4991,165,3,4,49,0,1
+1511053906603,67,Login Page,200,OK,Users (not logged in) 1-1,text,true,,4128,164,3,4,55,0,1
+1511053906535,190,Lottery Page,200,OK,Users (not logged in) 1-2,text,true,,8818,168,3,4,183,0,1
+1511053906673,82,Register Page,200,OK,Users (not logged in) 1-1,text,true,,5424,251,3,4,72,0,4
+1511053906553,214,Home Page,200,OK,Users (not logged in) 1-3,text,true,,15190,159,4,5,214,0,1
+1511053906726,80,Card Page,200,OK,Users (not logged in) 1-2,text,true,,12036,164,4,5,64,0,1
+1511053906807,46,Search Page,200,OK,Users (not logged in) 1-2,text,true,,4991,165,4,5,46,0,3
+1511053906854,25,Login Page,200,OK,Users (not logged in) 1-2,text,true,,4128,164,4,4,21,0,1
+1511053906760,147,Home Page,200,OK,Users (not logged in) 1-4,text,true,,15190,159,4,4,134,0,0
+1511053906890,23,Register Page,200,OK,Users (not logged in) 1-2,text,true,,5424,251,4,4,23,0,1
+1511053906768,179,Lottery Page,200,OK,Users (not logged in) 1-3,text,true,,8818,168,4,4,179,0,0
+1511053906756,217,Home Page,200,OK,Users (not logged in) 1-1,text,true,,15190,243,5,5,214,0,5
+1511053906948,90,Card Page,200,OK,Users (not logged in) 1-3,text,true,,12036,164,5,5,90,0,0
+1511053906908,148,Lottery Page,200,OK,Users (not logged in) 1-4,text,true,,8818,168,5,5,144,0,1
+1511053907039,18,Search Page,200,OK,Users (not logged in) 1-3,text,true,,4991,165,5,5,18,0,0
+1511053906914,178,Home Page,200,OK,Users (not logged in) 1-2,text,true,,15190,243,5,5,164,0,1
+1511053907058,50,Login Page,200,OK,Users (not logged in) 1-3,text,true,,4128,164,5,5,40,0,0
+1511053907056,80,Card Page,200,OK,Users (not logged in) 1-4,text,true,,12036,164,5,5,77,0,1
+1511053906974,166,Lottery Page,200,OK,Users (not logged in) 1-1,text,true,,8818,252,5,5,156,0,1
+1511053906960,200,Home Page,200,OK,Users (not logged in) 1-5,text,true,,15190,159,5,5,200,0,1
+1511053907137,34,Search Page,200,OK,Users (not logged in) 1-4,text,true,,4991,165,5,5,33,0,1
+1511053907092,82,Lottery Page,200,OK,Users (not logged in) 1-2,text,true,,8818,252,5,5,82,0,1
+1511053907109,66,Register Page,200,OK,Users (not logged in) 1-3,text,true,,5424,251,5,5,66,0,1
+1511053907140,63,Card Page,200,OK,Users (not logged in) 1-1,text,true,,12036,248,5,5,63,0,1
+1511053907171,33,Login Page,200,OK,Users (not logged in) 1-4,text,true,,4128,164,5,5,28,0,1
+1511053907175,51,Card Page,200,OK,Users (not logged in) 1-2,text,true,,12036,248,5,5,50,0,1
+1511053907205,32,Register Page,200,OK,Users (not logged in) 1-4,text,true,,5424,251,5,5,29,0,1
+1511053907161,86,Lottery Page,200,OK,Users (not logged in) 1-5,text,true,,8818,168,5,5,83,0,0
+1511053907203,50,Search Page,200,OK,Users (not logged in) 1-1,text,true,,4991,249,5,5,49,0,1
+1511053907227,51,Search Page,200,OK,Users (not logged in) 1-2,text,true,,4991,249,5,5,45,0,0
+1511053907176,108,Home Page,200,OK,Users (not logged in) 1-3,text,true,,15190,243,5,5,107,0,0
+1511053907253,43,Login Page,200,OK,Users (not logged in) 1-1,text,true,,4128,248,5,5,36,0,1
+1511053907279,24,Login Page,200,OK,Users (not logged in) 1-2,text,true,,4128,248,5,5,19,0,0
+1511053907296,31,Register Page,200,OK,Users (not logged in) 1-1,text,true,,5424,251,5,5,31,0,1
+1511053907247,82,Card Page,200,OK,Users (not logged in) 1-5,text,true,,12036,164,4,4,76,0,0
+1511053907304,29,Register Page,200,OK,Users (not logged in) 1-2,text,true,,5424,251,4,4,29,0,0
+1511053907330,19,Search Page,200,OK,Users (not logged in) 1-5,text,true,,4991,165,3,3,18,0,0
+1511053907285,74,Lottery Page,200,OK,Users (not logged in) 1-3,text,true,,8818,252,3,3,74,0,0
+1511053907238,127,Home Page,200,OK,Users (not logged in) 1-4,text,true,,15190,243,3,3,126,0,1
+1511053907349,24,Login Page,200,OK,Users (not logged in) 1-5,text,true,,4128,164,3,3,23,0,1
+1511053907373,24,Register Page,200,OK,Users (not logged in) 1-5,text,true,,5424,251,3,3,23,0,1
+1511053907360,53,Card Page,200,OK,Users (not logged in) 1-3,text,true,,12036,248,3,3,53,0,0
+1511053907413,23,Search Page,200,OK,Users (not logged in) 1-3,text,true,,4991,249,3,3,20,0,1
+1511053907366,70,Lottery Page,200,OK,Users (not logged in) 1-4,text,true,,8818,252,3,3,70,0,1
+1511053907436,16,Login Page,200,OK,Users (not logged in) 1-3,text,true,,4128,248,3,3,16,0,1
+1511053907452,11,Register Page,200,OK,Users (not logged in) 1-3,text,true,,5424,251,3,3,10,0,1
+1511053907398,78,Home Page,200,OK,Users (not logged in) 1-5,text,true,,15190,243,2,2,78,0,0
+1511053907437,44,Card Page,200,OK,Users (not logged in) 1-4,text,true,,12036,248,2,2,42,0,0
+1511053907481,12,Search Page,200,OK,Users (not logged in) 1-4,text,true,,4991,249,2,2,12,0,1
+1511053907494,12,Login Page,200,OK,Users (not logged in) 1-4,text,true,,4128,248,2,2,12,0,0
+1511053907507,21,Register Page,200,OK,Users (not logged in) 1-4,text,true,,5424,251,2,2,20,0,0
+1511053907476,54,Lottery Page,200,OK,Users (not logged in) 1-5,text,true,,8818,252,1,1,54,0,0
+1511053907530,22,Card Page,200,OK,Users (not logged in) 1-5,text,true,,12036,248,1,1,22,0,0
+1511053907552,9,Search Page,200,OK,Users (not logged in) 1-5,text,true,,4991,249,1,1,9,0,0
+1511053907562,7,Login Page,200,OK,Users (not logged in) 1-5,text,true,,4128,248,1,1,7,0,0
+1511053907570,9,Register Page,200,OK,Users (not logged in) 1-5,text,true,,5424,251,1,1,9,0,0
+1511054460816,179,Home Page,200,OK,Users (not logged in) 1-1,text,true,,15190,159,2,3,176,0,47
+1511054460997,121,Lottery Page,200,OK,Users (not logged in) 1-1,text,true,,8818,168,2,3,121,0,1
+1511054460965,179,Home Page,200,OK,Users (not logged in) 1-2,text,true,,15190,159,2,3,176,0,1
+1511054461119,98,Card Page,200,OK,Users (not logged in) 1-1,text,true,,12036,164,3,4,98,0,2
+1511054461145,151,Lottery Page,200,OK,Users (not logged in) 1-2,text,true,,8818,168,3,4,133,0,1
+1511054461218,81,Search Page,200,OK,Users (not logged in) 1-1,text,true,,4991,165,3,4,81,0,1
+1511054461300,26,Login Page,200,OK,Users (not logged in) 1-1,text,true,,4128,164,3,4,25,0,0
+1511054461169,176,Home Page,200,OK,Users (not logged in) 1-3,text,true,,15190,159,3,4,176,0,2
+1511054461297,65,Card Page,200,OK,Users (not logged in) 1-2,text,true,,12036,164,3,4,65,0,1
+1511054461326,42,Register Page,200,OK,Users (not logged in) 1-1,text,true,,5424,251,3,4,41,0,1
+1511054461363,43,Search Page,200,OK,Users (not logged in) 1-2,text,true,,4991,165,4,5,34,0,0
+1511054461406,34,Login Page,200,OK,Users (not logged in) 1-2,text,true,,4128,164,4,5,34,0,1
+1511054461441,31,Register Page,200,OK,Users (not logged in) 1-2,text,true,,5424,251,4,4,31,0,1
+1511054461345,142,Lottery Page,200,OK,Users (not logged in) 1-3,text,true,,8818,168,4,4,141,0,1
+1511054461487,74,Card Page,200,OK,Users (not logged in) 1-3,text,true,,12036,164,4,4,74,0,1
+1511054461561,22,Search Page,200,OK,Users (not logged in) 1-3,text,true,,4991,165,5,5,19,0,1
+1511054461369,233,Home Page,200,OK,Users (not logged in) 1-1,text,true,,15190,243,5,5,232,0,1
+1511054461583,27,Login Page,200,OK,Users (not logged in) 1-3,text,true,,4128,164,5,5,26,0,1
+1511054461611,20,Register Page,200,OK,Users (not logged in) 1-3,text,true,,5424,251,5,5,20,0,0
+1511054461473,188,Home Page,200,OK,Users (not logged in) 1-2,text,true,,15190,243,5,5,188,0,2
+1511054461377,294,Home Page,200,OK,Users (not logged in) 1-4,text,true,,15190,159,5,5,294,0,1
+1511054461602,111,Lottery Page,200,OK,Users (not logged in) 1-1,text,true,,8818,252,5,5,111,0,1
+1511054461576,186,Home Page,200,OK,Users (not logged in) 1-5,text,true,,15190,159,5,5,185,0,0
+1511054461714,79,Card Page,200,OK,Users (not logged in) 1-1,text,true,,12036,248,5,5,79,0,1
+1511054461672,125,Lottery Page,200,OK,Users (not logged in) 1-4,text,true,,8818,168,5,5,125,0,0
+1511054461662,154,Lottery Page,200,OK,Users (not logged in) 1-2,text,true,,8818,252,5,5,154,0,1
+1511054461632,186,Home Page,200,OK,Users (not logged in) 1-3,text,true,,15190,243,5,5,181,0,1
+1511054461794,39,Search Page,200,OK,Users (not logged in) 1-1,text,true,,4991,249,5,5,39,0,1
+1511054461763,84,Lottery Page,200,OK,Users (not logged in) 1-5,text,true,,8818,168,5,5,84,0,1
+1511054461798,56,Card Page,200,OK,Users (not logged in) 1-4,text,true,,12036,164,5,5,56,0,0
+1511054461834,23,Login Page,200,OK,Users (not logged in) 1-1,text,true,,4128,248,5,5,22,0,1
+1511054461855,29,Search Page,200,OK,Users (not logged in) 1-4,text,true,,4991,165,5,5,28,0,1
+1511054461817,67,Card Page,200,OK,Users (not logged in) 1-2,text,true,,12036,248,5,5,62,0,0
+1511054461857,51,Register Page,200,OK,Users (not logged in) 1-1,text,true,,5424,251,5,5,49,0,1
+1511054461818,95,Lottery Page,200,OK,Users (not logged in) 1-3,text,true,,8818,252,4,4,95,0,1
+1511054461848,75,Card Page,200,OK,Users (not logged in) 1-5,text,true,,12036,164,4,4,69,0,0
+1511054461886,42,Search Page,200,OK,Users (not logged in) 1-2,text,true,,4991,249,4,4,38,0,0
+1511054461928,18,Login Page,200,OK,Users (not logged in) 1-2,text,true,,4128,248,4,4,18,0,1
+1511054461885,63,Login Page,200,OK,Users (not logged in) 1-4,text,true,,4128,164,4,4,57,0,1
+1511054461924,41,Search Page,200,OK,Users (not logged in) 1-5,text,true,,4991,165,4,4,41,0,0
+1511054461948,24,Register Page,200,OK,Users (not logged in) 1-4,text,true,,5424,251,4,4,23,0,1
+1511054461914,68,Card Page,200,OK,Users (not logged in) 1-3,text,true,,12036,248,4,4,68,0,0
+1511054461947,39,Register Page,200,OK,Users (not logged in) 1-2,text,true,,5424,251,4,4,39,0,0
+1511054461965,25,Login Page,200,OK,Users (not logged in) 1-5,text,true,,4128,164,3,3,24,0,1
+1511054461983,18,Search Page,200,OK,Users (not logged in) 1-3,text,true,,4991,249,3,3,18,0,0
+1511054462001,16,Login Page,200,OK,Users (not logged in) 1-3,text,true,,4128,248,3,3,15,0,1
+1511054461991,39,Register Page,200,OK,Users (not logged in) 1-5,text,true,,5424,251,3,3,38,0,1
+1511054462018,17,Register Page,200,OK,Users (not logged in) 1-3,text,true,,5424,251,3,3,17,0,0
+1511054461973,75,Home Page,200,OK,Users (not logged in) 1-4,text,true,,15190,243,2,2,75,0,0
+1511054462049,51,Lottery Page,200,OK,Users (not logged in) 1-4,text,true,,8818,252,2,2,51,0,0
+1511054462031,74,Home Page,200,OK,Users (not logged in) 1-5,text,true,,15190,243,2,2,74,0,1
+1511054462101,35,Card Page,200,OK,Users (not logged in) 1-4,text,true,,12036,248,2,2,35,0,0
+1511054462136,21,Search Page,200,OK,Users (not logged in) 1-4,text,true,,4991,249,2,2,21,0,2
+1511054462105,55,Lottery Page,200,OK,Users (not logged in) 1-5,text,true,,8818,252,2,2,55,0,0
+1511054462158,11,Login Page,200,OK,Users (not logged in) 1-4,text,true,,4128,248,2,2,11,0,0
+1511054462170,15,Register Page,200,OK,Users (not logged in) 1-4,text,true,,5424,251,2,2,14,0,1
+1511054462160,31,Card Page,200,OK,Users (not logged in) 1-5,text,true,,12036,248,1,1,30,0,1
+1511054462191,9,Search Page,200,OK,Users (not logged in) 1-5,text,true,,4991,249,1,1,9,0,0
+1511054462200,9,Login Page,200,OK,Users (not logged in) 1-5,text,true,,4128,248,1,1,9,0,1
+1511054462209,10,Register Page,200,OK,Users (not logged in) 1-5,text,true,,5424,251,1,1,10,0,1
+1511056516067,1018,Home Page,200,OK,Users (not logged in) 1-2,text,true,,15190,159,5,5,1018,0,1
+1511056516471,621,Home Page,200,OK,Users (not logged in) 1-4,text,true,,15190,159,5,5,619,0,1
+1511056516269,830,Home Page,200,OK,Users (not logged in) 1-3,text,true,,15190,159,5,5,829,0,1
+1511056516671,444,Home Page,200,OK,Users (not logged in) 1-5,text,true,,15190,159,5,5,438,0,1
+1511056515926,1191,Home Page,200,OK,Users (not logged in) 1-1,text,true,,15190,159,5,5,1191,0,50
+1511056517085,70,Lottery Page,200,OK,Users (not logged in) 1-2,text,true,,8818,168,5,5,70,0,1
+1511056517156,50,Card Page,200,OK,Users (not logged in) 1-2,text,true,,12036,164,5,5,50,0,0
+1511056517092,144,Lottery Page,200,OK,Users (not logged in) 1-4,text,true,,8818,168,5,5,144,0,1
+1511056517116,125,Lottery Page,200,OK,Users (not logged in) 1-5,text,true,,8818,168,5,5,124,0,0
+1511056517100,148,Lottery Page,200,OK,Users (not logged in) 1-3,text,true,,8818,168,5,5,146,0,0
+1511056517116,145,Lottery Page,200,OK,Users (not logged in) 1-1,text,true,,8818,168,5,5,144,0,1
+1511056517207,61,Search Page,200,OK,Users (not logged in) 1-2,text,true,,4991,165,5,5,61,0,1
+1511056517268,30,Login Page,200,OK,Users (not logged in) 1-2,text,true,,4128,164,5,5,29,0,1
+1511056517237,64,Card Page,200,OK,Users (not logged in) 1-4,text,true,,12036,164,5,5,63,0,0
+1511056517241,68,Card Page,200,OK,Users (not logged in) 1-5,text,true,,12036,164,5,5,68,0,0
+1511056517261,63,Card Page,200,OK,Users (not logged in) 1-1,text,true,,12036,164,5,5,61,0,0
+1511056517249,79,Card Page,200,OK,Users (not logged in) 1-3,text,true,,12036,164,5,5,79,0,0
+1511056517302,40,Search Page,200,OK,Users (not logged in) 1-4,text,true,,4991,165,5,5,34,0,0
+1511056517299,46,Register Page,200,OK,Users (not logged in) 1-2,text,true,,5424,251,5,5,42,0,0
+1511056517310,36,Search Page,200,OK,Users (not logged in) 1-5,text,true,,4991,165,5,5,35,0,0
+1511056517324,51,Search Page,200,OK,Users (not logged in) 1-1,text,true,,4991,165,5,5,48,0,1
+1511056517329,60,Search Page,200,OK,Users (not logged in) 1-3,text,true,,4991,165,5,5,55,0,0
+1511056517342,47,Login Page,200,OK,Users (not logged in) 1-4,text,true,,4128,164,5,5,40,0,1
+1511056517346,49,Login Page,200,OK,Users (not logged in) 1-5,text,true,,4128,164,5,5,49,0,0
+1511056517389,29,Register Page,200,OK,Users (not logged in) 1-4,text,true,,5424,251,5,5,29,0,1
+1511056517389,38,Login Page,200,OK,Users (not logged in) 1-3,text,true,,4128,164,5,5,37,0,0
+1511056517375,65,Login Page,200,OK,Users (not logged in) 1-1,text,true,,4128,164,5,5,65,0,3
+1511056517346,106,Home Page,200,OK,Users (not logged in) 1-2,text,true,,15190,243,5,5,106,0,0
+1511056517396,71,Register Page,200,OK,Users (not logged in) 1-5,text,true,,5424,251,5,5,67,0,0
+1511056517427,53,Register Page,200,OK,Users (not logged in) 1-3,text,true,,5424,251,5,5,53,0,1
+1511056517441,42,Register Page,200,OK,Users (not logged in) 1-1,text,true,,5424,251,5,5,34,0,1
+1511056517419,97,Home Page,200,OK,Users (not logged in) 1-4,text,true,,15190,243,5,5,96,0,1
+1511056517452,89,Lottery Page,200,OK,Users (not logged in) 1-2,text,true,,8818,252,5,5,89,0,0
+1511056517541,57,Card Page,200,OK,Users (not logged in) 1-2,text,true,,12036,248,5,5,56,0,1
+1511056517481,154,Home Page,200,OK,Users (not logged in) 1-3,text,true,,15190,243,5,5,154,0,1
+1511056517468,175,Home Page,200,OK,Users (not logged in) 1-5,text,true,,15190,243,5,5,175,0,2
+1511056517598,46,Search Page,200,OK,Users (not logged in) 1-2,text,true,,4991,249,5,5,41,0,1
+1511056517516,133,Lottery Page,200,OK,Users (not logged in) 1-4,text,true,,8818,252,5,5,132,0,0
+1511056517484,182,Home Page,200,OK,Users (not logged in) 1-1,text,true,,15190,243,5,5,182,0,1
+1511056517644,23,Login Page,200,OK,Users (not logged in) 1-2,text,true,,4128,248,5,5,23,0,1
+1511056517668,21,Register Page,200,OK,Users (not logged in) 1-2,text,true,,5424,251,5,5,21,0,2
+1511056517635,74,Lottery Page,200,OK,Users (not logged in) 1-3,text,true,,8818,252,4,4,74,0,1
+1511056517649,77,Card Page,200,OK,Users (not logged in) 1-4,text,true,,12036,248,4,4,75,0,1
+1511056517644,98,Lottery Page,200,OK,Users (not logged in) 1-5,text,true,,8818,252,4,4,97,0,0
+1511056517667,93,Lottery Page,200,OK,Users (not logged in) 1-1,text,true,,8818,252,4,4,92,0,1
+1511056517710,55,Card Page,200,OK,Users (not logged in) 1-3,text,true,,12036,248,4,4,55,0,1
+1511056517726,39,Search Page,200,OK,Users (not logged in) 1-4,text,true,,4991,249,4,4,36,0,1
+1511056517766,33,Search Page,200,OK,Users (not logged in) 1-3,text,true,,4991,249,4,4,30,0,0
+1511056517742,59,Card Page,200,OK,Users (not logged in) 1-5,text,true,,12036,248,4,4,57,0,1
+1511056517760,44,Card Page,200,OK,Users (not logged in) 1-1,text,true,,12036,248,4,4,43,0,1
+1511056517766,40,Login Page,200,OK,Users (not logged in) 1-4,text,true,,4128,248,4,4,39,0,1
+1511056517799,36,Login Page,200,OK,Users (not logged in) 1-3,text,true,,4128,248,4,4,33,0,1
+1511056517804,33,Search Page,200,OK,Users (not logged in) 1-1,text,true,,4991,249,4,4,31,0,0
+1511056517806,35,Register Page,200,OK,Users (not logged in) 1-4,text,true,,5424,251,4,4,34,0,0
+1511056517801,46,Search Page,200,OK,Users (not logged in) 1-5,text,true,,4991,249,3,3,44,0,1
+1511056517836,29,Register Page,200,OK,Users (not logged in) 1-3,text,true,,5424,251,3,3,26,0,0
+1511056517837,28,Login Page,200,OK,Users (not logged in) 1-1,text,true,,4128,248,2,2,28,0,0
+1511056517847,27,Login Page,200,OK,Users (not logged in) 1-5,text,true,,4128,248,2,2,22,0,0
+1511056517866,11,Register Page,200,OK,Users (not logged in) 1-1,text,true,,5424,251,2,2,11,0,0
+1511056517874,11,Register Page,200,OK,Users (not logged in) 1-5,text,true,,5424,251,1,1,11,0,1
+1511066263259,293,Home Page,200,OK,Users (not logged in) 1-2,text,true,,15190,159,3,4,286,0,1
+1511066263155,432,Home Page,200,OK,Users (not logged in) 1-1,text,true,,15190,159,3,4,432,0,81
+1511066263589,144,Lottery Page,200,OK,Users (not logged in) 1-1,text,true,,8818,168,4,5,140,0,1
+1511066263553,201,Lottery Page,200,OK,Users (not logged in) 1-2,text,true,,8818,168,4,5,201,0,1
+1511066263459,311,Home Page,200,OK,Users (not logged in) 1-3,text,true,,15190,159,4,5,285,0,1
+1511066263755,148,Card Page,200,OK,Users (not logged in) 1-2,text,true,,12036,164,5,6,133,0,0
+1511066263737,187,Card Page,200,OK,Users (not logged in) 1-1,text,true,,12036,164,5,6,171,0,1
+1511066263663,289,Home Page,200,OK,Users (not logged in) 1-4,text,true,,15190,159,5,6,258,0,1
+1511066263904,95,Search Page,200,OK,Users (not logged in) 1-2,text,true,,4991,165,5,6,84,0,0
+1511066263924,92,Search Page,200,OK,Users (not logged in) 1-1,text,true,,4991,165,5,6,91,0,1
+1511066263771,250,Lottery Page,200,OK,Users (not logged in) 1-3,text,true,,8818,168,5,6,250,0,1
+1511066264017,68,Login Page,200,OK,Users (not logged in) 1-1,text,true,,4128,164,5,6,68,0,1
+1511066263999,92,Login Page,200,OK,Users (not logged in) 1-2,text,true,,4128,164,5,6,81,0,1
+1511066263952,175,Lottery Page,200,OK,Users (not logged in) 1-4,text,true,,8818,168,5,6,174,0,1
+1511066264022,150,Card Page,200,OK,Users (not logged in) 1-3,text,true,,12036,164,5,6,144,0,1
+1511066264086,128,Register Page,200,OK,Users (not logged in) 1-1,text,true,,5424,251,5,6,127,0,3
+1511066263864,354,Home Page,200,OK,Users (not logged in) 1-5,text,true,,15190,159,5,6,339,0,4
+1511066264128,127,Card Page,200,OK,Users (not logged in) 1-4,text,true,,12036,164,5,6,127,0,4
+1511066264093,176,Register Page,200,OK,Users (not logged in) 1-2,text,true,,5424,251,5,5,149,0,4
+1511066264172,123,Search Page,200,OK,Users (not logged in) 1-3,text,true,,4991,165,5,5,97,0,1
+1511066264256,64,Search Page,200,OK,Users (not logged in) 1-4,text,true,,4991,165,5,5,63,0,5
+1511066264295,59,Login Page,200,OK,Users (not logged in) 1-3,text,true,,4128,164,5,5,39,0,2
+1511066264321,56,Login Page,200,OK,Users (not logged in) 1-4,text,true,,4128,164,5,5,52,0,1
+1511066264354,26,Register Page,200,OK,Users (not logged in) 1-3,text,true,,5424,251,5,5,26,0,1
+1511066264378,54,Register Page,200,OK,Users (not logged in) 1-4,text,true,,5424,251,5,5,54,0,0
+1511066264218,216,Lottery Page,200,OK,Users (not logged in) 1-5,text,true,,8818,168,5,5,212,0,1
+1511066264215,230,Home Page,200,OK,Users (not logged in) 1-1,text,true,,15190,243,5,5,229,0,1
+1511066264440,91,Card Page,200,OK,Users (not logged in) 1-5,text,true,,12036,164,5,5,91,0,1
+1511066264531,44,Search Page,200,OK,Users (not logged in) 1-5,text,true,,4991,165,5,5,22,0,1
+1511066264270,310,Home Page,200,OK,Users (not logged in) 1-2,text,true,,15190,243,5,5,310,0,2
+1511066264576,21,Login Page,200,OK,Users (not logged in) 1-5,text,true,,4128,164,5,5,19,0,2
+1511066264445,177,Lottery Page,200,OK,Users (not logged in) 1-1,text,true,,8818,252,5,5,173,0,1
+1511066264597,39,Register Page,200,OK,Users (not logged in) 1-5,text,true,,5424,251,5,5,39,0,2
+1511066264381,285,Home Page,200,OK,Users (not logged in) 1-3,text,true,,15190,243,5,5,284,0,0
+1511066264433,250,Home Page,200,OK,Users (not logged in) 1-4,text,true,,15190,243,5,5,250,0,3
+1511066264622,82,Card Page,200,OK,Users (not logged in) 1-1,text,true,,12036,248,5,5,82,0,1
+1511066264581,154,Lottery Page,200,OK,Users (not logged in) 1-2,text,true,,8818,252,5,5,153,0,1
+1511066264704,51,Search Page,200,OK,Users (not logged in) 1-1,text,true,,4991,249,5,5,50,0,1
+1511066264756,16,Login Page,200,OK,Users (not logged in) 1-1,text,true,,4128,248,5,5,15,0,1
+1511066264773,24,Register Page,200,OK,Users (not logged in) 1-1,text,true,,5424,251,5,5,24,0,5
+1511066264736,77,Card Page,200,OK,Users (not logged in) 1-2,text,true,,12036,248,4,4,76,0,0
+1511066264667,178,Lottery Page,200,OK,Users (not logged in) 1-3,text,true,,8818,252,4,4,178,0,0
+1511066264814,73,Search Page,200,OK,Users (not logged in) 1-2,text,true,,4991,249,4,4,54,0,2
+1511066264683,227,Lottery Page,200,OK,Users (not logged in) 1-4,text,true,,8818,252,4,4,205,0,1
+1511066264637,283,Home Page,200,OK,Users (not logged in) 1-5,text,true,,15190,243,4,4,276,0,3
+1511066264888,52,Login Page,200,OK,Users (not logged in) 1-2,text,true,,4128,248,4,4,47,0,1
+1511066264846,102,Card Page,200,OK,Users (not logged in) 1-3,text,true,,12036,248,4,4,102,0,7
+1511066264941,33,Register Page,200,OK,Users (not logged in) 1-2,text,true,,5424,251,4,4,33,0,1
+1511066264949,41,Search Page,200,OK,Users (not logged in) 1-3,text,true,,4991,249,3,3,41,0,1
+1511066264920,96,Lottery Page,200,OK,Users (not logged in) 1-5,text,true,,8818,252,3,3,96,0,1
+1511066264911,110,Card Page,200,OK,Users (not logged in) 1-4,text,true,,12036,248,3,3,109,0,2
+1511066264990,50,Login Page,200,OK,Users (not logged in) 1-3,text,true,,4128,248,3,3,50,0,4
+1511066265021,44,Search Page,200,OK,Users (not logged in) 1-4,text,true,,4991,249,3,3,43,0,0
+1511066265041,54,Register Page,200,OK,Users (not logged in) 1-3,text,true,,5424,251,3,3,49,0,0
+1511066265016,81,Card Page,200,OK,Users (not logged in) 1-5,text,true,,12036,248,2,2,80,0,1
+1511066265065,38,Login Page,200,OK,Users (not logged in) 1-4,text,true,,4128,248,2,2,37,0,0
+1511066265097,33,Search Page,200,OK,Users (not logged in) 1-5,text,true,,4991,249,2,2,33,0,3
+1511066265105,31,Register Page,200,OK,Users (not logged in) 1-4,text,true,,5424,251,2,2,31,0,2
+1511066265130,19,Login Page,200,OK,Users (not logged in) 1-5,text,true,,4128,248,1,1,19,0,1
+1511066265150,15,Register Page,200,OK,Users (not logged in) 1-5,text,true,,5424,251,1,1,15,0,0
+1511066273189,224,Home Page,200,OK,Users (not logged in) 1-1,text,true,,15190,159,2,2,223,0,70
+1511066273331,135,Home Page,200,OK,Users (not logged in) 1-2,text,true,,15190,159,2,2,135,0,1
+1511066273416,106,Lottery Page,200,OK,Users (not logged in) 1-1,text,true,,8818,168,2,2,105,0,1
+1511066273467,96,Lottery Page,200,OK,Users (not logged in) 1-2,text,true,,8818,168,3,3,96,0,3
+1511066273522,73,Card Page,200,OK,Users (not logged in) 1-1,text,true,,12036,164,3,3,68,0,1
+1511066273598,65,Search Page,200,OK,Users (not logged in) 1-1,text,true,,4991,165,3,3,65,0,1
+1511066273664,30,Login Page,200,OK,Users (not logged in) 1-1,text,true,,4128,164,3,3,26,0,0
+1511066273564,135,Card Page,200,OK,Users (not logged in) 1-2,text,true,,12036,164,3,3,126,0,0
+1511066273531,254,Home Page,200,OK,Users (not logged in) 1-3,text,true,,15190,159,4,4,253,0,1
+1511066273700,95,Search Page,200,OK,Users (not logged in) 1-2,text,true,,4991,165,4,4,84,0,1
+1511066273704,99,Register Page,200,OK,Users (not logged in) 1-1,text,true,,5424,251,4,4,92,0,1
+1511066273797,48,Login Page,200,OK,Users (not logged in) 1-2,text,true,,4128,164,4,4,48,0,1
+1511066273846,28,Register Page,200,OK,Users (not logged in) 1-2,text,true,,5424,251,4,4,27,0,1
+1511066273785,182,Lottery Page,200,OK,Users (not logged in) 1-3,text,true,,8818,168,5,5,182,0,12
+1511066273732,275,Home Page,200,OK,Users (not logged in) 1-4,text,true,,15190,159,5,5,274,0,2
+1511066273805,265,Home Page,200,OK,Users (not logged in) 1-1,text,true,,15190,243,5,5,262,0,1
+1511066273968,179,Card Page,200,OK,Users (not logged in) 1-3,text,true,,12036,164,5,5,179,0,1
+1511066273876,290,Home Page,200,OK,Users (not logged in) 1-2,text,true,,15190,243,5,5,280,0,1
+1511066274008,212,Lottery Page,200,OK,Users (not logged in) 1-4,text,true,,8818,168,5,5,210,0,0
+1511066273919,312,Home Page,200,OK,Users (not logged in) 1-5,text,true,,15190,159,5,5,311,0,9
+1511066274148,92,Search Page,200,OK,Users (not logged in) 1-3,text,true,,4991,165,5,5,89,0,2
+1511066274072,175,Lottery Page,200,OK,Users (not logged in) 1-1,text,true,,8818,252,5,5,167,0,0
+1511066274167,136,Lottery Page,200,OK,Users (not logged in) 1-2,text,true,,8818,252,5,5,130,0,1
+1511066274240,66,Login Page,200,OK,Users (not logged in) 1-3,text,true,,4128,164,5,5,65,0,1
+1511066274221,131,Card Page,200,OK,Users (not logged in) 1-4,text,true,,12036,164,5,5,131,0,1
+1511066274306,46,Register Page,200,OK,Users (not logged in) 1-3,text,true,,5424,251,5,5,42,0,6
+1511066274304,124,Card Page,200,OK,Users (not logged in) 1-2,text,true,,12036,248,5,5,123,0,1
+1511066274231,212,Lottery Page,200,OK,Users (not logged in) 1-5,text,true,,8818,168,5,5,204,0,3
+1511066274248,204,Card Page,200,OK,Users (not logged in) 1-1,text,true,,12036,248,5,5,203,0,1
+1511066274352,104,Search Page,200,OK,Users (not logged in) 1-4,text,true,,4991,165,5,5,97,0,2
+1511066274430,76,Search Page,200,OK,Users (not logged in) 1-2,text,true,,4991,249,5,5,57,0,2
+1511066274444,90,Card Page,200,OK,Users (not logged in) 1-5,text,true,,12036,164,5,5,88,0,0
+1511066274457,80,Login Page,200,OK,Users (not logged in) 1-4,text,true,,4128,164,5,5,77,0,1
+1511066274352,199,Home Page,200,OK,Users (not logged in) 1-3,text,true,,15190,243,5,5,199,0,1
+1511066274452,100,Search Page,200,OK,Users (not logged in) 1-1,text,true,,4991,249,5,5,92,0,1
+1511066274507,57,Login Page,200,OK,Users (not logged in) 1-2,text,true,,4128,248,5,5,53,0,1
+1511066274538,78,Register Page,200,OK,Users (not logged in) 1-4,text,true,,5424,251,5,5,77,0,1
+1511066274552,64,Login Page,200,OK,Users (not logged in) 1-1,text,true,,4128,248,5,5,59,0,1
+1511066274535,97,Search Page,200,OK,Users (not logged in) 1-5,text,true,,4991,165,5,5,76,0,1
+1511066274552,90,Lottery Page,200,OK,Users (not logged in) 1-3,text,true,,8818,252,5,5,90,0,0
+1511066274568,75,Register Page,200,OK,Users (not logged in) 1-2,text,true,,5424,251,5,5,63,0,1
+1511066274633,57,Login Page,200,OK,Users (not logged in) 1-5,text,true,,4128,164,4,4,56,0,1
+1511066274691,28,Register Page,200,OK,Users (not logged in) 1-5,text,true,,5424,251,4,4,25,0,2
+1511066274644,76,Card Page,200,OK,Users (not logged in) 1-3,text,true,,12036,248,4,4,62,0,0
+1511066274616,112,Register Page,200,OK,Users (not logged in) 1-1,text,true,,5424,251,4,4,111,0,1
+1511066274722,40,Search Page,200,OK,Users (not logged in) 1-3,text,true,,4991,249,3,3,39,0,1
+1511066274762,23,Login Page,200,OK,Users (not logged in) 1-3,text,true,,4128,248,3,3,19,0,2
+1511066274616,201,Home Page,200,OK,Users (not logged in) 1-4,text,true,,15190,243,3,3,200,0,1
+1511066274785,48,Register Page,200,OK,Users (not logged in) 1-3,text,true,,5424,251,3,3,44,0,1
+1511066274722,122,Home Page,200,OK,Users (not logged in) 1-5,text,true,,15190,243,2,2,121,0,0
+1511066274817,99,Lottery Page,200,OK,Users (not logged in) 1-4,text,true,,8818,252,2,2,99,0,1
+1511066274851,74,Lottery Page,200,OK,Users (not logged in) 1-5,text,true,,8818,252,2,2,68,0,1
+1511066274916,43,Card Page,200,OK,Users (not logged in) 1-4,text,true,,12036,248,2,2,42,0,1
+1511066274959,22,Search Page,200,OK,Users (not logged in) 1-4,text,true,,4991,249,2,2,22,0,4
+1511066274926,71,Card Page,200,OK,Users (not logged in) 1-5,text,true,,12036,248,2,2,59,0,1
+1511066274982,21,Login Page,200,OK,Users (not logged in) 1-4,text,true,,4128,248,2,2,21,0,0
+1511066274998,22,Search Page,200,OK,Users (not logged in) 1-5,text,true,,4991,249,2,2,22,0,2
+1511066275003,33,Register Page,200,OK,Users (not logged in) 1-4,text,true,,5424,251,2,2,32,0,1
+1511066275020,25,Login Page,200,OK,Users (not logged in) 1-5,text,true,,4128,248,1,1,25,0,1
+1511066275048,20,Register Page,200,OK,Users (not logged in) 1-5,text,true,,5424,251,1,1,20,0,0
