@@ -8,22 +8,26 @@ if ! ls | grep bin >/dev/null; then
 	fi
 fi
 
-# Check if container is up to date:
-# - Doesn't exist
-# - Never ran diff before
-# - On new branch since last run
-# - Dockerfile was changed since last run
-if [[ -z "$(docker images -q hauptmedia/jmeter 2>/dev/null)" || \
-	! -s .previouscommit || \
-	"$(md5 -q Dockerfile_jmeter)" != "$(cat .previouscommit)" ]]; then
-	echo "🛠  Building hauptmedia/jmeter"
-	echo '—————————————————————————————————————————————'
-	docker build -t hauptmedia/jmeter -f Dockerfile_jmeter .
-else
-	echo '⏩  Skipping build'
-	rm -f .previouscommit
-fi
+if [ "$(docker inspect -f '{{.State.Running}}' app_web_1)" == "true" ]; then
+	# Check if container is up to date:
+	# - Doesn't exist
+	# - Never ran diff before
+	# - On new branch since last run
+	# - Dockerfile was changed since last run
+	if [[ -z "$(docker images -q hauptmedia/jmeter 2>/dev/null)" || \
+		! -s .previouscommit || \
+		"$(md5 -q Dockerfile_jmeter)" != "$(cat .previouscommit)" ]]; then
+		echo "🛠  Building hauptmedia/jmeter"
+		echo '—————————————————————————————————————————————'
+		docker build -t hauptmedia/jmeter -f Dockerfile_jmeter .
+	else
+		echo '⏩  Skipping build'
+		rm -f .previouscommit
+	fi
 
-docker run --name jmeter --net=host -v "$(pwd)/jmeter:/opt/jmeter/vol" hauptmedia/jmeter sh -c "chmod +x -R vol && ./vol/test" || docker start -ia jmeter
-echo "-------------------------------------------------------------------------------"
-echo "Check the results of the tests by viewing jmeter/report/index.html in a browser"
+	docker run --name jmeter --net=host -v "$(pwd)/jmeter:/opt/jmeter/vol" hauptmedia/jmeter sh -c "chmod +x -R vol && ./vol/test" || docker start -ia jmeter
+	echo "-------------------------------------------------------------------------------"
+	echo "Check the results of the tests by viewing jmeter/report/index.html in a browser"
+else
+	echo "Make sure to run ./bin/start before running tests!"
+fi
