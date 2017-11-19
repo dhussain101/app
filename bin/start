@@ -56,4 +56,6 @@ echo '⚓️  Composing'
 echo '—————————————————————————————————————————————'
 docker-compose up -d
 
+./bin/haproxy-start
+
 unset response
