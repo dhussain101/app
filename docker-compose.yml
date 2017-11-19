@@ -1,13 +1,6 @@
-models:
-   image: djangorest
-   external_links:
-      - mysql:db
-   ports:
-      - "8001:8000"
-   volumes:
-      - ./models:/app
-   stdin_open: true
-   command: bash -c "python manage.py collectstatic --noinput > /dev/null && python manage.py makemigrations models_app && python manage.py migrate && python manage.py loaddata db.json && mod_wsgi-express start-server --working-directory . --url-alias /static build/static --reload-on-changes --log-to-terminal models/wsgi.py"
+#
+# Third-party
+#
 
 kafka:
    image: spotify/kafka
@@ -22,6 +15,28 @@ es:
    container_name: es
    ports:
       - "9200:9200"
+
+redis:
+    image: redis
+    container_name: redis
+    hostname: redis
+    ports:
+        - "6379:6379"
+
+#
+# First-party
+#
+
+models:
+   image: djangorest
+   external_links:
+      - mysql:db
+   ports:
+      - "8001:8000"
+   volumes:
+      - ./models:/app
+   stdin_open: true
+   command: bash -c "python manage.py collectstatic --noinput > /dev/null && python manage.py makemigrations models_app && python manage.py migrate && python manage.py loaddata db.json && mod_wsgi-express start-server --working-directory . --url-alias /static build/static --reload-on-changes --log-to-terminal models/wsgi.py"
 
 exp:
    image: djangorest
@@ -40,6 +55,7 @@ web:
    image: djangorest
    links:
       - exp:exp-api
+      - redis:redis
    ports:
       - "8000:8000"
    volumes:
