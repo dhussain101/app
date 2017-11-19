@@ -1,9 +1,12 @@
 # ISA
 
+- [Getting Started](#getting-started)
+- [User Stories](#user-stories)
+
 ## Getting Started
 ### Quickstart (download/build/run containers)
 
-Run this command from the top level directory:
+Run this command from the top-level directory:
 
 ```bash
 bin/start
@@ -24,6 +27,7 @@ bin/wipe-all
 ```
 
 ### Run Jmeter performance tests
+
 ```bash
 bin/jmeter-test
 ```
