@@ -21,8 +21,8 @@ if [ "$(docker inspect -f '{{.State.Running}}' app_web_1)" == "true" ]; then
 
 		# if the syntax is valid, build the new HAProxy container
 		if [ $? -eq 0 ]; then
-			docker stop my-running-haproxy
-			docker rm my-running-haproxy
+			docker stop my-running-haproxy 2>/dev/null
+			docker rm my-running-haproxy 2>/dev/null
 			docker run -d -p 8000:80 --name my-running-haproxy my-haproxy -f haproxy.cfg
 		fi
 	else
