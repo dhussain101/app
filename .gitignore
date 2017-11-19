@@ -169,4 +169,4 @@ venv.bak/
 # Jmeter
 *.jtl
 jmeter/report/*
-jmeter/jmeter_log
+jmeter/log*

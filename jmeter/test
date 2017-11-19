@@ -1,0 +1,5 @@
+cd vol
+rm log.jtl
+rm -rf report
+cd ../bin
+./jmeter -n -t ../vol/test_plan.jmx -l ../vol/log.jtl -e -o ../vol/report -H localhost -P 8000

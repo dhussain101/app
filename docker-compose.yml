@@ -57,6 +57,3 @@ batch:
       - kafka:kafka
       - es:es
    command: bash -c "python search.py es kafka"
-
-jmeter:
-   image: hauptmedia/jmeter

@@ -8,6 +8,31 @@ if ! ls | grep bin >/dev/null; then
 	fi
 fi
 
-rm jmeter/log.jtl
-rm -rf jmeter/report
-jmeter -n -t jmeter/test_plan.jmx -l jmeter/log.jtl -e -o jmeter/report -H localhost -P 8000
+# Check if container is up to date:
+# - Doesn't exist
+# - Never ran diff before
+# - On new branch since last run
+# - Dockerfile was changed since last run
+if [[ -z "$(docker images -q hauptmedia/jmeter 2>/dev/null)" || \
+	! -s .previouscommit || \
+	"$(md5 -q Dockerfile_jmeter)" != "$(cat .previouscommit)" ]]; then
+	echo "🛠  Building hauptmedia/jmeter"
+	echo '—————————————————————————————————————————————'
+	docker build -t hauptmedia/jmeter -f Dockerfile_jmeter .
+else
+	echo '⏩  Skipping build'
+	rm -f .previouscommit
+fi
+
+regex_inspect="\"IPAddress\": \"([0-9\.]+)\","
+
+INSPECT="$(docker inspect mysql)"
+if [[ $INSPECT =~ $regex_inspect ]]
+then
+	ip="${BASH_REMATCH[1]}"
+	docker run --name jmeter --net=host -v "$(pwd)/jmeter:/opt/jmeter/vol" hauptmedia/jmeter sh -c "chmod +x -R vol && ./vol/test" || docker start -ia jmeter
+	echo "-------------------------------------------------------------------------------"
+	echo "Check the results of the tests by viewing jmeter/report/index.html in a browser"
+else
+	echo "can't find ip"
+fi
