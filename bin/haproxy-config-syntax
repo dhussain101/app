@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if ! ls | grep bin >/dev/null; then
+	cd ..
+	if ! ls | grep bin >/dev/null; then
+		echo 'Please run in project root directory!'
+		exit 1
+	fi
+fi
+
+docker build -t my-haproxy -f Dockerfile_haproxy .
+docker run -it --rm --name haproxy-syntax-check my-haproxy haproxy -c -f haproxy.cfg
