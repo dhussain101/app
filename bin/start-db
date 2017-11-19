@@ -17,6 +17,7 @@ if [[ -z "$(docker ps -aq -f name=mysql$ 2>/dev/null)" ]]; then
 	fi
 	read -r -p '🤔  Where is your db located? [~/cs4501/db] ' db_dir
 	echo
+	echo "${TRAVIS}"
 	if [[ -z "$db_dir" || "${TRAVIS}" ]]; then
 		db_dir="$HOME/cs4501/db"
 		echo "⚠️  Using default directory: $db_dir"
