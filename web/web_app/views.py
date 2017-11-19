@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.views.decorators.vary import vary_on_cookie
 
 from . import get, post, fill_defaults
 from .auth import render
@@ -8,6 +9,7 @@ from .auth.views import collect
 from .forms import *
 
 
+@vary_on_cookie
 def index(request):
     lottery_list = get('lottery-pane')
     card_list = get('card-pane')
@@ -19,6 +21,7 @@ def index(request):
     return render(request, 'index.html', context)
 
 
+@vary_on_cookie
 def lotteries(request):
     lottery_list = get('lottery-pane')
     context = {
@@ -29,6 +32,7 @@ def lotteries(request):
 
 
 @login_required
+@vary_on_cookie
 def lottery_create(request):
     form = None
     # if this is a POST request we need to process the form data
@@ -59,6 +63,7 @@ def lottery_create(request):
 
 
 @login_required
+@vary_on_cookie
 def card_create(request):
     form = None
     # if this is a POST request we need to process the form data
@@ -95,6 +100,7 @@ def card_create(request):
     return render(request, 'card-create.html', context)
 
 
+@vary_on_cookie
 def lottery_detail(request, pk):
     lottery_details = get('lottery-detail', pk)
     if not lottery_details:
@@ -102,6 +108,7 @@ def lottery_detail(request, pk):
     return render(request, 'lottery-detail.html', lottery_details)
 
 
+@vary_on_cookie
 def cards(request):
     card_list = get('card-pane')
     context = {
@@ -111,6 +118,7 @@ def cards(request):
     return render(request, 'cards.html', context)
 
 
+@vary_on_cookie
 def search(request):
     data = request.GET
     if not data or not any(map(lambda x: x in request.GET, ('lottery', 'card', 'title', 'description'))):
@@ -145,6 +153,7 @@ def search(request):
     return render(request, 'search.html', context)
 
 
+@vary_on_cookie
 def card_detail(request, pk):
     card_details = get('card-detail', pk)
     if not card_details:
@@ -152,5 +161,6 @@ def card_detail(request, pk):
     return render(request, 'card-detail.html', card_details)
 
 
+@vary_on_cookie
 def bad_url(request):
     return render(request, '404.html', {})
