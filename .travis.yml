@@ -7,8 +7,6 @@ python:
     - "3.5"
 env:
     - TEST_DIR=models
-    - TEST_DIR=exp
-    - TEST_DIR=web
 script:
     - bin/start
     - cd $TEST_DIR && python manage.py test
