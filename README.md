@@ -21,8 +21,13 @@ Database is broken? Want to blow it up? Run this:
 
 ```bash
 bin/wipe-all
-
 ```
+
+### Run Jmeter performance tests
+```bash
+bin/jmeter-test
+```
+
 ## User stories
 
 1. As a user, I want to view a list of users and bids that have already been placed in each lottery so I can determine if I want to place a bid.

@@ -40,7 +40,7 @@ fi
 if [[ -z "$(docker images -q djangorest 2>/dev/null)" || \
 	! -s .previouscommit || \
 	"$(md5 -q Dockerfile)" != "$(cat .previouscommit)" ]]; then
-	echo '🛠  Building djangorest'
+	echo "🛠  Building djangorest"
 	echo '—————————————————————————————————————————————'
 	docker build -t djangorest .
 else
@@ -54,6 +54,6 @@ md5 -q Dockerfile > .previouscommit
 echo
 echo '⚓️  Composing'
 echo '—————————————————————————————————————————————'
-docker-compose up
+docker-compose up -d
 
 unset response

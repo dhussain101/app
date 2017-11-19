@@ -165,3 +165,8 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Jmeter
+*.jtl
+jmeter/report/*
+jmeter/log*
