@@ -1,4 +1,5 @@
 {% load sass_tags %}
+{% load cache %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +20,7 @@
 </head>
 <body>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+{% cache 900 navigation request.user.username %}
 	<header class="mdl-layout__header">
 		<div class="mdl-layout__header-row">
 			{# Title #}
@@ -70,6 +72,7 @@
 			<a class="mdl-navigation__link" href="{% url 'cards' %}">Cards</a>
 		</nav>
 	</div>
+{% endcache %}
 	<main class="mdl-layout__content">
 		<div class="page-content">
 			{% block content %}
