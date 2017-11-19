@@ -8,7 +8,7 @@ python:
 env:
     - TEST_DIR=models
 before_install:
-    - mkdir ~/cs4501/db
+    - mkdir -p ~/cs4501/db
     - docker run --name mysql -d -e MYSQL\_ROOT\_PASSWORD='$3cureUS' -v ~/cs4501/db:/var/lib/mysql  mysql:5.7.14
     - sleep 10
     - docker ps -a
