@@ -15,11 +15,11 @@ if [[ -z "$(docker ps -aq -f name=mysql$ 2>/dev/null)" ]]; then
 		echo '🌐  Downloading mysql:5.7.14'
 		docker pull mysql:5.7.14
 	fi
-	read -r -p '🤔  Where is your db located? [~/cs4501/db] ' db_dir
-	echo
-	echo "${TEST_DIR}"
-	echo "HERE"
-	if [[ -z "$db_dir" || "${TRAVIS}" ]]; then
+	if [[ ! "${TRAVIS}" ]]; then
+		read -r -p '🤔  Where is your db located? [~/cs4501/db] ' db_dir
+		echo
+	fi
+	if [[ "${TRAVIS}" || -z "$db_dir" ]]; then
 		db_dir="$HOME/cs4501/db"
 		echo "⚠️  Using default directory: $db_dir"
 	fi
