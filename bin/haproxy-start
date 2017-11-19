@@ -8,12 +8,26 @@ if ! ls | grep bin >/dev/null; then
 	fi
 fi
 
-docker build -t my-haproxy -f Dockerfile_haproxy .
-docker run -it --rm --name haproxy-syntax-check my-haproxy haproxy -c -f haproxy.cfg
+if [ "$(docker inspect -f '{{.State.Running}}' app_web_1)" == "true" ]; then
 
-# if the syntax is valid, build the new HAProxy container
-if [ $? -eq 0 ]; then
-	docker stop my-running-haproxy
-	docker rm my-running-haproxy
-	docker run -d -p 8000:80 --name my-running-haproxy my-haproxy -f haproxy.cfg
+	regex_inspect="\"IPAddress\": \"([0-9\.]+)\","
+	INSPECT="$(docker inspect app_web_1)"
+	if [[ $INSPECT =~ $regex_inspect ]]
+	then
+		ip="${BASH_REMATCH[1]}"
+
+		docker build --build-arg webip="${ip}" -t my-haproxy -f Dockerfile_haproxy .
+		docker run -it --rm --name haproxy-syntax-check my-haproxy haproxy -c -f haproxy.cfg
+
+		# if the syntax is valid, build the new HAProxy container
+		if [ $? -eq 0 ]; then
+			docker stop my-running-haproxy
+			docker rm my-running-haproxy
+			docker run -d -p 8000:80 --name my-running-haproxy my-haproxy -f haproxy.cfg
+		fi
+	else
+		echo "Couldn't get IP address for app_web_1"
+	fi
+else
+	echo "Make sure the web container is running (./bin/start) before starting HAProxy."
 fi

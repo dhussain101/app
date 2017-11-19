@@ -1,2 +1,6 @@
 FROM haproxy:1.7
+
+ARG webip=test
+
+ENV WEBIP $webip
 COPY haproxy.cfg haproxy.cfg
