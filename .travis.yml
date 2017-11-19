@@ -1,6 +1,22 @@
 language: python
+
+services:
+    - mysql
+
 python:
-  - "3.5"
+    - "3.5"
+
+env:
+    - DB=mysql
+    - TEST_DIR=models
+    - TEST_DIR=exp
+    - TEST_DIR=web
+
 install:
+
+before_script:
+    - python manage.py migrate
+
 script:
-  - bin/start
+    - bin/start
+    - cd $TEST_DIR && python manage.py test
