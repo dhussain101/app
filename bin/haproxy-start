@@ -10,3 +10,10 @@ fi
 
 docker build -t my-haproxy -f Dockerfile_haproxy .
 docker run -it --rm --name haproxy-syntax-check my-haproxy haproxy -c -f haproxy.cfg
+
+# if the syntax is valid, build the new HAProxy container
+if [ $? -eq 0 ]; then
+	docker stop my-running-haproxy
+	docker rm my-running-haproxy
+	docker run -d -p 8000:80 --name my-running-haproxy my-haproxy -f haproxy.cfg
+fi

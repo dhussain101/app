@@ -41,7 +41,7 @@ web:
    links:
       - exp:exp-api
    ports:
-      - "8000:8000"
+      - "8003:8000"
    volumes:
       - ./web:/app
    stdin_open: true
