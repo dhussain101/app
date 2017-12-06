@@ -13,4 +13,3 @@ before_install:
     - sleep 10
 script:
     - bin/start
-    - cd $TEST_DIR && python manage.py test
