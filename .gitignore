@@ -1,4 +1,5 @@
-.previouscommit
+.lastdjango
+.lastjmeter
 migrations/
 build/static
 
