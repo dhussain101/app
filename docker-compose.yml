@@ -117,7 +117,7 @@ web:
    stdin_open: true
    command: bash -c "python manage.py collectstatic --noinput > /dev/null && python manage.py clear_cache > /dev/null && mod_wsgi-express start-server --working-directory . --document-root build --reload-on-changes --log-to-terminal web/wsgi.py"
 
-batch:
+batch-search:
    image: djangorest
    links:
       - kafka
@@ -125,4 +125,13 @@ batch:
    volumes:
       - ./batch:/app
       - ./models:/data
-   command: "python search.py es kafka"
+   command: "python search.py es"
+
+batch-recommend:
+   image: djangorest
+   links:
+      - kafka
+   volumes:
+      - ./batch:/app
+      - ./spark:/data
+   command: "python log.py"
