@@ -13,6 +13,12 @@ Run this command from the top-level directory:
 bin/start
 ```
 
+### To start up Spark in the background
+
+```bash
+bin/run-spark &
+```
+
 ### Drop into MySQL repl
 
 ```bash
