@@ -11,4 +11,5 @@ before_install:
     - sleep 10
 script:
     - bin/start
-    - docker exec web python manage.py test
+    - docker-compose exec web python manage.py test
+
