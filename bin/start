@@ -45,7 +45,18 @@ if [[ -z "$(docker images -q djangorest 2>/dev/null)" || \
 	docker build -t djangorest .
 	md5 -q Dockerfile > .lastdjango
 else
-	echo '⏩  Skipping build'
+	echo '⏩  Skipping djangorest build'
+fi
+
+if [[ -z "$(docker images -q spark 2>/dev/null)" || \
+	! -s .lastspark || \
+	"$(md5 -q spark/Dockerfile)" != "$(cat .lastspark)" ]]; then
+	echo '🛠  Building spark'
+	echo '—————————————————————————————————————————————'
+	docker build -t spark spark
+	md5 -q spark/Dockerfile > .lastspark
+else
+	echo '⏩  Skipping spark build'
 fi
 
 # Container is not running yet, so start it

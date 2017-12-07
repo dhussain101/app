@@ -1,5 +1,6 @@
 .lastdjango
 .lastjmeter
+.lastspark
 migrations/
 build/static
 
