@@ -170,3 +170,4 @@ venv.bak/
 *.jtl
 jmeter/report/*
 jmeter/log*
+.previouscommit
