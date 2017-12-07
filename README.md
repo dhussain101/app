@@ -1,6 +1,7 @@
 # ISA
 
 - [Getting Started](#getting-started)
+- [Running Commands](#running-commands)
 - [User Stories](#user-stories)
 
 ## Getting Started
@@ -30,6 +31,24 @@ bin/wipe-all
 
 ```bash
 bin/jmeter-test
+```
+
+## Running Commands
+
+You may want to run a command within a docker-compose service (e.g. `web`).
+For example, to open a Django shell on the `web` service:
+
+```bash
+docker-compose exec web python manage.py shell_plus
+```
+
+Other useful management commands include `clear_cache`, `reset_db`, and `syncdata`.
+More commands and details [here](https://django-extensions.readthedocs.io/en/latest/command_extensions.html).
+
+Along the same lines, a simple `bash` shell can be entered via:
+
+```bash
+docker-compose exec web bash
 ```
 
 ## User stories

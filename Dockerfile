@@ -23,7 +23,8 @@ RUN pip install --upgrade pip && pip install \
 	"libsass==0.13.2" \
 	"django-compressor==2.2" \
 	"django-sass-processor==0.5.5" \
-	"django-redis==4.8.0"
+	"django-redis==4.8.0" \
+	"django-extensions==1.9.8"
 
 ENV LANG=en_US.UTF-8 PYTHONHASHSEED=random \
 	PATH=/usr/local/python/bin:/usr/local/apache/bin:$PATH \

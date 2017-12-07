@@ -121,7 +121,7 @@ web:
    volumes:
       - ./web:/app
    stdin_open: true
-   command: bash -c "python manage.py collectstatic --noinput > /dev/null && mod_wsgi-express start-server --working-directory . --document-root build --reload-on-changes --log-to-terminal web/wsgi.py"
+   command: bash -c "python manage.py collectstatic --noinput > /dev/null && python manage.py clear_cache > /dev/null && mod_wsgi-express start-server --working-directory . --document-root build --reload-on-changes --log-to-terminal web/wsgi.py"
 
 batch:
    image: tp33/django
