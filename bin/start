@@ -19,14 +19,16 @@ fi
 bin/start-db
 echo
 
-# Check if custom container is running
-if [[ -n "$(docker ps -q -f name=djangorest -f status=running 2>/dev/null)" ]]; then
-	echo '⚠️  It looks like you'"'"'re already running the djangorest container.'
-	read -r -p 'Would you like to restart djangorest? [y/N] ' response
+# Check if docker-compose is already up
+if docker-compose ps -q web >/dev/null 2>&1; then
+	echo '⚠️  It looks like you'"'"'re already running docker-compose.'
+	read -r -p 'Would you like to restart it? [y/N] ' response
+	echo
 	if [[ "$response" == 'y' || "$response" == 'Y' ]]; then
 		docker-compose down
 		echo
 	else
+		echo '👌 Aborting'
 		unset response
 		exit
 	fi
