@@ -40,9 +40,9 @@ def missing_param(body, params):
     return False
 
 
-def kafka_add(listing):
+def kafka_add(topic, listing):
     producer = KafkaProducer(bootstrap_servers='kafka:9092')
-    producer.send('new_listing', dumps(listing).encode('utf-8'))
+    producer.send(topic, dumps(listing).encode('utf-8'))
 
 
 def forward_get(request, model_api, required_params):
@@ -68,6 +68,6 @@ def forward_post(request, model_api, required_data):
 
     if response.ok:
         data['id'] = response.json()['id']
-        kafka_add(data)
+        kafka_add('new_listing', data)
 
     return HttpResponse(status=response.status_code)

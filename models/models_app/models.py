@@ -26,6 +26,7 @@ class Authenticator(models.Model):
         return {
             'authenticator': self.authenticator,
             'username': person.username,
+            'id': person.id,
             'first_name': person.first_name,
             'last_name': person.last_name,
             'currency': person.currency,

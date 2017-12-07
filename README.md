@@ -13,11 +13,13 @@ Run this command from the top-level directory:
 bin/start
 ```
 
-### To start up Spark in the background
+### To start up Spark, run:
 
 ```bash
-bin/run-spark &
+bin/spark -v
 ```
+
+Leave off the -v flag for quiet output.
 
 ### Drop into MySQL repl
 
@@ -73,3 +75,4 @@ docker-compose exec web bash
 12. As a user, I want new lotteries and cards that I add to show up in the search database so that I know others can find them.
 13. As a user, I want to be able to filter my searches so that I can find specific entries more easily.
 14. As a user, I want the search bar to be accessible at the top of all screens so that I can easily search from anywhere on the site.
+15. As a user, I want to be able to see recommended lotteries based on what lotteries are often accessed together by users.

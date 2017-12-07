@@ -2,7 +2,7 @@ from pyspark import SparkContext
 import itertools
 
 
-DEBUG = False
+DEBUG = True
 
 
 def test(rdd):
@@ -18,9 +18,9 @@ def test(rdd):
         print('----------------------------------------------------------')
 
 
-sc = SparkContext("spark://spark-master:7077", "PopularItems")
+sc = SparkContext("spark://spark-master:7077", "CoViews")
 
-data = sc.textFile("/tmp/data/test.log", 2)     # each worker loads a piece of the data file
+data = sc.textFile("/tmp/data/views.log", 2)     # each worker loads a piece of the data file
 
 # tab separated log file => (user_id, product_id)
 user_to_prod = data.map(lambda line: tuple(line.split("\t")))
@@ -62,6 +62,9 @@ if DEBUG:
 
 # filter out pairs with fewer than 3 clicks
 final_counts = prod_pair_to_clicks.filter(lambda row: row[1] >= 3)
+
+if DEBUG:
+    test(final_counts)
 
 # key value pairs of the form ((product_id_1, product_id_2), int holding unique clicks)
 output = final_counts.collect()

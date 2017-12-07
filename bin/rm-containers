@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-docker rm app_web_1
-docker rm app_exp_1
+docker stop $(docker ps -a -q)
 docker rm batch
 docker rm es
 docker rm kafka
-docker rm app_models_1
 docker rm jmeter
 docker rm my-running-haproxy
+docker rm $(docker ps -a -q -f name=app_)

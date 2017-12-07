@@ -2,7 +2,7 @@ from django.http import JsonResponse, HttpResponseBadRequest
 from django.views.decorators.csrf import csrf_exempt
 from elasticsearch import Elasticsearch
 
-from . import get, forward_post
+from . import get, forward_post, kafka_add
 
 
 def lottery_pane(_):
@@ -20,10 +20,16 @@ def game_pane(_):
     return JsonResponse(response, safe=False)
 
 
-def lottery_detail(_, pk):
+def lottery_detail(request, pk):
     lottery_details = get('lotteries', pk)
     if not lottery_details:
         return HttpResponseBadRequest()
+
+    # once we've verified the user is logged in
+    # send page view data to kafka consumer
+    user_id = request.GET['user_id']
+    if user_id != '':
+        kafka_add('new_view', (user_id, pk))
 
     lottery_details['participants'] = list(map(
         lambda user: get('users', user),
