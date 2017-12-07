@@ -58,10 +58,4 @@ docker-compose up -d
 
 ./bin/haproxy-start
 
-if [[ "${TRAVIS}" ]]; then
-	docker exec app_web_1 python manage.py test
-	docker exec app_models_1 python manage.py test
-	docker exec app_exp_1 python manage.py test
-fi
-
 unset response

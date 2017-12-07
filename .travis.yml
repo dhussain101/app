@@ -11,9 +11,4 @@ before_install:
     - sleep 10
 script:
     - bin/start
-    - docker start app_web_1
-    - docker exec app_web_1 python manage.py test
-    - docker start app_models_1
-    - docker exec app_models_1 python manage.py test
-    - docker start app_exp_1
-    - docker exec app_exp_1 python manage.py test
+    - docker exec web python manage.py test
