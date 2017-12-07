@@ -56,3 +56,8 @@ class CardViewSet(viewsets.ModelViewSet):
         'game': ('exact',),
         'title': ('contains',),
     }
+
+
+class LotteryRecommendationViewSet(viewsets.ModelViewSet):
+    queryset = LotteryRecommendation.objects.all()
+    serializer_class = LotteryRecommendationSerializer

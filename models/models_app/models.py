@@ -73,3 +73,8 @@ class Card(models.Model):
 
     def __str__(self):
         return ' '.join(['(game)', str(self.game), '(title)', self.title])
+
+
+class LotteryRecommendation(models.Model):
+    lottery = models.OneToOneField(Lottery)
+    recommended = models.ManyToManyField(Lottery, related_name='recommendations')
