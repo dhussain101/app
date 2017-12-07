@@ -1,4 +1,4 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseBadRequest
 from django.views.decorators.csrf import csrf_exempt
 from elasticsearch import Elasticsearch
 
@@ -46,16 +46,17 @@ def search(request):
         'sort': request.GET['sort'],
     }
 
-    sort_type = [{'_score' : {'order' : 'desc'}}]
+    sort_type = [{'_score': {'order': 'desc'}}]
     if pk['sort'] == 'alphabetical':
-        sort_type = [{'title' : {'order' : 'asc'}}]
+        sort_type = [{'title': {'order': 'asc'}}]
 
     # temporary hard-coded test pk
     # pk = {'query': 'pokemon', 'size': 5, 'index': 'lottery_index'}
     try:
         es = Elasticsearch(['es'])
         search_result = es.search(index=pk['index'],
-                                  body={'query': {'query': {'query_string': {'fields': pk['fields'].split(','), 'query': pk['query']}}},
+                                  body={'query': {'query': {
+                                      'query_string': {'fields': pk['fields'].split(','), 'query': pk['query']}}},
                                         'size': pk['size'], 'sort': sort_type})
     except Exception as ex:
         template = "An exception of type {0} occurred. Arguments:\n{1!r}"
@@ -72,3 +73,14 @@ def lottery_create(request):
 @csrf_exempt
 def card_create(request):
     return forward_post(request, 'cards', ['game', 'lottery', 'title', 'description', 'value'])
+
+
+def lottery_recommendations(_, pk):
+    response = get('recommendations', pk)
+    if not response:
+        return HttpResponseBadRequest()
+    response['recommended'] = list(map(
+        lambda lottery: get('lotteries', pk),
+        response['recommended'],
+    ))
+    return JsonResponse(response)

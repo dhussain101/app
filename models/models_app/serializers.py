@@ -89,7 +89,6 @@ class LotteryRecommendationSerializer(serializers.ModelSerializer):
     class Meta:
         model = LotteryRecommendation
         fields = (
-            'lottery',
             'recommended',
         )
         # This should not be edited over the API, only via spark's connection

@@ -66,7 +66,7 @@ def forward_post(request, model_api, required_data):
 
     response = post(model_api, data=data)
 
-    if(response.ok):
+    if response.ok:
         data['id'] = response.json()['id']
         kafka_add(data)
 
