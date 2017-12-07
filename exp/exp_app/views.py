@@ -21,12 +21,23 @@ def game_pane(_):
 
 
 def lottery_detail(_, pk):
-    response = get('lotteries', pk)
-    if response:
-        response['participants'] = list(map(
-            lambda user: get('users', user),
-            response['participants']))
-    return JsonResponse(response, safe=False)
+    lottery_details = get('lotteries', pk)
+    if not lottery_details:
+        return HttpResponseBadRequest()
+
+    lottery_details['participants'] = list(map(
+        lambda user: get('users', user),
+        lottery_details['participants'],
+    ))
+
+    recommendations = get('recommendations', pk)
+    # it's okay if there are no recommendations
+    if recommendations and 'recommended' in recommendations:
+        lottery_details['recommendations'] = list(map(
+            lambda lottery: get('lotteries', lottery),
+            recommendations['recommended'],
+        ))
+    return JsonResponse(lottery_details, safe=False)
 
 
 def card_detail(_, pk):
@@ -80,7 +91,7 @@ def lottery_recommendations(_, pk):
     if not response:
         return HttpResponseBadRequest()
     response['recommended'] = list(map(
-        lambda lottery: get('lotteries', pk),
+        lambda lottery: get('lotteries', lottery),
         response['recommended'],
     ))
     return JsonResponse(response)
