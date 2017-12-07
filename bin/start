@@ -61,6 +61,20 @@ else
 	echo '⏩  Skipping spark build'
 fi
 
+if [[ -z "$(docker images -q haproxy 2>/dev/null)" || \
+	! -s .lasthaproxy || \
+	! -s .lasthaproxycfg || \
+	"$(md5 -q haproxy/Dockerfile)" != "$(cat .lasthaproxy)" || \
+	"$(md5 -q haproxy/haproxy.cfg)" != "$(cat .lasthaproxycfg)" ]]; then
+	echo '🛠  Building haproxy'
+	echo '—————————————————————————————————————————————'
+	docker build -t haproxy haproxy
+	md5 -q haproxy/Dockerfile > .lasthaproxy
+	md5 -q haproxy/haproxy.cfg > .lasthaproxycfg
+else
+	echo '⏩  Skipping haproxy build'
+fi
+
 # Container is not running yet, so start it
 echo
 echo '⚓️  Composing'
@@ -75,4 +89,4 @@ fi
 
 unset response
 
-bin/haproxy-start
+#bin/haproxy-start

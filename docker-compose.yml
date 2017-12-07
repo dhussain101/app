@@ -23,6 +23,16 @@ redis:
     ports:
         - "6379:6379"
 
+haproxy:
+    image: haproxy
+    container_name: haproxy
+    links:
+        - web
+    environment:
+        WEBSERVER: web:8000
+    ports:
+        - "8000:80"
+
 spark-master:
   image: spark
   command: bin/spark-class org.apache.spark.deploy.master.Master -h spark-master
