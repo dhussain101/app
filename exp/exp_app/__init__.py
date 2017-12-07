@@ -4,7 +4,7 @@ import requests
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponse
 from kafka import KafkaProducer
 
-MODEL_URL = 'http://models-api:8000/'
+MODEL_URL = 'http://models:8000/'
 
 
 def make_path(paths):
@@ -14,7 +14,7 @@ def make_path(paths):
 def get(*paths, params=None, json=True):
     """
     Performs a get request on the models API layer.
-    For example, get('hello', 'world') will query http://models-api:8000/hello/world
+    For example, get('hello', 'world') will query http://models:8000/hello/world
     :param paths: each sub-path entered as a separate argument
     :param params: URL parameters
     :param json: Parse json into dict

@@ -4,7 +4,6 @@
 
 kafka:
    image: spotify/kafka
-   container_name: kafka
    environment:
       ADVERTISED_HOST: kafka
       ADVERTISED_PORT: 9092
@@ -12,31 +11,27 @@ kafka:
 
 es:
    image: elasticsearch:2.0
-   container_name: es
    ports:
-      - "9200:9200"
+      - 9200:9200
 
 redis:
     image: redis
-    container_name: redis
     hostname: redis
     ports:
-        - "6379:6379"
+        - 6379:6379
 
 haproxy:
     image: haproxy
-    container_name: haproxy
     links:
         - web
     environment:
         WEBSERVER: web:8000
     ports:
-        - "8000:80"
+        - 8000:80
 
 spark-master:
   image: spark
   command: bin/spark-class org.apache.spark.deploy.master.Master -h spark-master
-  container_name: spark-master
   hostname: spark-master
   environment:
     MASTER: spark://spark-master:7077
@@ -61,7 +56,6 @@ spark-master:
 spark-worker:
   image: spark
   command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
-  container_name: spark-worker
   hostname: spark-worker
   environment:
     SPARK_CONF_DIR: /conf
@@ -92,7 +86,7 @@ models:
    external_links:
       - mysql:db
    ports:
-      - "8001:8000"
+      - 8001:8000
    volumes:
       - ./models:/app
    stdin_open: true
@@ -101,11 +95,11 @@ models:
 exp:
    image: djangorest
    links:
-      - models:models-api
-      - kafka:kafka-api
-      - es:es-api
+      - models
+      - kafka
+      - es
    ports:
-      - "8002:8000"
+      - 8002:8000
    volumes:
       - ./exp:/app
    stdin_open: true
@@ -114,22 +108,21 @@ exp:
 web:
    image: djangorest
    links:
-      - exp:exp-api
-      - redis:redis
+      - exp
+      - redis
    ports:
-      - "8003:8000"
+      - 8003:8000
    volumes:
       - ./web:/app
    stdin_open: true
    command: bash -c "python manage.py collectstatic --noinput > /dev/null && python manage.py clear_cache > /dev/null && mod_wsgi-express start-server --working-directory . --document-root build --reload-on-changes --log-to-terminal web/wsgi.py"
 
 batch:
-   image: tp33/django
-   container_name: batch
+   image: djangorest
+   links:
+      - kafka
+      - es
    volumes:
       - ./batch:/app
       - ./models:/data
-   links:
-      - kafka:kafka
-      - es:es
-   command: bash -c "python search.py es kafka"
+   command: "python search.py es kafka"
