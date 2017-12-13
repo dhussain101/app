@@ -15,14 +15,14 @@ if [ "$(docker inspect -f '{{.State.Running}}' app_web_1)" == "true" ]; then
 	# - On new branch since last run
 	# - Dockerfile was changed since last run
 	if [[ -z "$(docker images -q hauptmedia/jmeter 2>/dev/null)" || \
-		! -s .previouscommit || \
-		"$(md5 -q Dockerfile_jmeter)" != "$(cat .previouscommit)" ]]; then
-		echo "🛠  Building hauptmedia/jmeter"
+		! -s .lastjmeter || \
+		"$(md5 -q jmeter/Dockerfile)" != "$(cat .lastjmeter)" ]]; then
+		echo '🛠  Building hauptmedia/jmeter'
 		echo '—————————————————————————————————————————————'
-		docker build -t hauptmedia/jmeter -f Dockerfile_jmeter .
+		docker build -t hauptmedia/jmeter -f jmeter/Dockerfile .
+		md5 -q jmeter/Dockerfile > .lastjmeter
 	else
 		echo '⏩  Skipping build'
-		rm -f .previouscommit
 	fi
 
 	docker run --name jmeter --net=host -v "$(pwd)/jmeter:/opt/jmeter/vol" hauptmedia/jmeter sh -c "chmod +x -R vol && ./vol/test" || docker start -ia jmeter

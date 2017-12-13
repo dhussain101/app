@@ -26,6 +26,7 @@ class Authenticator(models.Model):
         return {
             'authenticator': self.authenticator,
             'username': person.username,
+            'id': person.id,
             'first_name': person.first_name,
             'last_name': person.last_name,
             'currency': person.currency,
@@ -73,3 +74,8 @@ class Card(models.Model):
 
     def __str__(self):
         return ' '.join(['(game)', str(self.game), '(title)', self.title])
+
+
+class LotteryRecommendation(models.Model):
+    lottery = models.OneToOneField(Lottery)
+    recommended = models.ManyToManyField(Lottery, related_name='recommendations')

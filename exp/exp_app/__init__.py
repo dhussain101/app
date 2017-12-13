@@ -4,7 +4,7 @@ import requests
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponse
 from kafka import KafkaProducer
 
-MODEL_URL = 'http://models-api:8000/'
+MODEL_URL = 'http://models:8000/'
 
 
 def make_path(paths):
@@ -14,7 +14,7 @@ def make_path(paths):
 def get(*paths, params=None, json=True):
     """
     Performs a get request on the models API layer.
-    For example, get('hello', 'world') will query http://models-api:8000/hello/world
+    For example, get('hello', 'world') will query http://models:8000/hello/world
     :param paths: each sub-path entered as a separate argument
     :param params: URL parameters
     :param json: Parse json into dict
@@ -40,9 +40,9 @@ def missing_param(body, params):
     return False
 
 
-def kafka_add(listing):
+def kafka_add(topic, listing):
     producer = KafkaProducer(bootstrap_servers='kafka:9092')
-    producer.send('new_listing', dumps(listing).encode('utf-8'))
+    producer.send(topic, dumps(listing).encode('utf-8'))
 
 
 def forward_get(request, model_api, required_params):
@@ -66,8 +66,8 @@ def forward_post(request, model_api, required_data):
 
     response = post(model_api, data=data)
 
-    if(response.ok):
+    if response.ok:
         data['id'] = response.json()['id']
-        kafka_add(data)
+        kafka_add('new_listing', data)
 
     return HttpResponse(status=response.status_code)

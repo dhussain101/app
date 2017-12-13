@@ -19,14 +19,16 @@ fi
 bin/start-db
 echo
 
-# Check if custom container is running
-if [[ -n "$(docker ps -q -f name=djangorest -f status=running 2>/dev/null)" ]]; then
-	echo '⚠️  It looks like you'"'"'re already running the djangorest container.'
-	read -r -p 'Would you like to restart djangorest? [y/N] ' response
+# Check if docker-compose is already up
+if docker-compose ps -q web >/dev/null 2>&1; then
+	echo '⚠️  It looks like you'"'"'re already running docker-compose.'
+	read -r -p 'Would you like to restart it? [y/N] ' response
+	echo
 	if [[ "$response" == 'y' || "$response" == 'Y' ]]; then
 		docker-compose down
 		echo
 	else
+		echo '👌 Aborting'
 		unset response
 		exit
 	fi
@@ -38,24 +40,53 @@ fi
 # - On new branch since last run
 # - Dockerfile was changed since last run
 if [[ -z "$(docker images -q djangorest 2>/dev/null)" || \
-	! -s .previouscommit || \
-	"$(md5 -q Dockerfile)" != "$(cat .previouscommit)" ]]; then
+	! -s .lastdjango || \
+	"$(md5 -q Dockerfile)" != "$(cat .lastdjango)" ]]; then
 	echo '🛠  Building djangorest'
 	echo '—————————————————————————————————————————————'
 	docker build -t djangorest .
+	md5 -q Dockerfile > .lastdjango
 else
-	echo '⏩  Skipping build'
-	rm -f .previouscommit
+	echo '⏩  Skipping djangorest build'
 fi
 
-md5 -q Dockerfile > .previouscommit
+if [[ -z "$(docker images -q spark 2>/dev/null)" || \
+	! -s .lastspark || \
+	"$(md5 -q spark/Dockerfile)" != "$(cat .lastspark)" ]]; then
+	echo '🛠  Building spark'
+	echo '—————————————————————————————————————————————'
+	docker build -t spark spark
+	md5 -q spark/Dockerfile > .lastspark
+else
+	echo '⏩  Skipping spark build'
+fi
+
+if [[ -z "$(docker images -q haproxy 2>/dev/null)" || \
+	! -s .lasthaproxy || \
+	! -s .lasthaproxycfg || \
+	"$(md5 -q haproxy/Dockerfile)" != "$(cat .lasthaproxy)" || \
+	"$(md5 -q haproxy/haproxy.cfg)" != "$(cat .lasthaproxycfg)" ]]; then
+	echo '🛠  Building haproxy'
+	echo '—————————————————————————————————————————————'
+	docker build -t haproxy haproxy
+	md5 -q haproxy/Dockerfile > .lasthaproxy
+	md5 -q haproxy/haproxy.cfg > .lasthaproxycfg
+else
+	echo '⏩  Skipping haproxy build'
+fi
 
 # Container is not running yet, so start it
 echo
 echo '⚓️  Composing'
 echo '—————————————————————————————————————————————'
-docker-compose up -d
-
-./bin/haproxy-start
+if ! docker-compose up -d; then
+	echo
+	echo '—————————————————————————————————————————————'
+	echo '🚨 Error composing: aborting'
+	echo '—————————————————————————————————————————————'
+	exit 1
+fi
 
 unset response
+
+#bin/haproxy-start

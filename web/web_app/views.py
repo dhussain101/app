@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.views.decorators.cache import never_cache
 from django.views.decorators.vary import vary_on_cookie
 
 from . import get, post, fill_defaults
@@ -100,9 +101,13 @@ def card_create(request):
     return render(request, 'card-create.html', context)
 
 
-@vary_on_cookie
+@never_cache
 def lottery_detail(request, pk):
-    lottery_details = get('lottery-detail', pk)
+    if hasattr(request.user, 'id'):
+        user_id = request.user.id
+    else:
+        user_id = ''
+    lottery_details = get('lottery-detail', pk, params={'user_id': user_id})
     if not lottery_details:
         return HttpResponseRedirect(reverse('lotteries'))
     return render(request, 'lottery-detail.html', lottery_details)

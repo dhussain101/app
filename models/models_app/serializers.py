@@ -83,3 +83,16 @@ class CardSerializer(serializers.ModelSerializer):
                   'title',
                   'description',
                   'value')
+
+
+class LotteryRecommendationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LotteryRecommendation
+        fields = (
+            # 'lottery',
+            'recommended',
+        )
+        # This should not be edited over the API, only via spark's connection
+        read_only_fields = (
+            'recommended',
+        )
