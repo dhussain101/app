@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if ! ls | grep bin >/dev/null; then
+	cd ..
+	if ! ls | grep bin >/dev/null; then
+		echo 'Please run in project root directory!'
+		exit 1
+	fi
+fi
+
+bin/start-db-cmdline
+
+echo 'Entering mysql repl'
+echo
+docker exec -it mysql-cmdline bash -c "mysql -uroot -p'\$3cureUS' -h db cs4501"

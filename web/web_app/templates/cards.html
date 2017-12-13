@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load sass_tags %}
+
+{% block head %}
+	<link href="{% sass_src 'styles/cards.scss' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+	<section class="lottery">
+		<h2>Cards</h2>
+		<ul id="card-list">
+			{% if card_list %}
+				{% for card in card_list %}
+					<li class="card-card mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title mdl-card--expand">
+							<h4>{{ card.title }}</h4>
+						</div>
+						<div class="mdl-card__actions mdl-card--border">
+							<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+							   href="{% url 'card-detail' card.id %}">
+								View
+							</a>
+							<div class="mdl-layout-spacer"></div>
+							<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+								<i class="material-icons">favorite_outline</i>
+							</button>
+						</div>
+					</li>
+				{% endfor %}
+			{% else %}
+				<li class="card-card mdl-card mdl-shadow--2dp">
+					<div class="mdl-card__title mdl-card--expand">
+						<h4>No cards available!</h4>
+					</div>
+				</li>
+			{% endif %}
+		</ul>
+	</section>
+	<a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
+	   href="{% url 'card-create' %}">
+		<i class="material-icons">add</i>
+	</a>
+{% endblock %}

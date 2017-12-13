@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load filters %}
+{% load sass_tags %}
+
+{% block head %}
+	<link href="{% sass_src 'styles/search.scss' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+	<form method="get" id="advanced-search">
+		<section>
+			{% with field=form.q %}
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<label class="mdl-textfield__label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+					{{ field | material_field }}
+					{% if field.errors %}
+						<span class="mdl-textfield__error">{{ field.errors }}</span>
+					{% endif %}
+					{% if field.help_text %}
+						<span class="mdl-tooltip" data-mdl-for="{{ field.id_for_label }}">{{ field.help_text }}</span>
+					{% endif %}
+				</div>
+			{% endwith %}
+			<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+				Search
+			</button>
+		</section>
+
+		<section>
+			<div class="options">
+				<h1>Categories</h1>
+				{% for field in form %}
+					{% if field.name == 'lottery' or field.name == 'card' %}
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="{{ field.id_for_label }}">
+							{{ field | material_checkbox }}
+							<span class="mdl-checkbox__label">{{ field.label }}</span>
+						</label>
+					{% endif %}
+				{% endfor %}
+			</div>
+			<div class="options">
+				<h1>Fields</h1>
+				{% for field in form %}
+					{% if field.name == 'title' or field.name == 'description' %}
+						<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="{{ field.id_for_label }}">
+							{{ field | material_checkbox }}
+							<span class="mdl-checkbox__label">{{ field.label }}</span>
+						</label>
+					{% endif %}
+				{% endfor %}
+			</div>
+			<div class="options">
+				<h1>Sort</h1>
+				{{ form.sort }}
+			</div>
+			<div class="options">
+				<label for="{{ form.size.id_for_label }}">
+					{{ form.size.label }}
+					<input class="mdl-slider mdl-js-slider" type="range" id="{{ form.size.id }}" name="{{ form.size.name }}"
+					       min="1" max="10" value="{{ form.size.value }}" step="1">
+				</label>
+			</div>
+		</section>
+	</form>
+
+	<ul id="search-results">
+		{% for result in results %}
+			<li class="mdl-list__item mdl-list__item--three-line" id="item-{{ forloop.counter }}">
+				<span class="mdl-list__item-primary-content">
+					{% if result.index == 'lottery' %}
+						<i class="material-icons mdl-list__item-avatar">poll</i>
+					{% else %}
+						<i class="material-icons mdl-list__item-avatar">view_carousel</i>
+					{% endif %}
+					<span>
+						<a href="{% url result.index|add:'-detail' result.id %}">{{ result.data.title }}</a>
+					</span>
+					<span class="mdl-list__item-text-body">
+						<span class="mdl-chip">
+							<span class="mdl-chip__text">{{ result.index | title }}</span>
+						</span>
+						{% if result.index == 'lottery' %}
+							<span class="mdl-chip">
+								<span class="mdl-chip__text">Ends {{ result.data.end_time }}</span>
+							</span>
+						{% endif %}
+					</span>
+				</span>
+				<span class="mdl-list__item-secondary-content">
+					<a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">favorite_outline</i></a>
+				</span>
+				<div class="mdl-tooltip" data-mdl-for="item-{{ forloop.counter }}">
+					{{ result.data.description }}
+				</div>
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

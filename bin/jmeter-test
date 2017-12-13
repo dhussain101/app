@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+if ! ls | grep bin >/dev/null; then
+	cd ..
+	if ! ls | grep bin >/dev/null; then
+		echo 'Please run in project root directory!'
+		exit 1
+	fi
+fi
+
+if [ "$(docker inspect -f '{{.State.Running}}' app_web_1)" == "true" ]; then
+	# Check if container is up to date:
+	# - Doesn't exist
+	# - Never ran diff before
+	# - On new branch since last run
+	# - Dockerfile was changed since last run
+	if [[ -z "$(docker images -q hauptmedia/jmeter 2>/dev/null)" || \
+		! -s .lastjmeter || \
+		"$(md5 -q jmeter/Dockerfile)" != "$(cat .lastjmeter)" ]]; then
+		echo '🛠  Building hauptmedia/jmeter'
+		echo '—————————————————————————————————————————————'
+		docker build -t hauptmedia/jmeter -f jmeter/Dockerfile .
+		md5 -q jmeter/Dockerfile > .lastjmeter
+	else
+		echo '⏩  Skipping build'
+	fi
+
+	docker run --name jmeter --net=host -v "$(pwd)/jmeter:/opt/jmeter/vol" hauptmedia/jmeter sh -c "chmod +x -R vol && ./vol/test" || docker start -ia jmeter
+	echo "-------------------------------------------------------------------------------"
+	echo "Check the results of the tests by viewing jmeter/report/index.html in a browser"
+else
+	echo "Make sure to run ./bin/start before running tests!"
+fi

@@ -1,0 +1,24 @@
+@import 'colors';
+@import 'home';
+
+section.banner {
+	padding: 1rem;
+	h3 {
+		text-align: center;
+	}
+	h5 {
+		text-align: center;
+	}
+}
+
+section.lottery {
+	margin-top: 1rem;
+	h3 {
+		padding: 2rem 2rem 0;
+		margin: 0;
+	}
+}
+
+section.details {
+	margin: 0 2rem;
+}

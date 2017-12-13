@@ -1,0 +1,12 @@
+@import 'colors';
+@import 'login';
+
+#register {
+	@extend #login;
+	& > div {
+		display: inline-block;
+	}
+	.username, .date {
+		display: block;
+	}
+}

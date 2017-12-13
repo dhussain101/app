@@ -1,0 +1,23 @@
+@import 'colors';
+@import 'centered';
+
+.page-content {
+	background-color: $blue-grey-800;
+	color: $blue-grey-50;
+	text-align: center;
+	padding: 1rem;
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+	& > i.material-icons {
+		color: $amber;
+		font-size: 10rem;
+		user-select: none;
+	}
+	& > h4 {
+		padding: 0;
+		margin: 0;
+	}
+}
+

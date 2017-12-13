@@ -1,0 +1,9 @@
+@import 'cards';
+
+#lottery-list {
+	@extend #card-list
+}
+
+.lottery-card {
+	@extend .card-card
+}

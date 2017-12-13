@@ -1,0 +1,573 @@
+[
+{
+    "model": "models_app.person",
+    "pk": 1,
+    "fields": {
+        "first_name": "Alice",
+        "last_name": "PasswordIs12345678",
+        "username": "alice1",
+        "password": "pbkdf2_sha256$36000$41LLmHRHRtHS$xuWKpH0hdUn0lvg+f/s78wo5wq0CZylKFIfCj1vWB/4=",
+        "birthday": "1990-01-01",
+        "currency": 100,
+        "date_created": "2017-09-21T18:52:30.770Z"
+    }
+},
+{
+    "model": "models_app.person",
+    "pk": 2,
+    "fields": {
+        "first_name": "Bob",
+        "last_name": "Brent",
+        "username": "bob2",
+        "password": "pbkdf2_sha256$36000$41LLmHRHRtHS$xuWKpH0hdUn0lvg+f/s78wo5wq0CZylKFIfCj1vWB/4=",
+        "birthday": "2001-02-02",
+        "currency": 50,
+        "date_created": "2017-09-21T18:53:59.653Z"
+    }
+},
+{
+    "model": "models_app.person",
+    "pk": 3,
+    "fields": {
+        "first_name": "Clark",
+        "last_name": "Kent",
+        "username": "superguy",
+        "password": "pbkdf2_sha256$36000$41LLmHRHRtHS$xuWKpH0hdUn0lvg+f/s78wo5wq0CZylKFIfCj1vWB/4=",
+        "birthday": "1968-03-03",
+        "currency": 400,
+        "date_created": "2017-09-21T18:54:22.462Z"
+    }
+},
+{
+    "model": "models_app.person",
+    "pk": 4,
+    "fields": {
+        "first_name": "Dan",
+        "last_name": "Dennet",
+        "username": "breakingthespell",
+        "password": "pbkdf2_sha256$36000$41LLmHRHRtHS$xuWKpH0hdUn0lvg+f/s78wo5wq0CZylKFIfCj1vWB/4=",
+        "birthday": "1942-03-28",
+        "currency": 1000,
+        "date_created": "2017-09-21T18:55:11.066Z"
+    }
+},
+{
+    "model": "models_app.person",
+    "pk": 5,
+    "fields": {
+        "first_name": "Ron",
+        "last_name": "Weasley",
+        "username": "scabbers",
+        "password": "badpassword",
+        "birthday": "1989-11-03",
+        "currency": 2000,
+        "date_created": "2017-11-03T04:05:30.255Z"
+    }
+},
+{
+    "model": "models_app.person",
+    "pk": 6,
+    "fields": {
+        "first_name": "Richard",
+        "last_name": "Feynman",
+        "username": "quantumguy",
+        "password": "particlephysics",
+        "birthday": "1918-03-11",
+        "currency": 350,
+        "date_created": "2017-11-03T04:06:31.215Z"
+    }
+},
+{
+    "model": "models_app.person",
+    "pk": 7,
+    "fields": {
+        "first_name": "Tom",
+        "last_name": "Hanks",
+        "username": "forrest",
+        "password": "forrestgump",
+        "birthday": "1956-07-09",
+        "currency": 5000,
+        "date_created": "2017-11-03T04:07:27.656Z"
+    }
+},
+{
+    "model": "models_app.person",
+    "pk": 8,
+    "fields": {
+        "first_name": "Michael",
+        "last_name": "Stevens",
+        "username": "vsauce",
+        "password": "greatpassword",
+        "birthday": "1986-01-23",
+        "currency": 1700,
+        "date_created": "2017-11-03T04:08:29.738Z"
+    }
+},
+{
+    "model": "models_app.person",
+    "pk": 9,
+    "fields": {
+        "first_name": "Eliezer",
+        "last_name": "Yudkowsky",
+        "username": "esyudkowsky",
+        "password": "machineintelligence",
+        "birthday": "1979-09-11",
+        "currency": 8800,
+        "date_created": "2017-11-03T04:09:17.569Z"
+    }
+},
+{
+    "model": "models_app.person",
+    "pk": 10,
+    "fields": {
+        "first_name": "Rob",
+        "last_name": "Random",
+        "username": "rrandom",
+        "password": "rrandom",
+        "birthday": "1999-04-04",
+        "currency": 20,
+        "date_created": "2017-11-03T04:10:00.734Z"
+    }
+},
+{
+    "model": "models_app.lottery",
+    "pk": 1,
+    "fields": {
+        "title": "Pokemon Water Types",
+        "description": "20 water type cards",
+        "start_time": "2018-09-09T04:00:00Z",
+        "end_time": "2018-09-12T04:00:00Z",
+        "date_created": "2017-09-21T18:58:29.755Z",
+        "participants": [
+            1,
+            3
+        ]
+    }
+},
+{
+    "model": "models_app.lottery",
+    "pk": 2,
+    "fields": {
+        "title": "Magic and Yu-Gi-Oh Christmas Special",
+        "description": "5 Rare cards from each game",
+        "start_time": "2017-12-25T05:00:00Z",
+        "end_time": "2017-12-31T05:00:00Z",
+        "date_created": "2017-09-21T18:59:46.510Z",
+        "participants": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "models_app.lottery",
+    "pk": 3,
+    "fields": {
+        "title": "Monthly Legendary",
+        "description": "50 Rare cards",
+        "start_time": "2017-11-01T04:00:00Z",
+        "end_time": "2017-11-07T05:00:00Z",
+        "date_created": "2017-09-21T19:05:51.091Z",
+        "participants": [
+            2,
+            4
+        ]
+    }
+},
+{
+    "model": "models_app.lottery",
+    "pk": 4,
+    "fields": {
+        "title": "Magic Giveaway",
+        "description": "Over one hundred rare magic cards!",
+        "start_time": "2017-11-11T05:12:49Z",
+        "end_time": "2017-11-12T05:12:55Z",
+        "date_created": "2017-11-03T04:13:21.359Z",
+        "participants": [
+            3,
+            5,
+            7,
+            9
+        ]
+    }
+},
+{
+    "model": "models_app.lottery",
+    "pk": 5,
+    "fields": {
+        "title": "Pokemon Magic Crossover",
+        "description": "Half Pokemon, half Magic: The Gathering, this lottery is sure to leave the winner with a bunch of valuable cards!",
+        "start_time": "2017-11-03T04:14:10Z",
+        "end_time": "2017-11-04T04:14:11Z",
+        "date_created": "2017-11-03T04:14:15.347Z",
+        "participants": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+        ]
+    }
+},
+{
+    "model": "models_app.lottery",
+    "pk": 6,
+    "fields": {
+        "title": "10 Rares",
+        "description": "A 10 card Yu-Gi-Oh! lottery",
+        "start_time": "2018-01-23T05:15:07Z",
+        "end_time": "2018-01-30T05:15:07Z",
+        "date_created": "2017-11-03T04:15:25.736Z",
+        "participants": [
+            2,
+            4
+        ]
+    }
+},
+{
+    "model": "models_app.lottery",
+    "pk": 7,
+    "fields": {
+        "title": "Halloween Pokemon Lottery",
+        "description": "10 of the spookiest Pokemon could be yours!",
+        "start_time": "2017-10-31T04:17:04Z",
+        "end_time": "2017-11-01T04:17:17Z",
+        "date_created": "2017-11-03T04:17:22.531Z",
+        "participants": [
+            5,
+            8,
+            10
+        ]
+    }
+},
+{
+    "model": "models_app.lottery",
+    "pk": 8,
+    "fields": {
+        "title": "Yu-Gi-Oh! and Pokemon Crossover",
+        "description": "25 cards from each game!",
+        "start_time": "2017-11-03T04:18:06Z",
+        "end_time": "2017-11-05T04:18:07Z",
+        "date_created": "2017-11-03T04:18:11.321Z",
+        "participants": [
+            4,
+            6,
+            7,
+            9,
+            10
+        ]
+    }
+},
+{
+    "model": "models_app.lottery",
+    "pk": 9,
+    "fields": {
+        "title": "40 Pokemon!",
+        "description": "40 awesome Pokemon to add to your collection",
+        "start_time": "2017-08-03T04:19:00Z",
+        "end_time": "2017-08-05T04:19:01Z",
+        "date_created": "2017-11-03T04:19:18.254Z",
+        "participants": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ]
+    }
+},
+{
+    "model": "models_app.lottery",
+    "pk": 10,
+    "fields": {
+        "title": "Ultra Rare Magic Lottery",
+        "description": "10 of the rarest Magic cards could be yours!",
+        "start_time": "2017-05-03T04:20:13Z",
+        "end_time": "2017-05-08T04:20:13Z",
+        "date_created": "2017-11-03T04:20:15.565Z",
+        "participants": [
+            3,
+            4,
+            6,
+            9,
+            10
+        ]
+    }
+},
+{
+    "model": "models_app.bid",
+    "pk": 1,
+    "fields": {
+        "lottery": 1,
+        "person": 1,
+        "value": 5,
+        "date_created": "2017-09-21T19:13:09.555Z"
+    }
+},
+{
+    "model": "models_app.bid",
+    "pk": 2,
+    "fields": {
+        "lottery": 2,
+        "person": 1,
+        "value": 20,
+        "date_created": "2017-09-21T19:13:15.810Z"
+    }
+},
+{
+    "model": "models_app.bid",
+    "pk": 3,
+    "fields": {
+        "lottery": 3,
+        "person": 4,
+        "value": 200,
+        "date_created": "2017-09-21T19:13:25.070Z"
+    }
+},
+{
+    "model": "models_app.bid",
+    "pk": 4,
+    "fields": {
+        "lottery": 1,
+        "person": 4,
+        "value": 2,
+        "date_created": "2017-09-21T19:13:30.277Z"
+    }
+},
+{
+    "model": "models_app.bid",
+    "pk": 5,
+    "fields": {
+        "lottery": 2,
+        "person": 2,
+        "value": 50,
+        "date_created": "2017-09-21T19:13:58.230Z"
+    }
+},
+{
+    "model": "models_app.bid",
+    "pk": 6,
+    "fields": {
+        "lottery": 1,
+        "person": 3,
+        "value": 50,
+        "date_created": "2017-09-21T19:14:09.695Z"
+    }
+},
+{
+    "model": "models_app.bid",
+    "pk": 7,
+    "fields": {
+        "lottery": 3,
+        "person": 3,
+        "value": 50,
+        "date_created": "2017-09-21T19:14:13.940Z"
+    }
+},
+{
+    "model": "models_app.game",
+    "pk": 1,
+    "fields": {
+        "title": "Pokemon"
+    }
+},
+{
+    "model": "models_app.game",
+    "pk": 2,
+    "fields": {
+        "title": "Yu-Gi-Oh!"
+    }
+},
+{
+    "model": "models_app.game",
+    "pk": 3,
+    "fields": {
+        "title": "Magic: The Gathering"
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 1,
+    "fields": {
+        "lottery": 3,
+        "game": 3,
+        "title": "The Witch",
+        "description": "super rare witch",
+        "value": 5000
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 2,
+    "fields": {
+        "lottery": 1,
+        "game": 1,
+        "title": "Squirtle",
+        "description": "water type pokemon",
+        "value": 1000
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 3,
+    "fields": {
+        "lottery": 1,
+        "game": 1,
+        "title": "Starmie",
+        "description": "star shaped water type",
+        "value": 1500
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 4,
+    "fields": {
+        "lottery": 2,
+        "game": 2,
+        "title": "White Dragon",
+        "description": "A fierce dragon who is feared by all",
+        "value": 9001
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 5,
+    "fields": {
+        "lottery": 2,
+        "game": 2,
+        "title": "Blue Eyes White Dragon",
+        "description": "A fierce dragon who is feared by all",
+        "value": 9001
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 6,
+    "fields": {
+        "lottery": 2,
+        "game": 2,
+        "title": "Dark Magician",
+        "description": "The Ultimate Spellcaster in Attack and Defense",
+        "value": 9005
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 7,
+    "fields": {
+        "lottery": 10,
+        "game": 3,
+        "title": "Black Lotus",
+        "description": "Add three mana of any one color to your mana pool.",
+        "value": 500
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 8,
+    "fields": {
+        "lottery": 5,
+        "game": 1,
+        "title": "Fomantis",
+        "description": "During the day, it sleeps and soaks up light. When night falls, it walks around looking for a safer place to sleep.",
+        "value": 50
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 9,
+    "fields": {
+        "lottery": 9,
+        "game": 1,
+        "title": "Phione",
+        "description": "When the water warms, they inflate the flotation sac on their heads and drift languidly on the sea in packs.",
+        "value": 120
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 10,
+    "fields": {
+        "lottery": 7,
+        "game": 1,
+        "title": "Yamask",
+        "description": "These Pok\u00e9mon arose from the spirits of people interred in graves. Each retains memories of its former life.",
+        "value": 200
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 11,
+    "fields": {
+        "lottery": 7,
+        "game": 1,
+        "title": "Duskull",
+        "description": "Duskull can pass through any wall no matter how thick it may be. Once this Pok\u00e9mon chooses a target, it will doggedly pursue the intended victim until the break of dawn.",
+        "value": 600
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 12,
+    "fields": {
+        "lottery": 2,
+        "game": 3,
+        "title": "Desperate Sentry",
+        "description": "When Desperate Sentry dies, put a 3/2 colorless Eldrazi Horror creature token onto the battlefield.",
+        "value": 100
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 13,
+    "fields": {
+        "lottery": 4,
+        "game": 3,
+        "title": "Deranged Whelp",
+        "description": "Menace",
+        "value": 0
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 14,
+    "fields": {
+        "lottery": 8,
+        "game": 2,
+        "title": "Mystical Elf",
+        "description": "A delicate elf that lacks offense, but has a terrific defense backed by mystical power.",
+        "value": 300
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 15,
+    "fields": {
+        "lottery": 8,
+        "game": 2,
+        "title": "Mirage Dragon",
+        "description": "Your opponent cannot activate Trap Cards during the Battle Phase.",
+        "value": 0
+    }
+},
+{
+    "model": "models_app.card",
+    "pk": 16,
+    "fields": {
+        "lottery": 2,
+        "game": 3,
+        "title": "Dark Hole",
+        "description": "Destroy all monsters on the field.",
+        "value": 80
+    }
+}
+]

@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+if ! ls | grep bin >/dev/null; then
+	cd ..
+	if ! ls | grep bin >/dev/null; then
+		echo 'Please run in project root directory!'
+		exit 1
+	fi
+fi
+
+echo '┌——————————————————————————————————┐'
+echo '|  WARNING: THIS WILL WIPE THE DB  |'
+echo '└——————————————————————————————————┘'
+
+if [[ "$response" != 'force' ]]; then
+	read -r -p '⚠️  Are you SURE? [y/N] ' response
+	if [[ "$response" != 'y' && "$response" != 'Y' ]]; then
+		exit
+	fi
+fi
+
+bin/start-db-cmdline
+
+echo 'Recreating database'
+query="CREATE USER IF NOT EXISTS 'www'@'%' identified by '\\\$3cureUS';\
+DROP DATABASE IF EXISTS cs4501;\
+CREATE DATABASE cs4501 character set utf8;\
+grant all on cs4501.* to 'www'@'%';"
+docker exec -it mysql-cmdline bash -c "mysql -uroot -p'\$3cureUS' -h db -e \"$query\""
+
+echo 'Wiping old migrations'
+rm -f models/models_app/migrations/*.py
+
+rm -f .previouscommit 2>/dev/null
+
+unset response

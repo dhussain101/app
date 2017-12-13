@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load sass_tags %}
+
+{% block head %}
+		<link href="{% sass_src 'styles/lottery-detail.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+	<section class="details">
+		<h3>{{ title }}</h3>
+		<h5>Description: {{ description }}</h5>
+
+		<button type="button" class="mdl-chip">
+			<span class="mdl-chip__text">{{ game.title }}</span>
+		</button>
+
+		<span class="mdl-chip mdl-chip--contact">
+	    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">$</span>
+	    <span class="mdl-chip__text">{{ value }}</span>
+		</span>
+	</section>
+{% endblock %}
