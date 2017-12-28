@@ -29,6 +29,24 @@ haproxy:
     ports:
         - 8000:80
 
+selenium-chrome:
+  image: selenium/standalone-chrome
+  container_name: selenium-chrome
+  links:
+    - web:web
+  ports:
+    - "4444:4444"
+
+selenium-test:
+  image: tp33/django
+  container_name: selenium-test
+  links:
+    - selenium-chrome:selenium-chrome
+    - web:web
+  volumes:
+    - ./app/selenium:/app
+  command: bash -c "pip install selenium==3.8.0 && python selenium-tests.py"
+
 spark-master:
   image: spark
   command: bin/spark-class org.apache.spark.deploy.master.Master -h spark-master
